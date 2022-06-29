@@ -5,6 +5,9 @@ SETSCRIPT=make_object_sets.sh
 
 all: urdf mjcf
 
+.PHONY: everything
+everything: urdf sets
+
 .PHONY: urdf
 urdf:
 	$(MAKE) -C $(URDFDIR)
