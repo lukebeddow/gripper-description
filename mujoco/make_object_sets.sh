@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # this script makes multiple object sets and copies them into the object_sets folder
 # with no inputs, it makes every possible set, otherwise give the names of the sets
 # to make as inputs, without the trailing .yaml extension

@@ -18,7 +18,7 @@ mjcf:
 
 .PHONY: sets
 sets:
-	$(MJCFDIR)/$(SETSCRIPT)
+	cd $(MJCFDIR) && ./$(SETSCRIPT)
 
 clean:
 	$(MAKE) -C $(URDFDIR) clean
