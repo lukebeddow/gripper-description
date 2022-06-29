@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <robot name="gripper_task" xmlns:xacro="http://wiki.ros.org/xacro">
 
+	<!-- define relative movement to get to gripper_description/ -->
+	<xacro:property name="path_to_top" value="../.."/>
+
   <!-- include the mujoco settings xacro -->
-	<xacro:include filename="../../urdf/mujoco/xacro/mujoco.xacro"/>
+	<xacro:include filename="${path_to_top}/urdf/mujoco/xacro/mujoco.xacro"/>
 	<xacro:mujoco_settings/>
 
 	<!-- include the gripper only -->
-	<xacro:include filename="../../xacro/gripper.xacro"/>
-	<xacro:add_gripper/>
+	<xacro:include filename="${path_to_top}/xacro/gripper.xacro"/>
+	<xacro:add_gripper path_to_top="${path_to_top}"/>
 
   <!-- attach gripper to the ground for gazebo -->
 	<link name="world"/>

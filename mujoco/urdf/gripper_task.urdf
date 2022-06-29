@@ -15,7 +15,9 @@
     <xacro:property name="dictionary" value="${xacro.load_yaml(filename)}"/>
     <xacro:property name="is_segmented" value="${dictionary['gripper_config']['is_segmented']}"/>
     -->
+  <!-- <xacro:property name="is_segmented" value="${dictionary['gripper_config']['is_segmented']}"/> -->
   <!-- PARAMETERS TO BE SET BY HAND -->
+  <!-- based on 34 revs home to max-->
   <!-- END OF PARAMETER TO BE SET BY HAND -->
   <!-- BASE LINK -->
   <link name="gripper_base_link">
@@ -78,7 +80,7 @@
     <parent link="gripper_base_link"/>
     <child link="finger_1_intermediate"/>
     <origin rpy="4.71238898038                    4.71238898038                    1.57079632679" xyz="0.0                    0.0                    0"/>
-    <limit effort="40.0" lower="0.053" upper="0.141" velocity="0.015"/>
+    <limit effort="40.0" lower="0.049" upper="0.134" velocity="0.015"/>
     <dynamics damping="1.0"/>
   </joint>
   <!-- Revolute joint -->
@@ -132,7 +134,7 @@
     <parent link="gripper_base_link"/>
     <child link="finger_2_intermediate"/>
     <origin rpy="4.71238898038                    4.71238898038                    -0.523598775598" xyz="0.0                    -0.0                    0"/>
-    <limit effort="40.0" lower="0.053" upper="0.141" velocity="0.015"/>
+    <limit effort="40.0" lower="0.049" upper="0.134" velocity="0.015"/>
     <dynamics damping="1.0"/>
   </joint>
   <!-- Revolute joint -->
@@ -186,7 +188,7 @@
     <parent link="gripper_base_link"/>
     <child link="finger_3_intermediate"/>
     <origin rpy="4.71238898038                    4.71238898038                    -2.61799387799" xyz="-0.0                    -0.0                    0"/>
-    <limit effort="40.0" lower="0.053" upper="0.141" velocity="0.015"/>
+    <limit effort="40.0" lower="0.049" upper="0.134" velocity="0.015"/>
     <dynamics damping="1.0"/>
   </joint>
   <!-- Revolute joint -->
@@ -222,30 +224,30 @@
     <parent link="gripper_base_link"/>
     <child link="palm"/>
     <origin rpy="0 -1.57079632679 0" xyz="0 0 0"/>
-    <limit effort="40.0" lower="0.0" upper="0.16" velocity="0.036"/>
+    <limit effort="40.0" lower="0.0" upper="0.165" velocity="0.036"/>
     <dynamics damping="1.0"/>
   </joint>
   <!-- PARAMETERS TO BE SET BY HAND -->
   <!-- END OF PARAMETERS TO BE SET BY HAND -->
   <link name="finger_1_segment_link_1">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -260,23 +262,23 @@
   </gazebo>
   <link name="finger_1_segment_link_2">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -294,7 +296,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_1"/>
     <child link="finger_1_segment_link_2"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -317,23 +319,23 @@
   </transmission>
   <link name="finger_1_segment_link_3">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -351,7 +353,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_2"/>
     <child link="finger_1_segment_link_3"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -374,23 +376,23 @@
   </transmission>
   <link name="finger_1_segment_link_4">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -408,7 +410,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_3"/>
     <child link="finger_1_segment_link_4"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -431,23 +433,23 @@
   </transmission>
   <link name="finger_1_segment_link_5">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -465,7 +467,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_4"/>
     <child link="finger_1_segment_link_5"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -488,23 +490,23 @@
   </transmission>
   <link name="finger_1_segment_link_6">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -522,7 +524,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_5"/>
     <child link="finger_1_segment_link_6"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -545,23 +547,23 @@
   </transmission>
   <link name="finger_1_segment_link_7">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -579,7 +581,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_6"/>
     <child link="finger_1_segment_link_7"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -602,23 +604,23 @@
   </transmission>
   <link name="finger_1_segment_link_8">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -636,7 +638,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_7"/>
     <child link="finger_1_segment_link_8"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -659,23 +661,23 @@
   </transmission>
   <link name="finger_1_segment_link_9">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -693,7 +695,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_8"/>
     <child link="finger_1_segment_link_9"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -716,23 +718,23 @@
   </transmission>
   <link name="finger_1_segment_link_10">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -750,7 +752,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_9"/>
     <child link="finger_1_segment_link_10"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -774,8 +776,8 @@
   <!-- Add the finger hook link -->
   <link name="finger_1_finger_hook_link">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
@@ -807,29 +809,29 @@
   <joint name="finger_1_finger_hook_joint" type="fixed">
     <parent link="finger_1_segment_link_10"/>
     <child link="finger_1_finger_hook_link"/>
-    <origin rpy="0 -1.57079632679 0" xyz="0.019 0 0"/>
+    <origin rpy="0 -1.57079632679 0" xyz="0.0235 0 0"/>
   </joint>
   <!-- PARAMETERS TO BE SET BY HAND -->
   <!-- END OF PARAMETERS TO BE SET BY HAND -->
   <link name="finger_2_segment_link_1">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -844,23 +846,23 @@
   </gazebo>
   <link name="finger_2_segment_link_2">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -878,7 +880,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_1"/>
     <child link="finger_2_segment_link_2"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -901,23 +903,23 @@
   </transmission>
   <link name="finger_2_segment_link_3">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -935,7 +937,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_2"/>
     <child link="finger_2_segment_link_3"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -958,23 +960,23 @@
   </transmission>
   <link name="finger_2_segment_link_4">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -992,7 +994,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_3"/>
     <child link="finger_2_segment_link_4"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1015,23 +1017,23 @@
   </transmission>
   <link name="finger_2_segment_link_5">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1049,7 +1051,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_4"/>
     <child link="finger_2_segment_link_5"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1072,23 +1074,23 @@
   </transmission>
   <link name="finger_2_segment_link_6">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1106,7 +1108,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_5"/>
     <child link="finger_2_segment_link_6"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1129,23 +1131,23 @@
   </transmission>
   <link name="finger_2_segment_link_7">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1163,7 +1165,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_6"/>
     <child link="finger_2_segment_link_7"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1186,23 +1188,23 @@
   </transmission>
   <link name="finger_2_segment_link_8">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1220,7 +1222,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_7"/>
     <child link="finger_2_segment_link_8"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1243,23 +1245,23 @@
   </transmission>
   <link name="finger_2_segment_link_9">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1277,7 +1279,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_8"/>
     <child link="finger_2_segment_link_9"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1300,23 +1302,23 @@
   </transmission>
   <link name="finger_2_segment_link_10">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1334,7 +1336,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_9"/>
     <child link="finger_2_segment_link_10"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1358,8 +1360,8 @@
   <!-- Add the finger hook link -->
   <link name="finger_2_finger_hook_link">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
@@ -1391,29 +1393,29 @@
   <joint name="finger_2_finger_hook_joint" type="fixed">
     <parent link="finger_2_segment_link_10"/>
     <child link="finger_2_finger_hook_link"/>
-    <origin rpy="0 -1.57079632679 0" xyz="0.019 0 0"/>
+    <origin rpy="0 -1.57079632679 0" xyz="0.0235 0 0"/>
   </joint>
   <!-- PARAMETERS TO BE SET BY HAND -->
   <!-- END OF PARAMETERS TO BE SET BY HAND -->
   <link name="finger_3_segment_link_1">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1428,23 +1430,23 @@
   </gazebo>
   <link name="finger_3_segment_link_2">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1462,7 +1464,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_1"/>
     <child link="finger_3_segment_link_2"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1485,23 +1487,23 @@
   </transmission>
   <link name="finger_3_segment_link_3">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1519,7 +1521,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_2"/>
     <child link="finger_3_segment_link_3"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1542,23 +1544,23 @@
   </transmission>
   <link name="finger_3_segment_link_4">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1576,7 +1578,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_3"/>
     <child link="finger_3_segment_link_4"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1599,23 +1601,23 @@
   </transmission>
   <link name="finger_3_segment_link_5">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1633,7 +1635,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_4"/>
     <child link="finger_3_segment_link_5"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1656,23 +1658,23 @@
   </transmission>
   <link name="finger_3_segment_link_6">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1690,7 +1692,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_5"/>
     <child link="finger_3_segment_link_6"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1713,23 +1715,23 @@
   </transmission>
   <link name="finger_3_segment_link_7">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1747,7 +1749,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_6"/>
     <child link="finger_3_segment_link_7"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1770,23 +1772,23 @@
   </transmission>
   <link name="finger_3_segment_link_8">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1804,7 +1806,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_7"/>
     <child link="finger_3_segment_link_8"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1827,23 +1829,23 @@
   </transmission>
   <link name="finger_3_segment_link_9">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1861,7 +1863,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_8"/>
     <child link="finger_3_segment_link_9"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1884,23 +1886,23 @@
   </transmission>
   <link name="finger_3_segment_link_10">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" /> -->
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0095 0 0"/>
+      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
       <geometry>
-        <box size="0.019 0.028 0.0009"/>
+        <box size="0.0235 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1918,7 +1920,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_9"/>
     <child link="finger_3_segment_link_10"/>
-    <origin rpy="0 0 0" xyz="0.019 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1942,8 +1944,8 @@
   <!-- Add the finger hook link -->
   <link name="finger_3_finger_hook_link">
     <inertial>
-      <mass value="0.00633333333333"/>
-      <inertia ixx="4.14205277778e-07" ixy="0.00" ixz="0.00" iyy="7.62538611111e-07" iyz="0.00" izz="1.17588888889e-06"/>
+      <mass value="0.00652777777778"/>
+      <inertia ixx="4.26922106481e-07" ixy="0.00" ixz="0.00" iyy="1.20209571759e-06" iyz="0.00" izz="1.62813657407e-06"/>
       <!-- <inertia ixx="${1e-6 * stability_factor}"
                  iyy="${1e-6 * stability_factor}"
                  izz="${1e-6 * stability_factor}"
@@ -1975,7 +1977,7 @@
   <joint name="finger_3_finger_hook_joint" type="fixed">
     <parent link="finger_3_segment_link_10"/>
     <child link="finger_3_finger_hook_link"/>
-    <origin rpy="0 -1.57079632679 0" xyz="0.019 0 0"/>
+    <origin rpy="0 -1.57079632679 0" xyz="0.0235 0 0"/>
   </joint>
   <gazebo>
     <plugin filename="libfinger_controller_plugin.so" name="finger_controller_plugin"/>

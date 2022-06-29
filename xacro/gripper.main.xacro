@@ -8,16 +8,24 @@
     <xacro:property name="dictionary" value="${xacro.load_yaml(filename)}"/>
     <xacro:property name="is_segmented" value="${dictionary['gripper_config']['is_segmented']}"/>
     -->
+
+    <xacro:property name="filename" value="../config/gripper.yaml"/>
+    <xacro:property name="dictionary" value="${xacro.load_yaml(filename)}"/>
+    <xacro:property name="finger_displacement_min" value="${dictionary['params']['xy_min']}"/>
+    <xacro:property name="finger_displacement_max" value="${dictionary['params']['xy_max']}"/>
+    <xacro:property name="palm_displacement_min" value="${dictionary['params']['z_min']}"/>
+    <xacro:property name="palm_displacement_max" value="${dictionary['params']['z_max']}"/>
+    <!-- <xacro:property name="is_segmented" value="${dictionary['gripper_config']['is_segmented']}"/> -->
   
   	<!-- PARAMETERS TO BE SET BY HAND -->
     
     <!-- Define motion limits of each joint, these all in SI units -->
-    <xacro:property name="finger_displacement_min" value="0.053"/>
-    <xacro:property name="finger_displacement_max" value="0.141"/>
+    <xacro:property name="finger_displacement_min" value="0.049"/> <!-- based on 32 revs home to max -->
+    <xacro:property name="finger_displacement_max" value="0.134"/> <!-- set in Gripper_v2.h (Arduino library)-->
     <xacro:property name="finger_angle_min" value="-0.7"/>
     <xacro:property name="finger_angle_max" value="0.7"/>
-    <xacro:property name="palm_displacement_min" value="0.0"/>
-    <xacro:property name="palm_displacement_max" value="0.16"/>
+    <xacro:property name="palm_displacement_min" value="0.0"/> <!-- set in Gripper_v2.h (Arduino library)-->
+    <xacro:property name="palm_displacement_max" value="0.165"/> <!-- based on 34 revs home to max-->
     
     <!-- Define limits of each joint, these all in SI units -->
     <xacro:property name="finger_displacement_velocity" value="0.015"/>

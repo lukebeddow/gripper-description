@@ -6,7 +6,7 @@
   	<!-- PARAMETERS TO BE SET BY HAND -->
 
     <!-- User defined variables -->
-    <xacro:property name="finger_length_mm" value="190.0"/>
+    <xacro:property name="finger_length_mm" value="235.0"/>
     <xacro:property name="hook_length_mm" value="35.0"/>
     <xacro:property name="finger_width_mm" value="28.0"/>
     <xacro:property name="finger_thickness_mm" value="0.9"/>

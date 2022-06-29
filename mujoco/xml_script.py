@@ -47,7 +47,7 @@ joint_start = {
   "panda_joint5": 0.05,
   "panda_joint6": 1.0,
   "panda_joint7": 0.07,
-  "gripper_prismatic": 140e-3,
+  "gripper_prismatic": 132e-3,
   "gripper_revolute": 0.0,
   "gripper_palm": 0.0,
   "base_z": 0.0

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="gripper" xmlns:xacro="http://wiki.ros.org/xacro">
 
-	<xacro:macro name="add_gripper">
+	<xacro:macro name="add_gripper" params="path_to_top:='..'">
 	
 		<!-- PARAMETERS TO BE SET BY HAND -->
 		
@@ -12,17 +12,17 @@
 		<xacro:property name="z_fix" value="0"/>
 		
 		<!-- END OF PARAMETERS TO BE SET BY HAND -->
+		
+		<!-- load the macro for the gripper and segmented fingers -->
+		<xacro:property name="filename" value="${path_to_top}/config/gripper.yaml"/>
+		<xacro:include filename="${path_to_top}/xacro/gripper.main.xacro"/>
+		<xacro:include filename="${path_to_top}/xacro/gripper.segmented_fingers.xacro"/>
 
 		<!-- load information from the gripper yaml file -->
-		<xacro:property name="filename" value="../../config/gripper.yaml"/>
 		<xacro:property name="dictionary" value="${xacro.load_yaml(filename)}"/>
 		<xacro:property name="is_segmented" value="${dictionary['gripper_config']['is_segmented']}"/>
 		<xacro:property name="num_segments" value="${dictionary['gripper_config']['num_segments']}"/>
 		<xacro:property name="torsion" value="${dictionary['gripper_config']['torsion']}"/>
-
-		<!-- load the macro for the gripper and segmented fingers -->
-		<xacro:include filename="../../xacro/gripper.main.xacro"/>
-		<xacro:include filename="../../xacro/gripper.segmented_fingers.xacro"/>
 
 		<!-- create instances of gripper -->
 		<xacro:gripper is_segmented="${is_segmented}"/>

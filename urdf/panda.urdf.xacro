@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <robot name="panda" xmlns:xacro="http://wiki.ros.org/xacro">
 
-	<xacro:include filename="../xacro/panda.xacro"/>
-	<xacro:add_panda/>
+	<!-- define relative movement to get to gripper_description/ -->
+	<xacro:property name="path_to_top" value=".."/>
+
+	<xacro:include filename="${path_to_top}/xacro/panda.xacro"/>
+	<xacro:add_panda path_to_top="${path_to_top}"/>
 	
 	<!-- connect the panda to the ground -->
 	<link name="world"/>

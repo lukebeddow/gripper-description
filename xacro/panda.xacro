@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <robot name="panda" xmlns:xacro="http://wiki.ros.org/xacro">
 
-	<xacro:macro name="add_panda">
+	<xacro:macro name="add_panda" params="path_to_top:='..'">
 
 		<!-- include macros for the panda arm -->
-		<xacro:include filename="../../xacro/panda.main.xacro"/>
-		<xacro:include filename="../../xacro/panda.gazebo.xacro"/>
-		<xacro:include filename="../../xacro/panda.control.xacro"/>
+		<xacro:include filename="${path_to_top}/xacro/panda.main.xacro"/>
+		<xacro:include filename="${path_to_top}/xacro/panda.gazebo.xacro"/>
+		<xacro:include filename="${path_to_top}/xacro/panda.control.xacro"/>
 		
 		<xacro:panda_arm arm_id="panda" 
 								 		 mesh_folder="gripper_description/meshes_panda" 

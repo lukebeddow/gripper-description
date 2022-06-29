@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
 <robot name="panda" xmlns:xacro="http://wiki.ros.org/xacro">
 
+	<!-- define relative movement to get to gripper_description/ -->
+	<xacro:property name="path_to_top" value="../.."/>
+
 	<!-- include the mujoco settings xacro -->
-	<xacro:include filename="../../urdf/mujoco/xacro/mujoco.xacro"/>
+	<xacro:include filename="${path_to_top}/urdf/mujoco/xacro/mujoco.xacro"/>
 	<xacro:mujoco_settings/>
 	
 	<!-- rest of file should be identical to panda_and_gripper.urdf.xacro -->
 
-	<xacro:include filename="../../xacro/panda.xacro"/>
-	<xacro:add_panda/>
+	<xacro:include filename="${path_to_top}/xacro/panda.xacro"/>
+	<xacro:add_panda path_to_top="${path_to_top}"/>
 	
 	<!-- connect the panda to the ground -->
 	<link name="world"/>

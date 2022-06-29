@@ -19,7 +19,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link0.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link0.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -39,7 +39,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link0.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link0.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -75,7 +75,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link1.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link1.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -95,7 +95,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link1.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link1.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -121,7 +121,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -147,7 +147,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link2.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link2.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -167,7 +167,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link2.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link2.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -193,7 +193,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -219,7 +219,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link3.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link3.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -239,7 +239,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link3.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link3.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -265,7 +265,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -291,7 +291,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link4.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link4.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -311,7 +311,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link4.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link4.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -337,7 +337,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -345,7 +345,7 @@
       </axis>
     </joint>
     <link name='panda_link5'>
-      <pose frame=''>-0 0 1.033 0 -0 0</pose>
+      <pose frame=''>0 0 1.033 0 -0 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>3.5</mass>
@@ -363,7 +363,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link5.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link5.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -383,7 +383,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link5.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link5.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -409,7 +409,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -417,7 +417,7 @@
       </axis>
     </joint>
     <link name='panda_link6'>
-      <pose frame=''>-0 0 1.033 1.5708 -0 0</pose>
+      <pose frame=''>0 0 1.033 1.5708 -0 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1.47</mass>
@@ -435,7 +435,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link6.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link6.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -455,7 +455,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link6.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link6.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -481,7 +481,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -507,7 +507,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/collision/link7.stl</uri>
+            <uri>model://gripper_description/meshes_panda/panda collision link7.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -516,7 +516,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://gripper_description/meshes_panda/visual/link7.dae</uri>
+            <uri>model://gripper_description/meshes_panda/panda visual link7.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -534,7 +534,7 @@
         </limit>
         <dynamics>
           <damping>1</damping>
-          <friction>0</friction>
+          <friction>0.1</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>

@@ -2,9 +2,9 @@
 
 # generate xacro files using ros
 
-# # set variables (note: no spaces allowed around = sign)
+# # # set variables (note: no spaces allowed around = sign)
 # WS_DIR=/home/luke/gripper_repo_ws
-# MUJOCO_DIR=src/gripper_v2/gripper_description/urdf/mujoco/
+# MUJOCO_DIR=src/gripper_v2/gripper_description/mujoco/
 
 # make sure we source ros
 cd $WS_DIR
