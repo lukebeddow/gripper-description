@@ -15,7 +15,7 @@ MJINCDIR = $(MJCFDIR)/mjcf_include
 ASSETDIR = $(MJINCDIR)/assets
 OBJDIR = $(MJINCDIR)/objects
 
-# MAKEFLAGS += -j8 # run on up to 8 parallel cpu cores
+MAKEFLAGS += -j8 # run on up to 8 parallel cpu cores
 
 # ----- automatically generated variables ----- #
 

@@ -94,16 +94,35 @@ clean:
 
 # below is no longer needed, but the code may be helpful to keep
 
-.PHONY: preprocesses
-preprocesses: source_ros
+# .PHONY: preprocesses
+# preprocesses: source_ros
 
-# run a .sh to source ros and start roscore, it then calls 'make targets'
-.PHONY: source_ros
-ifndef LUKE_FLAG
-source_ros:
-	echo sourcing ros now
-	./source_ros.sh $(MAKE) targets
-else
-source_ros:
-	echo ROS already sourced
-endif
+# # run a .sh to source ros and start roscore, it then calls 'make targets'
+# .PHONY: source_ros
+# ifndef LUKE_FLAG
+# source_ros:
+# 	echo sourcing ros now
+# 	./source_ros.sh $(MAKE) targets
+# else
+# source_ros:
+# 	echo ROS already sourced
+# endif
+
+# ----- source_ros.sh ----- #
+
+# #!/bin/bash
+
+# # this script is no longer used, but the code may be helpful to keep
+
+# # roscore in the background
+# source ~/gripper_repo_ws/devel/setup.bash
+# roscore &
+
+# # set the flag to know ros is sourced
+# export LUKE_FLAG=1
+
+# # if first arg is set, recall make
+# if [ -n "$1" ]; then
+#   echo ros has now been sourced
+#   $1 $2
+# fi
