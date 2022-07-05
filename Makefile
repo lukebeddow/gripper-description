@@ -16,8 +16,9 @@ urdf:
 mjcf:
 	$(MAKE) -C $(MJCFDIR)
 
+# make object sets, clean first
 .PHONY: sets
-sets:
+sets: clean
 	cd $(MJCFDIR) && ./$(SETSCRIPT)
 
 clean:

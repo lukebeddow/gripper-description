@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="segmented_finger" params="prefix num_segments torsion">
+  <xacro:macro name="segmented_finger" params="prefix yaml_dict">
+    
+    <!-- extract the gripper config information -->
+    <xacro:property name="is_segmented" value="${yaml_dict['gripper_config']['is_segmented']}"/>
+    <xacro:property name="num_segments" value="${yaml_dict['gripper_config']['num_segments']}"/>
+    <xacro:property name="torsion" value="${yaml_dict['gripper_config']['torsion']}"/>
+    <xacro:property name="finger_length" value="${yaml_dict['gripper_params']['finger_length']}"/>
+    <xacro:property name="finger_width" value="${yaml_dict['gripper_params']['finger_width']}"/>
+    <xacro:property name="finger_thickness" value="${yaml_dict['gripper_params']['finger_thickness']}"/>
+    <xacro:property name="finger_mass" value="${yaml_dict['gripper_params']['finger_mass']}"/>
+    <xacro:property name="hook_length" value="${yaml_dict['gripper_params']['hook_length']}"/>
+    <xacro:property name="hook_angle" value="${yaml_dict['gripper_params']['hook_angle_degrees'] * (3.1415926535897 / 180.0)}"/>
   
   	<!-- PARAMETERS TO BE SET BY HAND -->
-
-    <!-- User defined variables -->
-    <xacro:property name="finger_length_mm" value="235.0"/>
-    <xacro:property name="hook_length_mm" value="35.0"/>
-    <xacro:property name="finger_width_mm" value="28.0"/>
-    <xacro:property name="finger_thickness_mm" value="0.9"/>
-    <xacro:property name="hook_angle_d" value="90.0"/>
-    <xacro:property name="finger_mass_g" value="75.0"/>
 
     <!-- macros to set the sdf elements, all here together for convienience -->
     <!-- Tags for gazebo, see: http://gazebosim.org/tutorials?tut=ros_urdf -->
@@ -43,15 +46,11 @@
     <!-- END OF PARAMETERS TO BE SET BY HAND -->
 
     <!-- Automatially calculated variables -->
-    <xacro:property name="finger_length" value="${finger_length_mm * 0.001}"/>
-    <xacro:property name="segment_length" value="${(finger_length_mm / num_segments) * 0.001}"/>
-    <xacro:property name="segment_width" value="${finger_width_mm * 0.001}"/>
-    <xacro:property name="segment_thickness" value="${finger_thickness_mm * 0.001}"/>
-    <xacro:property name="hook_length" value="${hook_length_mm * 0.001}"/>
-    <xacro:property name="hook_angle" value="${(hook_angle_d / 180.0) * 3.1415926535897}"/>
+    <xacro:property name="segment_length" value="${finger_length / float(num_segments)}"/>
+    <xacro:property name="segment_width" value="${finger_width}"/>
+    <xacro:property name="segment_thickness" value="${finger_thickness}"/>
 
     <!-- find inertia of each segment -->
-    <xacro:property name="finger_mass" value="${finger_mass_g * 0.001}"/>
     <xacro:property name="segment_mass" 
       value="${(finger_mass * segment_length) / (finger_length + hook_length)}"/>
     <!-- x axis along finger length, no axis displacement-->
@@ -76,17 +75,13 @@
                  iyy="${segment_iyy * stability_factor}"
                  izz="${segment_izz * stability_factor}"
                 ixy="0.00" iyz="0.00" ixz="0.00" />
-        <!-- <inertia ixx="${1e-6 * stability_factor}"
-                 iyy="${1e-6 * stability_factor}"
-                 izz="${1e-6 * stability_factor}"
-                ixy="0.00" iyz="0.00" ixz="0.00" /> -->
       </inertial>
     </xacro:macro>
 
     <!-- Macro to add a segment link -->
     <xacro:macro name="add_segment_link" params="number">
       <link name="${prefix}_segment_link_${number}">
-        <xacro:segment_inertial mass="${(75 * 0.001) / num_segments}" num="${number}"/>
+        <xacro:segment_inertial mass="${segment_mass / num_segments}" num="${number}"/>
         <visual>
           <origin xyz="${segment_length / 2} 0 0"
                   rpy="0 0 0"/>
@@ -185,7 +180,7 @@
 
     <!-- Add the finger hook link -->
     <link name="${prefix}_finger_hook_link">
-      <xacro:segment_inertial mass="${(75 * 0.001) / num_segments}" num="${num_segments}"/>
+      <xacro:segment_inertial mass="${(finger_mass * 0.001) / num_segments}" num="${num_segments}"/>
       <visual>
         <origin xyz="${hook_length / 2} 0 0"
                 rpy="0 0 0"/>

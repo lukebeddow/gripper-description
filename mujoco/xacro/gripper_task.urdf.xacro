@@ -12,17 +12,25 @@
 	<xacro:include filename="${path_to_top}/xacro/gripper.xacro"/>
 	<xacro:add_gripper path_to_top="${path_to_top}"/>
 
-  <!-- attach gripper to the ground for gazebo -->
+	<!-- height for fingertips to just not touch the ground, then height to raise
+	past that. Note that this height is calibrated manually using mujoco and with
+  checking the wrist z sensor for contact. This is calibrated AFTER the gripper
+	has settled (ie joint controller stiffness accounted for)-->
+	<xacro:property name="fingertip_touches_ground" value="0.376"/>
+	<xacro:property name="fingertip_clearance" value="0.01"/>
+	<xacro:property name="h" value="${fingertip_touches_ground + fingertip_clearance}"/>
+
+  <!-- attach gripper to the ground for mujoco -->
 	<link name="world"/>
 	<joint name="world_to_base" type="prismatic">
-		<origin xyz="0 0 0.335" rpy="${pi} 0 0"/> <!-- 0.325 is fingertips just not touching-->
+		<origin xyz="0 0 ${h}" rpy="${pi} 0 0"/>
 		<axis xyz="0 0 1" rpy="0 0 0"/>
 		<parent link="world"/>
 		<child link="gripper_base_link"/>
 		<limit effort="1e3" 
-        			 lower="-1"
-        			 upper="1"
-        			 velocity="1"/>
+					 lower="-1"
+					 upper="1"
+					 velocity="1"/>
     <dynamics damping="1"/>
 	</joint>
 		

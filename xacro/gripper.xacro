@@ -19,23 +19,18 @@
 		<xacro:include filename="${path_to_top}/xacro/gripper.segmented_fingers.xacro"/>
 
 		<!-- load information from the gripper yaml file -->
-		<xacro:property name="dictionary" value="${xacro.load_yaml(filename)}"/>
-		<xacro:property name="is_segmented" value="${dictionary['gripper_config']['is_segmented']}"/>
-		<xacro:property name="num_segments" value="${dictionary['gripper_config']['num_segments']}"/>
-		<xacro:property name="torsion" value="${dictionary['gripper_config']['torsion']}"/>
+		<xacro:property name="yaml_dict" value="${xacro.load_yaml(filename)}"/>
+		<xacro:property name="is_segmented" value="${yaml_dict['gripper_config']['is_segmented']}"/>
 
-		<!-- create instances of gripper -->
-		<xacro:gripper is_segmented="${is_segmented}"/>
+		<!-- create instance of gripper -->
+		<xacro:gripper yaml_dict="${yaml_dict}"/>
 
 		<!-- macro for adding the segmented fingers onto the gripper-->
-		<xacro:macro name="add_fingers" params="segments">
+		<xacro:macro name="add_fingers">
 		  <!-- Create the fingers themselves -->
-		  <xacro:segmented_finger prefix="finger_1" num_segments="${segments}"
-		    torsion="${torsion}"/>
-		  <xacro:segmented_finger prefix="finger_2" num_segments="${segments}"
-		    torsion="${torsion}"/>
-		  <xacro:segmented_finger prefix="finger_3" num_segments="${segments}"
-		    torsion="${torsion}"/>
+		  <xacro:segmented_finger prefix="finger_1" yaml_dict="${yaml_dict}"/>
+		  <xacro:segmented_finger prefix="finger_2" yaml_dict="${yaml_dict}"/>
+		  <xacro:segmented_finger prefix="finger_3" yaml_dict="${yaml_dict}"/>
 		  <!-- adds the finger controller plugin to gazebo -->
 		  <xacro:gazebo_plugin/>
 		  <!-- attach them to the gripper -->
@@ -58,7 +53,7 @@
 
 		<!-- add the segmented fingers only if indicated in gripper.config -->
 		<xacro:if value="${is_segmented}">
-		  <xacro:add_fingers segments="${num_segments}"/>
+		  <xacro:add_fingers/>
 		</xacro:if>
   
   </xacro:macro>

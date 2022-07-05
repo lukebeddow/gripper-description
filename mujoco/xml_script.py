@@ -40,16 +40,16 @@ num_segments = gripper_details["gripper_config"]["num_segments"]
 
 # starting configuration of the robot joints
 joint_start = {
-  "panda_joint1": 0.01,
-  "panda_joint2": 0.02,
-  "panda_joint3": 0.03,
-  "panda_joint4": 0.04,
-  "panda_joint5": 0.05,
+  "panda_joint1": 0.0,
+  "panda_joint2": 0.0,
+  "panda_joint3": 0.0,
+  "panda_joint4": 0.0,
+  "panda_joint5": 0.0,
   "panda_joint6": 1.0,
-  "panda_joint7": 0.07,
-  "gripper_prismatic": 132e-3,
+  "panda_joint7": 0.0,
+  "gripper_prismatic": gripper_details["gripper_params"]["xy_home"],
   "gripper_revolute": 0.0,
-  "gripper_palm": 0.0,
+  "gripper_palm": gripper_details["gripper_params"]["z_home"],
   "base_z": 0.0
 }
 
@@ -607,8 +607,8 @@ if __name__ == "__main__":
     # raise RuntimeError("joint friction not tested out yet!!!")
 
     for j in range(num_segments):
-      next_joint = tag_string.format(i+1, j+1)
-      next_body = body_string.format(i+1, j+2)
+      next_joint = tag_string.format(i + 1, j + 1)
+      next_body = body_string.format(i + 1, j + 2)
       # add finger stiffness attributes
       add_tag_attribute(gripper_tree, "joint", next_joint,
                         "stiffness", str(finger_joint_stiffness))
