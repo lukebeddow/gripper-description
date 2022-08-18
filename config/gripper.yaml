@@ -12,10 +12,10 @@ gripper_params:
   z_min: 0.0e-3              # set in Gripper_v2.h (arduino lib)
   z_max: 165.0e-3            # 34.0revs * (lead/gear ratio)
   z_home: 4.88e-3            # 1.0revs * (lead/gear ratio)
-  finger_length: 235.0e-3    # measured
-  finger_width: 28.0e-3      # measured
-  finger_thickness: 0.9e-3   # measured
-  finger_mass: 75.0e-3       # measured
-  hook_length: 38.5e-3       # measured
-  hook_angle_degrees: 90.0   # measured
-  angle_max_abs: 0.7
+  finger_length: 235.0e-3    # measured exposed length from platform to hook (not including)
+  finger_width: 28.0e-3      # measured width
+  finger_thickness: 0.9e-3   # measured thickness
+  finger_mass: 75.0e-3       # measured weight per finger
+  hook_length: 38.5e-3       # measured length of hook
+  hook_angle_degrees: 90.0   # measured angle of the hook in degrees
+  angle_max_abs: 0.7         # maximum finger revolute joint angle in rad, property of design

@@ -716,19 +716,19 @@
   <!-- END OF PARAMETERS TO BE SET BY HAND -->
   <link name="finger_1_segment_link_1">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -743,19 +743,19 @@
   </gazebo>
   <link name="finger_1_segment_link_2">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -773,7 +773,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_1"/>
     <child link="finger_1_segment_link_2"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -796,19 +796,19 @@
   </transmission>
   <link name="finger_1_segment_link_3">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -826,7 +826,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_2"/>
     <child link="finger_1_segment_link_3"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -849,19 +849,19 @@
   </transmission>
   <link name="finger_1_segment_link_4">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -879,7 +879,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_3"/>
     <child link="finger_1_segment_link_4"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -902,19 +902,19 @@
   </transmission>
   <link name="finger_1_segment_link_5">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -932,7 +932,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_4"/>
     <child link="finger_1_segment_link_5"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -955,19 +955,19 @@
   </transmission>
   <link name="finger_1_segment_link_6">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -985,7 +985,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_5"/>
     <child link="finger_1_segment_link_6"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1008,19 +1008,19 @@
   </transmission>
   <link name="finger_1_segment_link_7">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1038,7 +1038,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_6"/>
     <child link="finger_1_segment_link_7"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1061,19 +1061,19 @@
   </transmission>
   <link name="finger_1_segment_link_8">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1091,7 +1091,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_7"/>
     <child link="finger_1_segment_link_8"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1114,19 +1114,19 @@
   </transmission>
   <link name="finger_1_segment_link_9">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1144,7 +1144,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_8"/>
     <child link="finger_1_segment_link_9"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1167,19 +1167,19 @@
   </transmission>
   <link name="finger_1_segment_link_10">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1197,7 +1197,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_1_segment_link_9"/>
     <child link="finger_1_segment_link_10"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1218,11 +1218,806 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <link name="finger_1_segment_link_11">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_11">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_10" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_10"/>
+    <child link="finger_1_segment_link_11"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_10">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_12">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_12">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_11" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_11"/>
+    <child link="finger_1_segment_link_12"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_11">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_13">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_13">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_12" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_12"/>
+    <child link="finger_1_segment_link_13"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_12">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_12">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_14">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_14">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_13" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_13"/>
+    <child link="finger_1_segment_link_14"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_13">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_13">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_13">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_13">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_15">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_15">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_14" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_14"/>
+    <child link="finger_1_segment_link_15"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_14">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_14">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_14">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_14">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_16">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_16">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_15" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_15"/>
+    <child link="finger_1_segment_link_16"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_15">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_15">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_15">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_15">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_17">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_17">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_16" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_16"/>
+    <child link="finger_1_segment_link_17"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_16">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_16">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_16">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_16">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_18">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_18">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_17" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_17"/>
+    <child link="finger_1_segment_link_18"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_17">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_17">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_17">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_17">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_19">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_19">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_18" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_18"/>
+    <child link="finger_1_segment_link_19"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_18">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_18">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_18">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_18">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_20">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_20">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_19" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_19"/>
+    <child link="finger_1_segment_link_20"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_19">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_19">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_19">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_19">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_21">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_21">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_20" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_20"/>
+    <child link="finger_1_segment_link_21"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_20">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_20">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_20">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_20">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_22">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_22">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_21" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_21"/>
+    <child link="finger_1_segment_link_22"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_21">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_21">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_21">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_21">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_23">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_23">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_22" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_22"/>
+    <child link="finger_1_segment_link_23"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_22">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_22">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_22">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_22">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_24">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_24">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_23" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_23"/>
+    <child link="finger_1_segment_link_24"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_23">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_23">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_23">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_23">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_1_segment_link_25">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_1_segment_link_25">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_1_segment_joint_24" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_1_segment_link_24"/>
+    <child link="finger_1_segment_link_25"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_1_segment_joint_24">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_1_segment_tran_24">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_1_segment_joint_24">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_1_segment_motor_24">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <!-- Add the finger hook link -->
   <link name="finger_1_finger_hook_link">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0.01925 0 0"/>
@@ -1248,27 +2043,27 @@
   </gazebo>
   <!-- Connect the finger hook via a fixed joint -->
   <joint name="finger_1_finger_hook_joint" type="fixed">
-    <parent link="finger_1_segment_link_10"/>
+    <parent link="finger_1_segment_link_25"/>
     <child link="finger_1_finger_hook_link"/>
-    <origin rpy="0 -1.5707963267948502 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 -1.5707963267948502 0" xyz="0.009399999999999999 0 0"/>
   </joint>
   <!-- PARAMETERS TO BE SET BY HAND -->
   <!-- END OF PARAMETERS TO BE SET BY HAND -->
   <link name="finger_2_segment_link_1">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1283,19 +2078,19 @@
   </gazebo>
   <link name="finger_2_segment_link_2">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1313,7 +2108,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_1"/>
     <child link="finger_2_segment_link_2"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1336,19 +2131,19 @@
   </transmission>
   <link name="finger_2_segment_link_3">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1366,7 +2161,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_2"/>
     <child link="finger_2_segment_link_3"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1389,19 +2184,19 @@
   </transmission>
   <link name="finger_2_segment_link_4">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1419,7 +2214,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_3"/>
     <child link="finger_2_segment_link_4"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1442,19 +2237,19 @@
   </transmission>
   <link name="finger_2_segment_link_5">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1472,7 +2267,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_4"/>
     <child link="finger_2_segment_link_5"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1495,19 +2290,19 @@
   </transmission>
   <link name="finger_2_segment_link_6">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1525,7 +2320,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_5"/>
     <child link="finger_2_segment_link_6"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1548,19 +2343,19 @@
   </transmission>
   <link name="finger_2_segment_link_7">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1578,7 +2373,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_6"/>
     <child link="finger_2_segment_link_7"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1601,19 +2396,19 @@
   </transmission>
   <link name="finger_2_segment_link_8">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1631,7 +2426,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_7"/>
     <child link="finger_2_segment_link_8"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1654,19 +2449,19 @@
   </transmission>
   <link name="finger_2_segment_link_9">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1684,7 +2479,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_8"/>
     <child link="finger_2_segment_link_9"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1707,19 +2502,19 @@
   </transmission>
   <link name="finger_2_segment_link_10">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1737,7 +2532,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_2_segment_link_9"/>
     <child link="finger_2_segment_link_10"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1758,11 +2553,806 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <link name="finger_2_segment_link_11">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_11">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_10" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_10"/>
+    <child link="finger_2_segment_link_11"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_10">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_12">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_12">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_11" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_11"/>
+    <child link="finger_2_segment_link_12"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_11">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_13">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_13">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_12" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_12"/>
+    <child link="finger_2_segment_link_13"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_12">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_12">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_14">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_14">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_13" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_13"/>
+    <child link="finger_2_segment_link_14"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_13">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_13">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_13">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_13">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_15">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_15">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_14" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_14"/>
+    <child link="finger_2_segment_link_15"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_14">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_14">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_14">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_14">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_16">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_16">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_15" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_15"/>
+    <child link="finger_2_segment_link_16"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_15">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_15">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_15">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_15">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_17">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_17">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_16" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_16"/>
+    <child link="finger_2_segment_link_17"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_16">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_16">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_16">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_16">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_18">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_18">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_17" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_17"/>
+    <child link="finger_2_segment_link_18"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_17">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_17">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_17">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_17">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_19">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_19">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_18" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_18"/>
+    <child link="finger_2_segment_link_19"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_18">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_18">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_18">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_18">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_20">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_20">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_19" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_19"/>
+    <child link="finger_2_segment_link_20"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_19">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_19">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_19">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_19">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_21">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_21">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_20" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_20"/>
+    <child link="finger_2_segment_link_21"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_20">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_20">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_20">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_20">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_22">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_22">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_21" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_21"/>
+    <child link="finger_2_segment_link_22"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_21">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_21">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_21">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_21">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_23">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_23">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_22" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_22"/>
+    <child link="finger_2_segment_link_23"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_22">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_22">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_22">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_22">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_24">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_24">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_23" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_23"/>
+    <child link="finger_2_segment_link_24"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_23">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_23">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_23">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_23">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_2_segment_link_25">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_2_segment_link_25">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_2_segment_joint_24" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_2_segment_link_24"/>
+    <child link="finger_2_segment_link_25"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_2_segment_joint_24">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_2_segment_tran_24">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_2_segment_joint_24">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_2_segment_motor_24">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <!-- Add the finger hook link -->
   <link name="finger_2_finger_hook_link">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0.01925 0 0"/>
@@ -1788,27 +3378,27 @@
   </gazebo>
   <!-- Connect the finger hook via a fixed joint -->
   <joint name="finger_2_finger_hook_joint" type="fixed">
-    <parent link="finger_2_segment_link_10"/>
+    <parent link="finger_2_segment_link_25"/>
     <child link="finger_2_finger_hook_link"/>
-    <origin rpy="0 -1.5707963267948502 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 -1.5707963267948502 0" xyz="0.009399999999999999 0 0"/>
   </joint>
   <!-- PARAMETERS TO BE SET BY HAND -->
   <!-- END OF PARAMETERS TO BE SET BY HAND -->
   <link name="finger_3_segment_link_1">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1823,19 +3413,19 @@
   </gazebo>
   <link name="finger_3_segment_link_2">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1853,7 +3443,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_1"/>
     <child link="finger_3_segment_link_2"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1876,19 +3466,19 @@
   </transmission>
   <link name="finger_3_segment_link_3">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1906,7 +3496,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_2"/>
     <child link="finger_3_segment_link_3"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1929,19 +3519,19 @@
   </transmission>
   <link name="finger_3_segment_link_4">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -1959,7 +3549,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_3"/>
     <child link="finger_3_segment_link_4"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -1982,19 +3572,19 @@
   </transmission>
   <link name="finger_3_segment_link_5">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -2012,7 +3602,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_4"/>
     <child link="finger_3_segment_link_5"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -2035,19 +3625,19 @@
   </transmission>
   <link name="finger_3_segment_link_6">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -2065,7 +3655,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_5"/>
     <child link="finger_3_segment_link_6"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -2088,19 +3678,19 @@
   </transmission>
   <link name="finger_3_segment_link_7">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -2118,7 +3708,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_6"/>
     <child link="finger_3_segment_link_7"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -2141,19 +3731,19 @@
   </transmission>
   <link name="finger_3_segment_link_8">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -2171,7 +3761,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_7"/>
     <child link="finger_3_segment_link_8"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -2194,19 +3784,19 @@
   </transmission>
   <link name="finger_3_segment_link_9">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -2224,7 +3814,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_8"/>
     <child link="finger_3_segment_link_9"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -2247,19 +3837,19 @@
   </transmission>
   <link name="finger_3_segment_link_10">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01175 0 0"/>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
       <geometry>
-        <box size="0.0235 0.028 0.0009"/>
+        <box size="0.009399999999999999 0.028 0.0009"/>
       </geometry>
     </collision>
   </link>
@@ -2277,7 +3867,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="finger_3_segment_link_9"/>
     <child link="finger_3_segment_link_10"/>
-    <origin rpy="0 0 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
     <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
     <dynamics damping="0.01" friction="0.0"/>
   </joint>
@@ -2298,11 +3888,806 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <link name="finger_3_segment_link_11">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_11">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_10" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_10"/>
+    <child link="finger_3_segment_link_11"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_10">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_12">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_12">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_11" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_11"/>
+    <child link="finger_3_segment_link_12"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_11">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_13">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_13">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_12" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_12"/>
+    <child link="finger_3_segment_link_13"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_12">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_12">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_14">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_14">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_13" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_13"/>
+    <child link="finger_3_segment_link_14"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_13">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_13">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_13">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_13">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_15">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_15">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_14" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_14"/>
+    <child link="finger_3_segment_link_15"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_14">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_14">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_14">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_14">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_16">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_16">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_15" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_15"/>
+    <child link="finger_3_segment_link_16"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_15">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_15">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_15">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_15">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_17">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_17">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_16" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_16"/>
+    <child link="finger_3_segment_link_17"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_16">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_16">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_16">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_16">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_18">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_18">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_17" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_17"/>
+    <child link="finger_3_segment_link_18"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_17">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_17">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_17">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_17">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_19">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_19">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_18" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_18"/>
+    <child link="finger_3_segment_link_19"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_18">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_18">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_18">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_18">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_20">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_20">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_19" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_19"/>
+    <child link="finger_3_segment_link_20"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_19">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_19">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_19">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_19">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_21">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_21">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_20" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_20"/>
+    <child link="finger_3_segment_link_21"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_20">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_20">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_20">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_20">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_22">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_22">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_21" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_21"/>
+    <child link="finger_3_segment_link_22"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_21">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_21">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_21">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_21">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_23">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_23">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_22" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_22"/>
+    <child link="finger_3_segment_link_23"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_22">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_22">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_22">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_22">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_24">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_24">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_23" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_23"/>
+    <child link="finger_3_segment_link_24"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_23">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_23">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_23">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_23">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="finger_3_segment_link_25">
+    <inertial>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.004699999999999999 0 0"/>
+      <geometry>
+        <box size="0.009399999999999999 0.028 0.0009"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="finger_3_segment_link_25">
+    <material>Gazebo/Orange</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <maxVel>0.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <!-- <kp>100</kp>
+        <kd>1</kd> -->
+  </gazebo>
+  <!-- bending joint -->
+  <joint name="finger_3_segment_joint_24" type="revolute">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="finger_3_segment_link_24"/>
+    <child link="finger_3_segment_link_25"/>
+    <origin rpy="0 0 0" xyz="0.009399999999999999 0 0"/>
+    <limit effort="1000.0" lower="-1.0" upper="1.0" velocity="1.0"/>
+    <dynamics damping="0.01" friction="0.0"/>
+  </joint>
+  <gazebo reference="finger_3_segment_joint_24">
+    <provideFeedback>1</provideFeedback>
+    <springReference>0.0</springReference>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <springStiffness>3.0</springStiffness>
+  </gazebo>
+  <!-- set transmission for gazebo ROS controllers-->
+  <transmission name="finger_3_segment_tran_24">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_3_segment_joint_24">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_3_segment_motor_24">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <!-- Add the finger hook link -->
   <link name="finger_3_finger_hook_link">
     <inertial>
-      <mass value="0.006444241316270568"/>
-      <inertia ixx="4.21458752285192e-07" ixy="0.00" ixz="0.00" iyy="1.1867124085923218e-06" iyz="0.00" izz="1.6073011882998174e-06"/>
+      <mass value="0.0025776965265082268"/>
+      <inertia ixx="1.685835009140768e-07" ixy="0.00" ixz="0.00" iyy="7.609574954296159e-08" iyz="0.00" izz="2.443312614259598e-07"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0.01925 0 0"/>
@@ -2328,9 +4713,9 @@
   </gazebo>
   <!-- Connect the finger hook via a fixed joint -->
   <joint name="finger_3_finger_hook_joint" type="fixed">
-    <parent link="finger_3_segment_link_10"/>
+    <parent link="finger_3_segment_link_25"/>
     <child link="finger_3_finger_hook_link"/>
-    <origin rpy="0 -1.5707963267948502 0" xyz="0.0235 0 0"/>
+    <origin rpy="0 -1.5707963267948502 0" xyz="0.009399999999999999 0 0"/>
   </joint>
   <gazebo>
     <plugin filename="libfinger_controller_plugin.so" name="finger_controller_plugin"/>
