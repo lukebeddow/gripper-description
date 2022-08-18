@@ -3,6 +3,8 @@ URDFDIR=urdf
 MJCFDIR=mujoco
 SETSCRIPT=make_object_sets.sh
 
+MAKEFLAGS += -j8 # jN => use N parallel cores
+
 all: urdf mjcf
 
 .PHONY: everything
