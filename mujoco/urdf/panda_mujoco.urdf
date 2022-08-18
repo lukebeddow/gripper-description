@@ -6,7 +6,7 @@
 <robot name="panda">
   <mujoco>
     <compiler balanceinertia="true" discardvisual="false" meshdir="./meshes_mujoco/"/>
-    <size nconmax="800" njmax="3200"/>
+    <size nconmax="800" njmax="3400"/>
   </mujoco>
   <!-- rest of file should be identical to panda_and_gripper.urdf.xacro -->
   <!-- <link name="world" />

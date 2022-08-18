@@ -4,8 +4,8 @@
 #   1. Create a new top level entry with a unique name
 #   2. Define the file and path of the STL mesh (relative to meshes_mujoco)
 #       name_root = start of filename
-#       suffix = optional text to add to filename (to keep it unique)
 #       path = folder or path to mesh without start/trailing slashes (eg x not x/)
+#       suffix = optional text to add to filename in mujoco (to keep it unique)
 #   3. Define the fillet options
 #       used = do we have many alternative STL files with different fillets (true/false)
 #       step = what is the fillet step, eg 5, 10, 15, 20 means step is 5
@@ -15,9 +15,13 @@
 #       num = number of differently scaled models (min 1)
 #       max = maximum xyz scaling factors
 #       min = minimum xyz scaling factors
-#   5. Define the quaternion to rotate the mesh of the object
-#   6. Define the inertial parameters
-#       mass = in kg, with no scaling
+#   5. Define the spawning options
+#       rest = object origin distance above ground at rest, eg 1m cube rest=0.5m
+#       axis = which axis is rest measured in, currently should always be z (vertical)
+#   6. Define the quaternion to rotate the mesh of the object
+#   7. Define the inertial parameters
+#       mass = in kg, with no scaling NOT USED CURRENTLY, density used instead in py script
+#       align = map the intertial axes to the object, "xyz" is default, "zyx" swaps x->z
 #       type = what inertia equation to use, eg "cuboid", "cylinder"
 #       other->
 #         for type "cuboid" {x, y, z} should be side lengths without scaling in m
@@ -33,10 +37,11 @@ cube:
   path: cube
   spawn:
     rest: 0.05
-    axis: x
+    axis: z
   inertial:
     mass: 0.1
     type: cuboid
+    align: xyz
     x: 0.1
     y: 0.1
     z: 0.1
@@ -60,8 +65,9 @@ sphere:
   path: sphere
   spawn:
     rest: 0.05
-    axis: x
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: sphere
     r: 0.05
@@ -82,8 +88,9 @@ cylinder_11:
   path: cylinder_11
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: cylinder
     r: 0.05
@@ -106,8 +113,9 @@ cylinder_12_sideways:
   path: cylinder_12
   spawn:
     rest: 0.05
-    axis: x
+    axis: z
   inertial:
+    align: zyx
     mass: 0.1
     type: cylinder
     r: 0.05
@@ -121,7 +129,7 @@ cylinder_12_sideways:
     step: 10
     max: 25
     min: 5
-  quat: { x: 0.683, y: 0.183, z: 0.183, w: 0.683 } # rot(x,90) and rot(y,30)
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_12_upright:
   include: true
@@ -130,8 +138,9 @@ cylinder_12_upright:
   path: cylinder_12
   spawn:
     rest: 0.1
-    axis: x
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: cylinder
     r: 0.05
@@ -154,8 +163,9 @@ cylinder_13_sideways:
   path: cylinder_13
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: zyx
     mass: 0.1
     type: cylinder
     r: 0.05
@@ -169,7 +179,7 @@ cylinder_13_sideways:
     step: 10
     max: 25
     min: 5
-  quat: { x: 0.683, y: 0.183, z: 0.183, w: 0.683 } # rot(x,90) and rot(y,30)
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_14:
   include: true
@@ -178,8 +188,9 @@ cylinder_14:
   path: cylinder_14
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: zyx
     mass: 0.1
     type: cylinder
     r: 0.05
@@ -193,7 +204,7 @@ cylinder_14:
     step: 10
     max: 25
     min: 5
-  quat: { x: 0.683, y: 0.183, z: 0.183, w: 0.683 } # rot(x,90) and rot(y,30)
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_21:
   include: true
@@ -202,8 +213,9 @@ cylinder_21:
   path: cylinder_21
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: cylinder
     r: 0.1
@@ -228,8 +240,9 @@ cuboid_211:
   path: cuboid_211
   spawn:
     rest: 0.05
-    axis: x
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: cuboid
     x: 0.2
@@ -253,8 +266,9 @@ cuboid_211_upright:
   path: cuboid_211
   spawn:
     rest: 0.1
-    axis: x
+    axis: z
   inertial:
+    align: zyx
     mass: 0.1
     type: cuboid
     x: 0.2
@@ -278,8 +292,9 @@ cuboid_221:
   path: cuboid_221
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: xzy
     mass: 0.1
     type: cuboid
     x: 0.2
@@ -303,8 +318,9 @@ cuboid_311:
   path: cuboid_311
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: cuboid
     x: 0.3
@@ -328,8 +344,9 @@ cuboid_311_thinner:
   path: cuboid_311
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: xyz
     mass: 0.1
     type: cuboid
     x: 0.3
@@ -353,8 +370,9 @@ cuboid_321:
   path: cuboid_321
   spawn:
     rest: 0.05
-    axis: y
+    axis: z
   inertial:
+    align: xzy
     mass: 0.1
     type: cuboid
     x: 0.3

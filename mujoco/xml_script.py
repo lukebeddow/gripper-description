@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import yaml
 import os
@@ -15,6 +15,8 @@ debug = False
 # define directory structure
 mjcf_folder = "mjcf"
 mjcf_inc_folder = "mjcf_include"
+gripper_config_file = "/config/gripper.yaml"
+define_objects_file = "/mjcf_include/define_objects.yaml"
 
 # get relevant path information
 filepath = os.path.dirname(os.path.abspath(__file__))
@@ -26,10 +28,10 @@ if debug:
   print("The gripper description directory path is:", description_path)
   print("The mjcf directory path is:", directory_path)
 
-with open(description_path + "/config/gripper.yaml") as file:
+with open(description_path + gripper_config_file) as file:
   gripper_details = yaml.safe_load(file)
 
-with open(directory_path + "mjcf_include/define_objects.yaml") as file:
+with open(directory_path + define_objects_file) as file:
   object_details = yaml.safe_load(file)
 
 # ----- essential user defined parameters ----- #
@@ -59,8 +61,8 @@ panda_control = "motor"
 # gripper parameters
 gripper_control = "motor"
 force_limit_prismatic = 10.0 # these are currently not used
-force_limit_revolute = 10.0
-force_limit_palm = 10.0
+force_limit_revolute = 10.0  # these are currently not used
+force_limit_palm = 10.0      # these are currently not used
 
 # finger dummy parameters
 finger_control = "motor"
@@ -81,90 +83,12 @@ gripper_joints = [
   "palm_prismatic_joint"]
 base_joints = ["world_to_base"]
 
-# ----- calculate important parameters for object xml snippets ----- #
-
-# get details about the objects from the yaml file
-obj_list = object_details.keys()
-detail_list = []
-z_rest = []
-for obj in obj_list:
-  if object_details[obj]["include"]:
-    if object_details[obj]["fillet"]["used"]:
-      fillet_num = 1 + ((object_details[obj]["fillet"]["max"]
-        - object_details[obj]["fillet"]["min"]) / object_details[obj]["fillet"]["step"])
-    else: 
-      fillet_num = 1
-    scale_num = object_details[obj]["scale"]["num"]
-    detail_list.append((
-      scale_num,
-      fillet_num,
-      obj
-    ))
-    if debug:
-      print("Object:", obj, "has scale_num", scale_num, "and fillet_num", fillet_num)
-    # calculate the z_rests
-    new_z_rest = []
-    scale_axis = object_details[obj]["spawn"]["axis"]
-    scale_max = object_details[obj]["scale"]["max"][scale_axis]
-    scale_min = object_details[obj]["scale"]["min"][scale_axis]
-    if scale_num == 1:
-      scale_step = 0
-    else:
-      scale_step = (scale_max - scale_min) / (scale_num - 1)
-
-    for i in range(scale_num):
-      # figure out the amount of scaling
-      if scale_num == 1:
-        thescale = (scale_max + scale_min) / 2.
-      else:
-        thescale = scale_max - scale_step * i
-      if debug:
-        print("the new element is", thescale * object_details[obj]["spawn"]["rest"],
-          "scaling of", thescale)
-      new_z_rest.append(
-        thescale * object_details[obj]["spawn"]["rest"]
-      )
-    # now apply for every fillet
-    z_rest += new_z_rest * fillet_num
-# now count up how many objects are in the simluation
-total_num = 0
-for nums in detail_list:
-  total_num += nums[0] * nums[1]
-
-# now reverse the list (mujoco seems to go backwards for the objects)
-z_rest.reverse()
-
-# now assign each object one freejoint
-num_object_freejoints = int(total_num)
-if debug:
-  print("total number of object freejoints is", num_object_freejoints)
-
-# define object z height for spawning, we want objects to drop down and settle
-object_z_insert = 0.1
+# ----- generate qpos and joint names ---- #
 
 # auto generate joint names
 panda_joints = ["panda_joint{0}".format(i) for i in range(1,8)]
 finger_joints = ["finger_{0}_segment_joint_{1}".format(i, j) for i in range(1,4) 
                   for j in range(1, num_segments)]
-
-# ----- calculate keyframe xml snippet information ----- #
-
-# setup the free objects to the side in a grid formation
-grid_xrange = [-5, 5]
-grid_ystart = 2
-spacing = 0.5
-
-per_x = int(floor((grid_xrange[1] - grid_xrange[0]) / float(spacing)))
-num_y = int(ceil(num_object_freejoints / float(per_x)))
-object_X = [(grid_xrange[0] + (spacing / 2.) + spacing * i) for i in range(per_x)] * num_y
-object_Y = [(grid_ystart + spacing * j) for j in range(num_y) for i in range(per_x)]
-
-object_Q = "0 0 0 1"
-object_qpos = ""
-for i in range(num_object_freejoints):
-  object_qpos += (" " + str(object_X[i]) + " " + str(object_Y[i]) + " " 
-                  + str(z_rest[i])) # old: object_z_insert
-  object_qpos += " " + object_Q
 
 # define keyframe qpos for segmented finger, 0 for all
 if is_segmented:
@@ -218,15 +142,6 @@ panda_and_gripper_keyframe = """
 """.format(panda_qpos, gripper_qpos)
 
 task_keyframe = """
-  <keyframe>
-    <key name="initial pose"
-         time="0"
-         qpos="{0} {1} {2}"
-    />
-  </keyframe>
-""".format(base_joint_qpos, gripper_qpos, object_qpos)
-
-taskN_keyframe = """
   <keyframe>
     <key name="initial pose"
          time="0"
@@ -322,6 +237,47 @@ force_sensor = """
   <sensor>
     <force name="force sensor" noise="0" site="force sensor site"/>
   </sensor>
+"""
+
+# ----- create equality constraints for gripper motors ----- #
+equality_constraints = """
+  <equality>
+    <weld name="pris1_weld"
+          active="false"
+          body1="gripper_base_link"
+          body2="finger_1_intermediate"
+    />
+    <weld name="pris2_weld"
+          active="false"
+          body1="gripper_base_link"
+          body2="finger_2_intermediate"
+    />
+    <weld name="pris3_weld"
+          active="false"
+          body1="gripper_base_link"
+          body2="finger_3_intermediate"
+    />
+    <weld name="rev1_weld"
+          active="false"
+          body1="finger_1"
+          body2="finger_1_intermediate"
+    />
+    <weld name="rev2_weld"
+          active="false"
+          body1="finger_2"
+          body2="finger_2_intermediate"
+    />
+    <weld name="rev3_weld"
+          active="false"
+          body1="finger_3"
+          body2="finger_3_intermediate"
+    />
+    <weld name="palm_weld"
+          active="false"
+          body1="gripper_base_link"
+          body2="palm"
+    />
+  </equality>
 """
 
 # ----- helper functions ----- #
@@ -463,7 +419,7 @@ def add_geom_name(tree, parent_body):
       for i, g in enumerate(geoms):
         g.set("name", parent_body + "_geom_" + labels[i])
 
-def random_object_split(asset_tree, object_tree, detail_tree, num):
+def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
   """
   Randomly split the total number of objects into num new seperate files
   """
@@ -471,13 +427,6 @@ def random_object_split(asset_tree, object_tree, detail_tree, num):
   # create blank trees
   blankroot = """<mujoco></mujoco>"""
   blanktree = etree.fromstring(blankroot)
-
-  # create copies of the trees
-  trees = []
-  for i in range(num):
-    trees.append(
-      [deepcopy(blanktree), deepcopy(blanktree), ""]
-    )
 
   # get the roots of the input trees
   asset_root = asset_tree.getroot()
@@ -487,21 +436,35 @@ def random_object_split(asset_tree, object_tree, detail_tree, num):
   # how many total objects are there
   num_obj = len(asset_root.getchildren())
 
+  # determine how many splits we need
+  num_splits = int(np.ceil(num_obj / float(obj_per_task)))
+
+  # print essential information to the terminal
+  print("There are", num_obj, "objects, with", 
+    obj_per_task, "per task, giving", num_splits, "splits")
+
+  # create copies of the trees
+  trees = []
+  for i in range(num_splits):
+    trees.append(
+      [deepcopy(blanktree), deepcopy(blanktree), ""]
+    )
+
   # for testing: compare asset/object numbers (object should be +1 for ground)
-  other_num = len(object_root.getchildren())
   if debug:
+    other_num = len(object_root.getchildren())
     print("number of assets is", num_obj)
     print("number of objects is", other_num)
 
-  # create random choice lists
-  rand_lists = np.random.choice(range(0, num_obj), (num_obj // num) * num, 
-                                replace=False).reshape(num, -1)
+  if num_obj < 1:
+    raise RuntimeError("number of objects is zero! Ensure objects have 'include: true'"
+      " and beware repeated names of objects override each other")
 
-  # # for testing - linear lists
-  # rand_lists = np.array(list(range(0, (num_obj // num) * num))).reshape(num, -1)
+  # create shuffled random list of every object
+  rand_lists = np.arange(num_obj)
+  np.random.shuffle(rand_lists) # comment this line for unshuffled objects
 
   # get the qpos info, split into individual numbers
-  qpos_split = deepcopy(object_qpos).split()
   qpos_str = " {0} {1} {2} {3} {4} {5} {6}"
 
   # setup the free objects to the side in a grid formation
@@ -510,14 +473,20 @@ def random_object_split(asset_tree, object_tree, detail_tree, num):
   spacing = 0.5
 
   per_x = int(floor((grid_xrange[1] - grid_xrange[0]) / float(spacing)))
-  num_y = int(ceil(len(rand_lists[0]) / float(per_x)))
+  num_y = int(ceil(obj_per_task / float(per_x)))
   object_X = [(grid_xrange[0] + (spacing / 2.) + spacing * i) for i in range(per_x)] * num_y
   object_Y = [(grid_ystart + spacing * j) for j in range(num_y) for i in range(per_x)]
 
   # loop through the num of objects per split and assemble trees and qpos
-  for i in range(num):
-    for j in range(len(rand_lists[0])):
-      r = rand_lists[i][j]
+  for i in range(num_splits):
+    for j in range(obj_per_task):
+
+      # if we run out of objects
+      if i * obj_per_task + j >= len(rand_lists):
+        print("The last file has", j, "objects instead of", obj_per_task)
+        break
+
+      r = rand_lists[i * obj_per_task + j]
       trees[i][0].append(deepcopy(asset_root[r]))
       trees[i][1].append(deepcopy(object_root[r]))
       
@@ -552,46 +521,65 @@ if __name__ == "__main__":
   This script opens a given xml file, saves the tree, and then makes some
   changes to it. The new tree then overwrites the old tree and the file is
   saved. The lxml module is used, which preserves comments and ordering, so
-  the new file should look identical to the old file except the changes
+  the new file should look identical to the old file except the changes.
+
+  The idea is to take mujoco xml files (mjcf files), open their xml tree,
+  and then insert some extra bits and pieces.
+
+  There are 4 target files (names given below in code):
+    - gripper contains the gripper only
+    - panda contains the panda only
+    - both contains both the gripper and the panda
+    - task contains the gripper fixed above the ground, ready for grasping
   """
 
-  # define the names of the xml files we will be editing
+  # define the names of the base xml files we will be editing
   gripper_filename = directory_path + "gripper_mujoco.xml"
   panda_filename = directory_path + "panda_mujoco.xml"
   both_filename = directory_path + "panda_and_gripper_mujoco.xml"
   task_filename = directory_path + "gripper_task.xml"
-  taskN_filename = directory_path + "/task/gripper_task_{}.xml"
-  assetN_filename = directory_path + "/mjcf_include/assets/assets_{}.xml"
-  objectN_filename = directory_path + "/mjcf_include/objects/objects_{}.xml"
 
-  # parse and extract the xml tree for each
+  # define the names of object files we will open
+  asset_filename = directory_path + mjcf_inc_folder + "/" + "assets.xml"
+  object_filename = directory_path + mjcf_inc_folder + "/" + "objects.xml"
+  detail_filename = directory_path + mjcf_inc_folder + "/" + "details.xml"
+
+  # define the names of files we will make when we split tasks and objects
+  asset_split_filename = "assets/assets_{}.xml"
+  object_split_filename = "objects/objects_{}.xml"
+  task_split_filename = "task/gripper_task_{}.xml"
+  taskN_filename = directory_path + "/" + task_split_filename
+  assetN_filename = directory_path + mjcf_inc_folder + "/" + asset_split_filename
+  objectN_filename = directory_path + mjcf_inc_folder + "/" + object_split_filename
+
+  # parse and extract the xml tree for each file we want to use
   parser = etree.XMLParser(remove_comments=True)
   gripper_tree = etree.parse(gripper_filename, parser=parser)
   panda_tree = etree.parse(panda_filename, parser=parser)
   both_tree = etree.parse(both_filename, parser=parser)
   task_tree = etree.parse(task_filename, parser=parser)
-  taskN_tree = etree.parse(task_filename, parser=parser)
+  asset_tree = etree.parse(asset_filename, parser=parser)
+  object_tree = etree.parse(object_filename, parser=parser)
+  detail_tree = etree.parse(detail_filename, parser=parser)
 
   # add the keyframe information to each
   add_chunk(gripper_tree, "@root", gripper_keyframe)
   add_chunk(panda_tree, "@root", panda_keyframe)
   add_chunk(both_tree, "@root", panda_and_gripper_keyframe)
-  add_chunk(task_tree, "@root", task_keyframe)
 
   # add the actuator information to each
   add_chunk(gripper_tree, "@root", gripper_actuator)
   add_chunk(panda_tree, "@root", panda_actuator)
   add_chunk(both_tree, "@root", panda_and_gripper_actuator)
   add_chunk(task_tree, "@root", task_actuator)
-  add_chunk(taskN_tree, "@root", task_actuator)
 
   # add force sensor to the gripper body
   add_chunk_with_specific_attribute(task_tree, "body", "name",
                                     "gripper_base_link", force_sensor_site)
-  add_chunk_with_specific_attribute(taskN_tree, "body", "name",
-                                    "gripper_base_link", force_sensor_site)
   add_chunk(task_tree, "@root", force_sensor)
-  add_chunk(taskN_tree, "@root", force_sensor)
+
+  # add equality constraints to gripper task for non-backdriveable joints
+  add_chunk(task_tree, "@root", equality_constraints)
 
   # now add in finger joint stiffnesses
   tag_string = "finger_{0}_segment_joint_{1}"
@@ -602,13 +590,17 @@ if __name__ == "__main__":
     # # experiment: add joint friction
     # next_rev = "finger_{0}_revolute_joint".format(i)
     # next_pris = "finger_{0}_prismatic_joint".format(i)
-    # add_tag_attribute(taskN_tree, "joint", next_rev, "frictionloss", str(1))
-    # add_tag_attribute(taskN_tree, "joint", next_pris, "frictionloss", str(1))
+    # add_tag_attribute(task_tree, "joint", next_rev, "frictionloss", str(1))
+    # add_tag_attribute(task_tree, "joint", next_pris, "frictionloss", str(1))
     # raise RuntimeError("joint friction not tested out yet!!!")
 
+    # loop through each finger segment and add xml tags/attributes
     for j in range(num_segments):
+
+      # names of the finger segment joint and body
       next_joint = tag_string.format(i + 1, j + 1)
       next_body = body_string.format(i + 1, j + 2)
+
       # add finger stiffness attributes
       add_tag_attribute(gripper_tree, "joint", next_joint,
                         "stiffness", str(finger_joint_stiffness))
@@ -616,78 +608,48 @@ if __name__ == "__main__":
                         "stiffness", str(finger_joint_stiffness))
       add_tag_attribute(task_tree, "joint", next_joint,
                         "stiffness", str(finger_joint_stiffness))
-      add_tag_attribute(taskN_tree, "joint", next_joint,
-                        "stiffness", str(finger_joint_stiffness))
                     
       # add geom names
       add_geom_name(task_tree, next_body)
-      add_geom_name(taskN_tree, next_body)
 
   # add palm geom names
   add_geom_name(task_tree, "palm")
-  add_geom_name(taskN_tree, "palm")
 
   # mjcf includes folder
   mjcf_inc_folder = "mjcf_include"
-
-  # add the task includes
-  task_includes = """<include file="{}/objects.xml"/>""".format(mjcf_inc_folder)
-  add_chunk(task_tree, "worldbody", task_includes)
-
-  # add the asset includes
-  asset_include = """<include file="{}/assets.xml"/>""".format(mjcf_inc_folder)
-  add_chunk(task_tree, "asset", asset_include)
 
   # finally, overwrite the files with the new xml
   gripper_tree.write(gripper_filename, xml_declaration=True, encoding='utf-8')
   panda_tree.write(panda_filename, xml_declaration=True, encoding='utf-8')
   both_tree.write(both_filename, xml_declaration=True, encoding='utf-8')
-  task_tree.write(task_filename, xml_declaration=True, encoding='utf-8')
 
-  # now make multiple task xmls with different objects
+  # ----- now we split the task tree into multiple files (each with fewer objects) ----- #
 
-  # find out how many split files we need
-  num_splits = 1
-  while num_object_freejoints // num_splits > max_objects_per_task:
-    num_splits += 1
-
-  # print essential information to the terminal
-  print("There are", num_object_freejoints, "objects, with", 
-    num_object_freejoints // num_splits, "per task, giving", num_splits, "splits")
-
-  # find and parse the base xml files
-  asset_filename = directory_path + mjcf_inc_folder + "/assets.xml"
-  object_filename = directory_path + mjcf_inc_folder + "/objects.xml"
-  detail_filename = directory_path + mjcf_inc_folder + "/details.xml"
-  asset_tree = etree.parse(asset_filename, parser=parser)
-  object_tree = etree.parse(object_filename, parser=parser)
-  detail_tree = etree.parse(detail_filename, parser=parser)
-
-  # split the files into N equal parts
-  taskN_trees = random_object_split(asset_tree, object_tree, detail_tree, num_splits)
+  # split the files into equal parts with a given number of objects per task
+  taskN_trees = random_object_split(asset_tree, object_tree, detail_tree, max_objects_per_task)
 
   # for each split, perform the formatting as above and save as a new file
-  for i in range(num_splits):
+  for i in range(len(taskN_trees)):
 
     # create a copy which we will edit
-    taskN_tree_copy = deepcopy(taskN_tree)
+    taskN_tree = deepcopy(task_tree)
 
     # edit the meshdir because the tasks are in the /task directory
-    modify_tag_attribute(taskN_tree_copy, "compiler", "meshdir", "../meshes_mujoco")
+    modify_tag_attribute(taskN_tree, "compiler", "meshdir", "../meshes_mujoco")
 
     # create xml text for specefic includes and add them to the tree
-    objectN_includes = """<include file="../{0}/objects/objects_{1}.xml"/>""".format(mjcf_inc_folder, i)
-    assetN_include = """<include file="../{0}/assets/assets_{1}.xml"/>""".format(mjcf_inc_folder, i)
-    add_chunk(taskN_tree_copy, "worldbody", objectN_includes)
-    add_chunk(taskN_tree_copy, "asset", assetN_include)
-    add_chunk(taskN_tree_copy, "@root", 
-        taskN_keyframe.format(base_joint_qpos, gripper_qpos, taskN_trees[i][2]))
+    objectN_includes = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, object_split_filename.format(i))
+    assetN_include = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, asset_split_filename.format(i))
+    add_chunk(taskN_tree, "worldbody", objectN_includes)
+    add_chunk(taskN_tree, "asset", assetN_include)
+    add_chunk(taskN_tree, "@root", 
+        task_keyframe.format(base_joint_qpos, gripper_qpos, taskN_trees[i][2]))
 
     # create element trees from the split
     new_asset_tree = etree.ElementTree(taskN_trees[i][0])
     new_object_tree = etree.ElementTree(taskN_trees[i][1])
 
     # write the split files
-    taskN_tree_copy.write(taskN_filename.format(i))
+    taskN_tree.write(taskN_filename.format(i))
     new_asset_tree.write(assetN_filename.format(i))
     new_object_tree.write(objectN_filename.format(i))

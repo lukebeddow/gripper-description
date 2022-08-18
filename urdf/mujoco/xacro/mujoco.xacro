@@ -8,7 +8,7 @@
 				balanceinertia="true"
 				discardvisual="false"
 			/>
-			<size njmax="3200" nconmax="800"/>
+			<size njmax="3400" nconmax="800"/>
 		</mujoco>
 	</xacro:macro>
 </robot>

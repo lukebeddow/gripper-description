@@ -1,7 +1,7 @@
 gripper_config:
   effort_control: false
   is_segmented: true
-  num_segments: 10
+  num_segments: 5
   torsion: false
 
 # all in SI units unless stated (m/rad) NB must use 0.0e-3 not 0e-3 for yaml

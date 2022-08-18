@@ -23,12 +23,13 @@ MJINCDIR = $(MJCFDIR)/mjcf_include
 ASSETDIR = $(MJINCDIR)/assets
 OBJDIR = $(MJINCDIR)/objects
 
-# directories of urdf dependencies
+# directories and files containing urdf dependencies
 XACRODIR = ../xacro
 CONFIGDEP = ../config/gripper.yaml
 
 # define additional dependencies for the mjcf_include xmls
-MJDEP := define_objects.yaml create_objects.xacro
+MJINCTARGET := objects.xml assets.xml details.xml
+MJDEP := define_objects.yaml build_object_set.py
 
 MAKEFLAGS += -j8 # run on up to 8 parallel cpu cores
 
@@ -41,11 +42,7 @@ MJCFS := $(patsubst xacro/%.urdf.xacro, $(MJCFDIR)/%.xml, $(XACROS))
 
 # add the additional dependencies for the mjcf_include files
 MJDEP := $(patsubst %, $(MJINCDIR)/%, $(MJDEP))
-
-# use object xacros to get desired mjcf target names for objects
-MJXACROS := $(wildcard $(MJINCDIR)/*.xacro)
-MJXACROS := $(filter-out $(MJDEP), $(MJXACROS))
-MJINC := $(patsubst %.xacro, %.xml, $(MJXACROS))
+MJINCTARGET := $(patsubst %, $(MJINCDIR)/%, $(MJINCTARGET))
 
 # create the target directories if they don't exist
 DIRS := $(TASKDIR) $(ASSETDIR) $(OBJDIR)
@@ -57,12 +54,12 @@ DEPS := $(wildcard $(XACRODIR)/*.xacro) $(CONFIGDEP)
 # ----- start of make ----- #
 
 # first run preprocess to source ros, that automatically runs 'make targets'
-all: $(MJCFS) $(MJINC)
+all: $(MJCFS) generate_xml
 	echo Making the task xml files - note this command is always run
 	rm -f $(TASKDIR)/*.xml
 	rm -f $(MJINCDIR)/objects/*.xml
 	rm -f $(MJINCDIR)/assets/*.xml
-	./xml_script.py
+	python ./xml_script.py
 
 # only re-run the xml script to post process xml files
 .PHONY: script
@@ -71,7 +68,7 @@ script: $(MJCFS)
 	rm -f $(TASKDIR)/*.xml
 	rm -f $(MJINCDIR)/objects/*.xml
 	rm -f $(MJINCDIR)/assets/*.xml
-	./xml_script.py
+	python ./xml_script.py
 
 # build the mujoco mjcf files
 .PHONY: $(MJCFS) # phony to always run, so xml_script is never run twice on same file
@@ -86,14 +83,22 @@ $(MJCFS): $(MJCFDIR)/%.xml : $(URDFDIR)/%.urdf
 $(URDFS): $(URDFDIR)/%.urdf : xacro/%.urdf.xacro $(DEPS)
 	./xacro3 $< > $@
 
-# create the object xml includes
-$(MJINC): %.xml : %.xacro $(MJDEP)
-	./xacro3 $< > $@
+# # create the object xml includes
+# $(MJINCTARGET): generate_xml
+# 	python3 ./$(MJINCDIR)/build_object_set.py
+
+.PHONY: generate_xml
+generate_xml: $(MJDEP)
+	python3 ./$(MJINCDIR)/build_object_set.py
+
+.PHONY: test
+test:
+	python3 ./$(MJINCDIR)/build_object_set.py
 
 clean:
 	rm -f $(URDFS)
 	rm -f $(MJCFS)
-	rm -f $(MJINC)
+	rm -f $(MJINCTARGET)
 
 
 # below is no longer needed, but the code may be helpful to keep

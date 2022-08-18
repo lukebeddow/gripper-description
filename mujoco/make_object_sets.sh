@@ -9,7 +9,9 @@ SETDIR=object_sets
 SETMATCH=set*.yaml
 YAMLDESTDIR=mjcf/mjcf_include/
 YAMLDESTNAME=define_objects.yaml
-CREATEDESTNAME=create_objects.xacro
+CREATEDESTNAME=build_object_set.py
+
+#create_objects.xacro
 
 # find all sets we can build based on SETMATCH
 cd $SETDIR
@@ -72,6 +74,8 @@ cp $SETDIR/$CREATEDESTNAME $YAMLDESTDIR/$CREATEDESTNAME
 for set_yaml in "${sets_to_build[@]}"; do
 
   echo Now making: "${set_yaml%.*}"
+
+  rm -rf $SETDIR/${set_yaml%.*}
 
   # copy the set yaml into the mjcf builder directory
   cp $SETDIR/$set_yaml $YAMLDESTDIR/$YAMLDESTNAME
