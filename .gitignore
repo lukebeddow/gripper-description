@@ -8,7 +8,5 @@ task
 task/
 */object_sets/set*
 */object_sets/set*/
-*/object_sets/test_set/
-*/object_sets/test_set
 !*/object_sets/*.yaml
 !*/object_sets/*.yaml
