@@ -28,14 +28,19 @@
 		<!-- macro for adding the segmented fingers onto the gripper-->
 		<xacro:macro name="add_fingers">
 		  <!-- Create the fingers themselves -->
-		  <xacro:segmented_finger prefix="finger_1" yaml_dict="${yaml_dict}"/>
-		  <xacro:segmented_finger prefix="finger_2" yaml_dict="${yaml_dict}"/>
-		  <xacro:segmented_finger prefix="finger_3" yaml_dict="${yaml_dict}"/>
+		  <xacro:segmented_finger prefix="finger_1" yaml_dict="${yaml_dict}"
+		  												connect_to="finger_1" x="${x_fix}" y="${y_fix}" z="${z_fix}"/>
+		  <xacro:segmented_finger prefix="finger_2" yaml_dict="${yaml_dict}"
+		  												connect_to="finger_2" x="${x_fix}" y="${y_fix}" z="${z_fix}"/>
+		  <xacro:segmented_finger prefix="finger_3" yaml_dict="${yaml_dict}"
+		  												connect_to="finger_3" x="${x_fix}" y="${y_fix}" z="${z_fix}"/>
 		  <!-- adds the finger controller plugin to gazebo -->
 		  <xacro:gazebo_plugin/>
-		  <!-- attach them to the gripper -->
+
+		  <!-- OLD CODE: delete later if not needed
+			comment: attach them to the gripper 
 		  <joint name="to_segmented_finger_1" type="fixed">
-		    <origin xyz="${x_fix} ${y_fix} ${z_fix}" rpy="${pi/2} 0 0"/>
+		    <origin xyz="${x_fix} ${y_fix} ${z_fix + 0.1}" rpy="${pi/2} 0 0"/>
 		    <parent link="finger_1"/>
 		    <child link="finger_1_segment_link_1"/>
 		  </joint>
@@ -49,6 +54,8 @@
 		    <parent link="finger_3"/>
 		    <child link="finger_3_segment_link_1"/>
 		  </joint>
+		  -->
+			
 		</xacro:macro>
 
 		<!-- add the segmented fingers only if indicated in gripper.config -->

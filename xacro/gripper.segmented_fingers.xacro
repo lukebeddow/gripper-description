@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="segmented_finger" params="prefix yaml_dict">
+  <xacro:macro name="segmented_finger" params="prefix yaml_dict connect_to x y z">
     
     <!-- extract the gripper config information -->
     <xacro:property name="is_segmented" value="${yaml_dict['gripper_config']['is_segmented']}"/>
     <xacro:property name="num_segments" value="${yaml_dict['gripper_config']['num_segments']}"/>
+    <xacro:property name="fixed_first_segment" value="${yaml_dict['gripper_config']['fixed_first_segment']}"/>
     <xacro:property name="torsion" value="${yaml_dict['gripper_config']['torsion']}"/>
     <xacro:property name="finger_length" value="${yaml_dict['gripper_params']['finger_length']}"/>
     <xacro:property name="finger_width" value="${yaml_dict['gripper_params']['finger_width']}"/>
@@ -74,7 +75,7 @@
         <inertia ixx="${segment_ixx * stability_factor}"
                  iyy="${segment_iyy * stability_factor}"
                  izz="${segment_izz * stability_factor}"
-                ixy="0.00" iyz="0.00" ixz="0.00" />
+                 ixy="0.00" iyz="0.00" ixz="0.00" />
       </inertial>
     </xacro:macro>
 
@@ -156,6 +157,29 @@
         </actuator>
       </transmission>
     </xacro:macro>
+    
+    <!-- TESTING: add a base joint connection -->
+    <xacro:if value="${fixed_first_segment}">
+    	<joint name="${prefix}_fixed_segment_connection" type="fixed">
+    		<origin xyz="${x_fix} ${y_fix} ${z_fix}" rpy="${pi/2} 0 0"/>
+		  	<parent link="${connect_to}"/>
+		  	<child link="${prefix}_segment_link_1"/>
+		  </joint>
+    </xacro:if>
+    <xacro:if value="${not fixed_first_segment}">
+		  <joint name="${prefix}_segment_joint_0" type="revolute">
+		  	<origin xyz="${x_fix} ${y_fix} ${z_fix}" rpy="${pi/2} 0 0"/>
+		  	<parent link="${connect_to}"/>
+		  	<child link="${prefix}_segment_link_1"/>
+		  	<axis xyz="0 1 0" rpy="0 0 0"/>
+		    <limit effort="1000.0"
+		          lower="-1.0"
+		          upper="1.0"
+		          velocity="1.0"/>
+		    <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+		  </joint>
+    </xacro:if>
+    <!-- END TESTING OF BASE JOINT (rather than fixed) -->
 
     <!-- Create the base link -->
     <xacro:add_segment_link number="1"/>

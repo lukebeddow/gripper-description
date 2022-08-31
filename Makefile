@@ -18,10 +18,10 @@ urdf:
 mjcf:
 	$(MAKE) -C $(MJCFDIR)
 
-# make object sets, clean first
+# make object sets, clean first, use '$ make sets SET=set_test' to make only set_test
 .PHONY: sets
 sets: clean
-	cd $(MJCFDIR) && ./$(SETSCRIPT)
+	cd $(MJCFDIR) && ./$(SETSCRIPT) $(SET)
 
 clean:
 	$(MAKE) -C $(URDFDIR) clean

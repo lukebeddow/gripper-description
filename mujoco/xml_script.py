@@ -39,6 +39,7 @@ with open(directory_path + define_objects_file) as file:
 # exctract the details of the gripper configuration from yaml file
 is_segmented = gripper_details["gripper_config"]["is_segmented"]
 num_segments = gripper_details["gripper_config"]["num_segments"]
+fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
 
 # starting configuration of the robot joints
 joint_start = {
@@ -85,14 +86,16 @@ base_joints = ["world_to_base"]
 
 # ----- generate qpos and joint names ---- #
 
+ffs = 1 if fixed_first_segment else 0
+
 # auto generate joint names
 panda_joints = ["panda_joint{0}".format(i) for i in range(1,8)]
 finger_joints = ["finger_{0}_segment_joint_{1}".format(i, j) for i in range(1,4) 
-                  for j in range(1, num_segments)]
+                  for j in range(ffs, num_segments)]
 
 # define keyframe qpos for segmented finger, 0 for all
 if is_segmented:
-  finger_joint_qpos = "0 " * (num_segments - 1)
+  finger_joint_qpos = "0 " * (num_segments - ffs)
 else:
   finger_joint_qpos = ""
 
@@ -585,6 +588,8 @@ if __name__ == "__main__":
   tag_string = "finger_{0}_segment_joint_{1}"
   body_string = "finger_{0}_segment_link_{1}"
 
+  ffs = 1 if fixed_first_segment else 0
+
   for i in range(3):
 
     # # experiment: add joint friction
@@ -598,8 +603,8 @@ if __name__ == "__main__":
     for j in range(num_segments):
 
       # names of the finger segment joint and body
-      next_joint = tag_string.format(i + 1, j + 1)
-      next_body = body_string.format(i + 1, j + 2)
+      next_joint = tag_string.format(i + 1, j + ffs)
+      next_body = body_string.format(i + 1, j + ffs + 1)
 
       # add finger stiffness attributes
       add_tag_attribute(gripper_tree, "joint", next_joint,
