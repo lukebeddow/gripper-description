@@ -6,6 +6,7 @@ objects
 objects/
 task
 task/
+*.xml
 */object_sets/set*
 */object_sets/set*/
 !*/object_sets/*.yaml

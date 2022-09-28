@@ -36,6 +36,9 @@ with open(directory_path + define_objects_file) as file:
 
 # ----- essential user defined parameters ----- #
 
+# set a seed so the same object set is always in the same order (ie same test set)
+np.random.seed(1234)
+
 # exctract the details of the gripper configuration from yaml file
 is_segmented = gripper_details["gripper_config"]["is_segmented"]
 num_segments = gripper_details["gripper_config"]["num_segments"]
@@ -550,10 +553,12 @@ if __name__ == "__main__":
   # define the names of files we will make when we split tasks and objects
   asset_split_filename = "assets/assets_{}.xml"
   object_split_filename = "objects/objects_{}.xml"
+  keyframe_split_filename = "keyframes/keyframe_{}.xml"
   task_split_filename = "task/gripper_task_{}.xml"
   taskN_filename = directory_path + "/" + task_split_filename
   assetN_filename = directory_path + mjcf_inc_folder + "/" + asset_split_filename
   objectN_filename = directory_path + mjcf_inc_folder + "/" + object_split_filename
+  keyframeN_filename = directory_path + mjcf_inc_folder + "/" + keyframe_split_filename
 
   # parse and extract the xml tree for each file we want to use
   parser = etree.XMLParser(remove_comments=True)
@@ -620,9 +625,6 @@ if __name__ == "__main__":
   # add palm geom names
   add_geom_name(task_tree, "palm")
 
-  # mjcf includes folder
-  mjcf_inc_folder = "mjcf_include"
-
   # finally, overwrite the files with the new xml
   gripper_tree.write(gripper_filename, xml_declaration=True, encoding='utf-8')
   panda_tree.write(panda_filename, xml_declaration=True, encoding='utf-8')
@@ -645,9 +647,14 @@ if __name__ == "__main__":
     # create xml text for specefic includes and add them to the tree
     objectN_includes = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, object_split_filename.format(i))
     assetN_include = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, asset_split_filename.format(i))
+    keyframeN_include = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, keyframe_split_filename.format(i))
     add_chunk(taskN_tree, "worldbody", objectN_includes)
     add_chunk(taskN_tree, "asset", assetN_include)
-    add_chunk(taskN_tree, "@root", 
+    add_chunk(taskN_tree, "@root", keyframeN_include)
+
+    # make a keyframe snippet to be saved in a seperate file
+    keyframe_tree = etree.ElementTree(etree.Element("mujoco"))
+    add_chunk(keyframe_tree, "@root", 
         task_keyframe.format(base_joint_qpos, gripper_qpos, taskN_trees[i][2]))
 
     # create element trees from the split
@@ -658,3 +665,4 @@ if __name__ == "__main__":
     taskN_tree.write(taskN_filename.format(i))
     new_asset_tree.write(assetN_filename.format(i))
     new_object_tree.write(objectN_filename.format(i))
+    keyframe_tree.write(keyframeN_filename.format(i))

@@ -1,7 +1,7 @@
 gripper_config:
   effort_control: false
   is_segmented: true
-  num_segments: 10
+  num_segments: 6
   fixed_first_segment: false
   torsion: false
 
