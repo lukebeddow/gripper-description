@@ -5,7 +5,7 @@
 	<xacro:property name="path_to_top" value="../.."/>
 
 	<!-- include the mujoco settings xacro -->
-	<xacro:include filename="${path_to_top}/urdf/mujoco/xacro/mujoco.xacro"/>
+	<xacro:include filename="${path_to_top}/mujoco/xacro/mujoco.xacro"/>
 	<xacro:mujoco_settings/>
 	
 	<!-- rest of file should be identical to gripper.urdf.xacro -->

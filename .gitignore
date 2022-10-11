@@ -7,6 +7,8 @@ objects/
 task
 task/
 *.xml
+*.urdf
+*.sdf
 */object_sets/set*
 */object_sets/set*/
 !*/object_sets/*.yaml
