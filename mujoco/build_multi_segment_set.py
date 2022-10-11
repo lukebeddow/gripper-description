@@ -121,7 +121,8 @@ for set_to_build in build_sets:
       shutil.rmtree(setpath + set_to_build)
 
     # copy the set yaml into the mjcf builder directory
-    shutil.copyfile(setpath + "/" + object_yaml, activepath + "/" + objects_folder + "/" + object_yaml)
+    set_yaml = f"{set_to_build}.yaml"
+    shutil.copyfile(setpath + "/" + set_yaml, activepath + "/" + objects_folder + "/" + object_yaml)
 
   # delete all folders with the same style as the task folder name (ie out of date)
   folders = [x for x in os.listdir(activepath) if os.path.isdir(activepath + "/" + x)]
