@@ -60,7 +60,7 @@ MJINCTARGET := $(patsubst %, $(MJINCDIR)/%, $(MJINCTARGET))
 
 # create the target directories if they don't exist, unless we run 'make clean'
 ifneq ($(filter clean, $(MAKECMDGOALS)), clean)
-DIRS := $(TASKDIR) $(ASSETDIR) $(OBJDIR) $(KEYDIR)
+DIRS := $(URDFDIR) $(TASKDIR) $(ASSETDIR) $(OBJDIR) $(KEYDIR)
 $(info $(shell mkdir -p $(DIRS)))
 endif
 
