@@ -147,21 +147,21 @@
       <pose frame=''>0 0.007 0.871 1.57079 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_1_segment_link_1_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -180,10 +180,10 @@
         </surface>
       </collision>
       <visual name='finger_1_segment_link_1_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -217,24 +217,24 @@
       </axis>
     </joint>
     <link name='finger_1_segment_link_2'>
-      <pose frame=''>0 0.007 0.824 1.57079 1.57079 3.14159</pose>
+      <pose frame=''>0 0.007 0.8475 1.57079 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_1_segment_link_2_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -253,10 +253,10 @@
         </surface>
       </collision>
       <visual name='finger_1_segment_link_2_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -302,24 +302,24 @@
       </physics>
     </joint>
     <link name='finger_1_segment_link_3'>
-      <pose frame=''>0 0.007 0.777 1.57079 1.57079 3.14159</pose>
+      <pose frame=''>0 0.007 0.824 1.57079 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_1_segment_link_3_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -338,10 +338,10 @@
         </surface>
       </collision>
       <visual name='finger_1_segment_link_3_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -387,24 +387,24 @@
       </physics>
     </joint>
     <link name='finger_1_segment_link_4'>
-      <pose frame=''>0 0.007 0.73 1.57079 1.57079 3.14159</pose>
+      <pose frame=''>0 0.007 0.8005 1.57079 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_1_segment_link_4_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -423,10 +423,10 @@
         </surface>
       </collision>
       <visual name='finger_1_segment_link_4_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -472,46 +472,24 @@
       </physics>
     </joint>
     <link name='finger_1_segment_link_5'>
-      <pose frame=''>0 0.007 0.683 1.57079 1.57079 3.14159</pose>
+      <pose frame=''>0 0.007 0.777 1.57079 1.57079 3.14159</pose>
       <inertial>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
-        <mass>0.025777</mass>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>1.11752e-05</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
-          <ixz>-5.81055e-22</ixz>
-          <iyy>3.32175e-05</iyy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>2.54105e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_1_segment_link_5_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
-          </box>
-        </geometry>
-        <surface>
-          <contact>
-            <ode>
-              <max_vel>0</max_vel>
-              <min_depth>0.001</min_depth>
-            </ode>
-          </contact>
-          <friction>
-            <ode>
-              <mu>0.1</mu>
-              <mu2>0.1</mu2>
-            </ode>
-          </friction>
-        </surface>
-      </collision>
-      <collision name='finger_1_segment_link_5_fixed_joint_lump__finger_1_finger_hook_link_collision_1'>
-        <pose frame=''>0.047 0 0.01925 3.14159 -1.57079 3.14159</pose>
-        <geometry>
-          <box>
-            <size>0.0385 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -530,10 +508,10 @@
         </surface>
       </collision>
       <visual name='finger_1_segment_link_5_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -543,8 +521,455 @@
           </script>
         </material>
       </visual>
-      <visual name='finger_1_segment_link_5_fixed_joint_lump__finger_1_finger_hook_link_visual_1'>
-        <pose frame=''>0.047 0 0.01925 3.14159 -1.57079 3.14159</pose>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_1_segment_joint_4' type='revolute'>
+      <child>finger_1_segment_link_5</child>
+      <parent>finger_1_segment_link_4</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_1_segment_link_6'>
+      <pose frame=''>0 0.007 0.7535 1.57079 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_1_segment_link_6_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_1_segment_link_6_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_1_segment_joint_5' type='revolute'>
+      <child>finger_1_segment_link_6</child>
+      <parent>finger_1_segment_link_5</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_1_segment_link_7'>
+      <pose frame=''>0 0.007 0.73 1.57079 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_1_segment_link_7_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_1_segment_link_7_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_1_segment_joint_6' type='revolute'>
+      <child>finger_1_segment_link_7</child>
+      <parent>finger_1_segment_link_6</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_1_segment_link_8'>
+      <pose frame=''>0 0.007 0.7065 1.57079 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_1_segment_link_8_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_1_segment_link_8_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_1_segment_joint_7' type='revolute'>
+      <child>finger_1_segment_link_8</child>
+      <parent>finger_1_segment_link_7</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_1_segment_link_9'>
+      <pose frame=''>0 0.007 0.683 1.57079 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_1_segment_link_9_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_1_segment_link_9_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_1_segment_joint_8' type='revolute'>
+      <child>finger_1_segment_link_9</child>
+      <parent>finger_1_segment_link_8</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_1_segment_link_10'>
+      <pose frame=''>0 0.007 0.6595 1.57079 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <mass>0.0128885</mass>
+        <inertia>
+          <ixx>2.02876e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>-7.26119e-23</ixz>
+          <iyy>4.15284e-06</iyy>
+          <iyz>0</iyz>
+          <izz>3.80818e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_1_segment_link_10_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='finger_1_segment_link_10_fixed_joint_lump__finger_1_finger_hook_link_collision_1'>
+        <pose frame=''>0.0235 0 0.01925 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.0385 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_1_segment_link_10_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='finger_1_segment_link_10_fixed_joint_lump__finger_1_finger_hook_link_visual_1'>
+        <pose frame=''>0.0235 0 0.01925 3.14159 -1.57079 3.14159</pose>
         <geometry>
           <box>
             <size>0.0385 0.028 0.0009</size>
@@ -561,9 +986,9 @@
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
-    <joint name='finger_1_segment_joint_4' type='revolute'>
-      <child>finger_1_segment_link_5</child>
-      <parent>finger_1_segment_link_4</parent>
+    <joint name='finger_1_segment_joint_9' type='revolute'>
+      <child>finger_1_segment_link_10</child>
+      <parent>finger_1_segment_link_9</parent>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -703,21 +1128,21 @@
       <pose frame=''>-0.006062 -0.0035 0.871 -0.523603 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_2_segment_link_1_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -736,10 +1161,10 @@
         </surface>
       </collision>
       <visual name='finger_2_segment_link_1_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -773,24 +1198,24 @@
       </axis>
     </joint>
     <link name='finger_2_segment_link_2'>
-      <pose frame=''>-0.006062 -0.0035 0.824 -0.523603 1.57079 3.14159</pose>
+      <pose frame=''>-0.006062 -0.0035 0.8475 -0.523603 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_2_segment_link_2_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -809,10 +1234,10 @@
         </surface>
       </collision>
       <visual name='finger_2_segment_link_2_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -858,24 +1283,24 @@
       </physics>
     </joint>
     <link name='finger_2_segment_link_3'>
-      <pose frame=''>-0.006062 -0.0035 0.777 -0.523603 1.57079 3.14159</pose>
+      <pose frame=''>-0.006062 -0.0035 0.824 -0.523603 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_2_segment_link_3_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -894,10 +1319,10 @@
         </surface>
       </collision>
       <visual name='finger_2_segment_link_3_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -943,24 +1368,24 @@
       </physics>
     </joint>
     <link name='finger_2_segment_link_4'>
-      <pose frame=''>-0.006062 -0.0035 0.73 -0.523603 1.57079 3.14159</pose>
+      <pose frame=''>-0.006062 -0.0035 0.8005 -0.523603 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_2_segment_link_4_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -979,10 +1404,10 @@
         </surface>
       </collision>
       <visual name='finger_2_segment_link_4_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1028,46 +1453,24 @@
       </physics>
     </joint>
     <link name='finger_2_segment_link_5'>
-      <pose frame=''>-0.006062 -0.0035 0.683 -0.523603 1.57079 3.14159</pose>
+      <pose frame=''>-0.006062 -0.0035 0.777 -0.523603 1.57079 3.14159</pose>
       <inertial>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
-        <mass>0.025777</mass>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>1.11752e-05</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
-          <ixz>-5.81055e-22</ixz>
-          <iyy>3.32175e-05</iyy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>2.54105e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_2_segment_link_5_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
-          </box>
-        </geometry>
-        <surface>
-          <contact>
-            <ode>
-              <max_vel>0</max_vel>
-              <min_depth>0.001</min_depth>
-            </ode>
-          </contact>
-          <friction>
-            <ode>
-              <mu>0.1</mu>
-              <mu2>0.1</mu2>
-            </ode>
-          </friction>
-        </surface>
-      </collision>
-      <collision name='finger_2_segment_link_5_fixed_joint_lump__finger_2_finger_hook_link_collision_1'>
-        <pose frame=''>0.047 0 0.01925 3.14159 -1.57079 3.14159</pose>
-        <geometry>
-          <box>
-            <size>0.0385 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -1086,10 +1489,10 @@
         </surface>
       </collision>
       <visual name='finger_2_segment_link_5_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1099,8 +1502,455 @@
           </script>
         </material>
       </visual>
-      <visual name='finger_2_segment_link_5_fixed_joint_lump__finger_2_finger_hook_link_visual_1'>
-        <pose frame=''>0.047 0 0.01925 3.14159 -1.57079 3.14159</pose>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_2_segment_joint_4' type='revolute'>
+      <child>finger_2_segment_link_5</child>
+      <parent>finger_2_segment_link_4</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_2_segment_link_6'>
+      <pose frame=''>-0.006062 -0.0035 0.7535 -0.523603 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_2_segment_link_6_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_2_segment_link_6_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_2_segment_joint_5' type='revolute'>
+      <child>finger_2_segment_link_6</child>
+      <parent>finger_2_segment_link_5</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_2_segment_link_7'>
+      <pose frame=''>-0.006062 -0.0035 0.73 -0.523603 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_2_segment_link_7_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_2_segment_link_7_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_2_segment_joint_6' type='revolute'>
+      <child>finger_2_segment_link_7</child>
+      <parent>finger_2_segment_link_6</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_2_segment_link_8'>
+      <pose frame=''>-0.006062 -0.0035 0.7065 -0.523603 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_2_segment_link_8_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_2_segment_link_8_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_2_segment_joint_7' type='revolute'>
+      <child>finger_2_segment_link_8</child>
+      <parent>finger_2_segment_link_7</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_2_segment_link_9'>
+      <pose frame=''>-0.006062 -0.0035 0.683 -0.523603 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_2_segment_link_9_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_2_segment_link_9_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_2_segment_joint_8' type='revolute'>
+      <child>finger_2_segment_link_9</child>
+      <parent>finger_2_segment_link_8</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_2_segment_link_10'>
+      <pose frame=''>-0.006062 -0.0035 0.6595 -0.523603 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <mass>0.0128885</mass>
+        <inertia>
+          <ixx>2.02876e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>-7.26119e-23</ixz>
+          <iyy>4.15284e-06</iyy>
+          <iyz>0</iyz>
+          <izz>3.80818e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_2_segment_link_10_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='finger_2_segment_link_10_fixed_joint_lump__finger_2_finger_hook_link_collision_1'>
+        <pose frame=''>0.0235 0 0.01925 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.0385 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_2_segment_link_10_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='finger_2_segment_link_10_fixed_joint_lump__finger_2_finger_hook_link_visual_1'>
+        <pose frame=''>0.0235 0 0.01925 3.14159 -1.57079 3.14159</pose>
         <geometry>
           <box>
             <size>0.0385 0.028 0.0009</size>
@@ -1117,9 +1967,9 @@
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
-    <joint name='finger_2_segment_joint_4' type='revolute'>
-      <child>finger_2_segment_link_5</child>
-      <parent>finger_2_segment_link_4</parent>
+    <joint name='finger_2_segment_joint_9' type='revolute'>
+      <child>finger_2_segment_link_10</child>
+      <parent>finger_2_segment_link_9</parent>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1259,21 +2109,21 @@
       <pose frame=''>0.006062 -0.0035 0.871 -2.61799 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_3_segment_link_1_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -1292,10 +2142,10 @@
         </surface>
       </collision>
       <visual name='finger_3_segment_link_1_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1329,24 +2179,24 @@
       </axis>
     </joint>
     <link name='finger_3_segment_link_2'>
-      <pose frame=''>0.006062 -0.0035 0.824 -2.61799 1.57079 3.14159</pose>
+      <pose frame=''>0.006062 -0.0035 0.8475 -2.61799 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_3_segment_link_2_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -1365,10 +2215,10 @@
         </surface>
       </collision>
       <visual name='finger_3_segment_link_2_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1414,24 +2264,24 @@
       </physics>
     </joint>
     <link name='finger_3_segment_link_3'>
-      <pose frame=''>0.006062 -0.0035 0.777 -2.61799 1.57079 3.14159</pose>
+      <pose frame=''>0.006062 -0.0035 0.824 -2.61799 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_3_segment_link_3_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -1450,10 +2300,10 @@
         </surface>
       </collision>
       <visual name='finger_3_segment_link_3_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1499,24 +2349,24 @@
       </physics>
     </joint>
     <link name='finger_3_segment_link_4'>
-      <pose frame=''>0.006062 -0.0035 0.73 -2.61799 1.57079 3.14159</pose>
+      <pose frame=''>0.006062 -0.0035 0.8005 -2.61799 1.57079 3.14159</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0128885</mass>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>8.42918e-07</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>9.49109e-06</iyy>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.03323e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_3_segment_link_4_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -1535,10 +2385,10 @@
         </surface>
       </collision>
       <visual name='finger_3_segment_link_4_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1584,46 +2434,24 @@
       </physics>
     </joint>
     <link name='finger_3_segment_link_5'>
-      <pose frame=''>0.006062 -0.0035 0.683 -2.61799 1.57079 3.14159</pose>
+      <pose frame=''>0.006062 -0.0035 0.777 -2.61799 1.57079 3.14159</pose>
       <inertial>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
-        <mass>0.025777</mass>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
         <inertia>
-          <ixx>1.11752e-05</ixx>
+          <ixx>4.21459e-07</ixx>
           <ixy>0</ixy>
-          <ixz>-5.81055e-22</ixz>
-          <iyy>3.32175e-05</iyy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
           <iyz>0</iyz>
-          <izz>2.54105e-05</izz>
+          <izz>1.6073e-06</izz>
         </inertia>
       </inertial>
       <collision name='finger_3_segment_link_5_collision'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
-          </box>
-        </geometry>
-        <surface>
-          <contact>
-            <ode>
-              <max_vel>0</max_vel>
-              <min_depth>0.001</min_depth>
-            </ode>
-          </contact>
-          <friction>
-            <ode>
-              <mu>0.1</mu>
-              <mu2>0.1</mu2>
-            </ode>
-          </friction>
-        </surface>
-      </collision>
-      <collision name='finger_3_segment_link_5_fixed_joint_lump__finger_3_finger_hook_link_collision_1'>
-        <pose frame=''>0.047 0 0.01925 3.14159 -1.57079 3.14159</pose>
-        <geometry>
-          <box>
-            <size>0.0385 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <surface>
@@ -1642,10 +2470,10 @@
         </surface>
       </collision>
       <visual name='finger_3_segment_link_5_visual'>
-        <pose frame=''>0.0235 0 0 0 -0 0</pose>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.047 0.028 0.0009</size>
+            <size>0.0235 0.028 0.0009</size>
           </box>
         </geometry>
         <material>
@@ -1655,8 +2483,455 @@
           </script>
         </material>
       </visual>
-      <visual name='finger_3_segment_link_5_fixed_joint_lump__finger_3_finger_hook_link_visual_1'>
-        <pose frame=''>0.047 0 0.01925 3.14159 -1.57079 3.14159</pose>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_3_segment_joint_4' type='revolute'>
+      <child>finger_3_segment_link_5</child>
+      <parent>finger_3_segment_link_4</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_3_segment_link_6'>
+      <pose frame=''>0.006062 -0.0035 0.7535 -2.61799 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_3_segment_link_6_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_3_segment_link_6_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_3_segment_joint_5' type='revolute'>
+      <child>finger_3_segment_link_6</child>
+      <parent>finger_3_segment_link_5</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_3_segment_link_7'>
+      <pose frame=''>0.006062 -0.0035 0.73 -2.61799 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_3_segment_link_7_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_3_segment_link_7_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_3_segment_joint_6' type='revolute'>
+      <child>finger_3_segment_link_7</child>
+      <parent>finger_3_segment_link_6</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_3_segment_link_8'>
+      <pose frame=''>0.006062 -0.0035 0.7065 -2.61799 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_3_segment_link_8_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_3_segment_link_8_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_3_segment_joint_7' type='revolute'>
+      <child>finger_3_segment_link_8</child>
+      <parent>finger_3_segment_link_7</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_3_segment_link_9'>
+      <pose frame=''>0.006062 -0.0035 0.683 -2.61799 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.00644424</mass>
+        <inertia>
+          <ixx>4.21459e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.18671e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.6073e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_3_segment_link_9_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_3_segment_link_9_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='finger_3_segment_joint_8' type='revolute'>
+      <child>finger_3_segment_link_9</child>
+      <parent>finger_3_segment_link_8</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>0</use_parent_model_frame>
+      </axis>
+      <physics>
+        <provide_feedback>1</provide_feedback>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+          <implicit_spring_damper>1</implicit_spring_damper>
+          <cfm_damping>1</cfm_damping>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='finger_3_segment_link_10'>
+      <pose frame=''>0.006062 -0.0035 0.6595 -2.61799 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <mass>0.0128885</mass>
+        <inertia>
+          <ixx>2.02876e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>-7.26119e-23</ixz>
+          <iyy>4.15284e-06</iyy>
+          <iyz>0</iyz>
+          <izz>3.80818e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='finger_3_segment_link_10_collision'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='finger_3_segment_link_10_fixed_joint_lump__finger_3_finger_hook_link_collision_1'>
+        <pose frame=''>0.0235 0 0.01925 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.0385 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='finger_3_segment_link_10_visual'>
+        <pose frame=''>0.01175 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0235 0.028 0.0009</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='finger_3_segment_link_10_fixed_joint_lump__finger_3_finger_hook_link_visual_1'>
+        <pose frame=''>0.0235 0 0.01925 3.14159 -1.57079 3.14159</pose>
         <geometry>
           <box>
             <size>0.0385 0.028 0.0009</size>
@@ -1673,9 +2948,9 @@
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
-    <joint name='finger_3_segment_joint_4' type='revolute'>
-      <child>finger_3_segment_link_5</child>
-      <parent>finger_3_segment_link_4</parent>
+    <joint name='finger_3_segment_joint_9' type='revolute'>
+      <child>finger_3_segment_link_10</child>
+      <parent>finger_3_segment_link_9</parent>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
