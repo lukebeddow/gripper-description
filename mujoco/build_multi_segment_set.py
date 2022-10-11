@@ -87,13 +87,13 @@ original_N = gripper_details["gripper_config"]["num_segments"]
 # have we been given a segment list?
 if args.segments is None:
   segments = [original_N]
-elif args.segments in ["c", "C", "config", "Config"]:
+elif args.segments in ["config"]:
   segments = [original_N]
-elif args.segments in ["d", "D", "default", "Default"]:
+elif args.segments in ["basic"]:
   segments = [5, 10, 15, 20, 25, 30]
-elif args.segments in ["m", "M", "most", "Most"]:
+elif args.segments in ["most"]:
   segments = [5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
-elif args.segments in ["a", "A", "all", "All"]:
+elif args.segments in ["all"]:
   segments = list(range(5, 31))
 else:
   list_segments = args.segments.split(" ")

@@ -14,11 +14,6 @@
     <link name="finger_1_segment_link_3"/>
     <link name="finger_1_segment_link_4"/>
     <link name="finger_1_segment_link_5"/>
-    <link name="finger_1_segment_link_6"/>
-    <link name="finger_1_segment_link_7"/>
-    <link name="finger_1_segment_link_8"/>
-    <link name="finger_1_segment_link_9"/>
-    <link name="finger_1_segment_link_10"/>
     <link name="finger_1_finger_hook_link"/>
   </group>
   <group name="finger_2_group">
@@ -27,11 +22,6 @@
     <link name="finger_2_segment_link_3"/>
     <link name="finger_2_segment_link_4"/>
     <link name="finger_2_segment_link_5"/>
-    <link name="finger_2_segment_link_6"/>
-    <link name="finger_2_segment_link_7"/>
-    <link name="finger_2_segment_link_8"/>
-    <link name="finger_2_segment_link_9"/>
-    <link name="finger_2_segment_link_10"/>
     <link name="finger_2_finger_hook_link"/>
   </group>
   <group name="finger_3_group">
@@ -40,65 +30,10 @@
     <link name="finger_3_segment_link_3"/>
     <link name="finger_3_segment_link_4"/>
     <link name="finger_3_segment_link_5"/>
-    <link name="finger_3_segment_link_6"/>
-    <link name="finger_3_segment_link_7"/>
-    <link name="finger_3_segment_link_8"/>
-    <link name="finger_3_segment_link_9"/>
-    <link name="finger_3_segment_link_10"/>
     <link name="finger_3_finger_hook_link"/>
   </group>
   <!-- disable collisions between hook and base -->
   <disable_collisions link1="finger_1" link2="finger_1_finger_hook_link" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_9" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_8" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_10" link2="finger_1_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_8" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_9" link2="finger_1_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_8" link2="finger_1_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_7" link2="finger_1_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_1_segment_link_6" link2="finger_1_segment_link_1" reason="Adjacent"/>
   <!-- disable wrt to the start and end -->
   <disable_collisions link1="finger_1_segment_link_5" link2="finger_1" reason="Adjacent"/>
   <disable_collisions link1="finger_1_segment_link_5" link2="finger_1_finger_hook_link" reason="Adjacent"/>
@@ -127,56 +62,6 @@
   <!-- disable collisions between hook and base -->
   <disable_collisions link1="finger_2" link2="finger_2_finger_hook_link" reason="Adjacent"/>
   <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_9" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_8" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_10" link2="finger_2_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_8" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_9" link2="finger_2_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_8" link2="finger_2_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_7" link2="finger_2_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_2_segment_link_6" link2="finger_2_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
   <disable_collisions link1="finger_2_segment_link_5" link2="finger_2" reason="Adjacent"/>
   <disable_collisions link1="finger_2_segment_link_5" link2="finger_2_finger_hook_link" reason="Adjacent"/>
   <disable_collisions link1="finger_2_segment_link_5" link2="finger_2_segment_link_4" reason="Adjacent"/>
@@ -203,56 +88,6 @@
   <disable_collisions link1="finger_2_segment_link_1" link2="finger_2_finger_hook_link" reason="Adjacent"/>
   <!-- disable collisions between hook and base -->
   <disable_collisions link1="finger_3" link2="finger_3_finger_hook_link" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_9" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_8" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_10" link2="finger_3_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_8" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_9" link2="finger_3_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_7" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_8" link2="finger_3_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_segment_link_6" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_7" link2="finger_3_segment_link_1" reason="Adjacent"/>
-  <!-- disable wrt to the start and end -->
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3_finger_hook_link" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3_segment_link_5" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3_segment_link_4" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3_segment_link_3" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3_segment_link_2" reason="Adjacent"/>
-  <disable_collisions link1="finger_3_segment_link_6" link2="finger_3_segment_link_1" reason="Adjacent"/>
   <!-- disable wrt to the start and end -->
   <disable_collisions link1="finger_3_segment_link_5" link2="finger_3" reason="Adjacent"/>
   <disable_collisions link1="finger_3_segment_link_5" link2="finger_3_finger_hook_link" reason="Adjacent"/>
