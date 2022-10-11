@@ -1,11 +1,5 @@
 .vscode
 .vscode/
-assets
-assets/
-objects
-objects/
-task
-task/
 *.xml
 *.urdf
 *.sdf
