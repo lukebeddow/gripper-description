@@ -17,9 +17,14 @@ Before using this repo, you will need to build it using make:
 * ```make urdf``` generates urdf and sdf files
 * ```make everything``` builds urdf, sdf, and mjcf files (including multiple object sets)
 
+Delete generated files with ```make clean```.
+
 To use this repo with mujoco, you can also build object sets:
-* ```make sets SEGMENTS=default``` creates all object sets with default gripper finger segment numbers, this means the set will include gripper code options for 5, 10, 20, 25, and 30 segments in each finger.
-* ```make sets SET=set_fullset_795 SEGMENTS=all``` creates only one object set, set_fullset_795, and will build gripper code for every segment number from 5 up to 30.
+* ```make sets``` creates all object sets for mujoco, find them in ```mujoco/object_sets```
+* ```make sets SET=<setname> SEGMENTS=<option>``` creates only one set called \<setname\>. Segment options define whether the set should include multiple versions of the gripper xml code with different numbers of finger segments. The main options are:
+    * ```SEGMENTS=config```, build with the number of segments in ```config/gripper.yaml```, this is the default.
+    * ```SEGMENTS="x y z ... "```, specify a list of specific integers within quotes.
+    * ```SEGMENTS=all```, build every number from 5 to 30.
 
 ## Defining the gripper and panda
 
@@ -40,17 +45,17 @@ The ```urdf``` folder contains the target ```urdf```, ```sdf```, and ```semantic
 
 ## Making mjcf files in the ```mujoco``` folder
 
-Run ```make``` inside the ```mujoco``` folder and this will build one object set, which will be contained within the ```build``` folder. The build will occur according to two key files:
-* ```build/objects/build_object_set.py```, this script creates xml snippets which define the objects, for example it sets their mass, their size, which ```.stl``` 3D model file they rely on, and more.
+Run ```make``` or ```make mjcf``` at the root of the repo and this will build one object set, which will be contained within the ```mujoco/build``` folder. The build will occur according to two key files:
+* ```build/objects/build_object_set.py```, this script creates xml snippets which define the objects, for example it sets their mass, their size, which .stl 3D model file they rely on, and more.
 * ```build/objects/define_objects.yaml```, this yaml file sets options for the python script (above), here is how you tell it which objects you want, and how you add new objects.
 
 Once the set is built, many files are generated:
 * Gripper files are in folders named ```gripper_N{X}``` where X indicates the number of finger segments. There can be many of these folders if you want the object set to include variations of the gripper fingers.
-* Object files are in two folders, ```build/objects/objects``` and ```build/objects/assets```, here are ```xml``` code snippets for creating the objects and linking them with 3D model files, which should be in the ```build/meshes_mujoco``` folder.
+* Object files are in two folders, ```build/objects/objects``` and ```build/objects/assets```, here are xml code snippets for creating the objects and linking them with 3D model files, which should be in the ```build/meshes_mujoco``` folder.
 
 ## Making mujoco object sets
 
-For convienience, it is better to make object sets directly and never edit inside the ```build``` folder. This can be done inside the ```object_sets``` folder. To make a set called ```mynewset```:
+For convienience, it is better to make object sets directly and never edit inside the ```build``` folder. This can be done inside the ```mujoco/object_sets``` folder. To make a set called ```mynewset```:
 * Navigate into the ```mujoco/object_sets``` directory, eg ```$ cd /path/to/repo/mujoco/object_sets```
 * Copy and rename the ```define_objects.yaml``` file, eg ```$ cp define_objects.yaml set_mynewset.yaml```
 * Edit the options and add new entries in ```set_mynewset.yaml``` to define the objects used in the set.
