@@ -14,17 +14,31 @@
 
 # ----- user defined options ----- #
 
-# define directory structure
-MJCFDIR = mjcf
+# does xml_script generate object files, override @ command line eg make GEN_OBJECTS=0
+GEN_OBJECTS = 1 # bool: 0/1 only
+
+# where do we put the task files, override @ command line eg make GEN_OBJECTS=abcd
+TASK = task
+
+# ----- variables not recommended to change ----- #
+
+# define directory names
+#    note that when make is called from 'build_multi_segment_set.py' these can be
+#    overwritten by settings in that file.
+DIRNAME = build
 URDFDIR = urdf
-TASKDIR = $(MJCFDIR)/task
-TASKMASTER = gripper_task.xml
-MJINCDIR = $(MJCFDIR)/mjcf_include
+XACRODIR = xacro
+INCDIR = objects
+
+# define directory structure (this is hardcoded in 'xml_script.py')
+TASKDIR = $(DIRNAME)/$(TASK)
+MJINCDIR = $(DIRNAME)/$(INCDIR)
 ASSETDIR = $(MJINCDIR)/assets
 OBJDIR = $(MJINCDIR)/objects
+KEYDIR = $(TASKDIR)/keyframes
 
 # directories and files containing urdf dependencies
-XACRODIR = ../xacro
+XACROPATH = ../$(XACRODIR)
 CONFIGDEP = ../config/gripper.yaml
 
 # define additional dependencies for the mjcf_include xmls
@@ -36,20 +50,22 @@ MAKEFLAGS += -j8 # run on up to 8 parallel cpu cores
 # ----- automatically generated variables ----- #
 
 # use the robot xacros to get the desired mjcf target names for robots
-XACROS := $(wildcard xacro/*.urdf.xacro)
-URDFS := $(patsubst xacro/%.urdf.xacro, $(URDFDIR)/%.urdf, $(XACROS))
-MJCFS := $(patsubst xacro/%.urdf.xacro, $(MJCFDIR)/%.xml, $(XACROS))
+XACROS := $(wildcard $(XACRODIR)/*.urdf.xacro)
+URDFS := $(patsubst $(XACRODIR)/%.urdf.xacro, $(URDFDIR)/%.urdf, $(XACROS))
+MJCFS := $(patsubst $(XACRODIR)/%.urdf.xacro, $(DIRNAME)/%.xml, $(XACROS))
 
 # add the additional dependencies for the mjcf_include files
 MJDEP := $(patsubst %, $(MJINCDIR)/%, $(MJDEP))
 MJINCTARGET := $(patsubst %, $(MJINCDIR)/%, $(MJINCTARGET))
 
-# create the target directories if they don't exist
-DIRS := $(TASKDIR) $(ASSETDIR) $(OBJDIR)
+# create the target directories if they don't exist, unless we run 'make clean'
+ifneq ($(filter clean, $(MAKECMDGOALS)), clean)
+DIRS := $(TASKDIR) $(ASSETDIR) $(OBJDIR) $(KEYDIR)
 $(info $(shell mkdir -p $(DIRS)))
+endif
 
 # find files that we depend on for updating urdf changes
-DEPS := $(wildcard $(XACRODIR)/*.xacro) $(CONFIGDEP)
+DEPS := $(wildcard $(XACROPATH)/*.xacro) $(CONFIGDEP)
 
 # ----- start of make ----- #
 
@@ -57,25 +73,21 @@ DEPS := $(wildcard $(XACRODIR)/*.xacro) $(CONFIGDEP)
 all: $(MJCFS) generate_xml
 	echo Making the task xml files - note this command is always run
 	rm -f $(TASKDIR)/*.xml
-	rm -f $(MJINCDIR)/objects/*.xml
-	rm -f $(MJINCDIR)/assets/*.xml
-	python ./xml_script.py
-
-# only re-run the xml script to post process xml files
-.PHONY: script
-script: $(MJCFS)
-	echo Making the task xml files - note this command is always run
-	rm -f $(TASKDIR)/*.xml
-	rm -f $(MJINCDIR)/objects/*.xml
-	rm -f $(MJINCDIR)/assets/*.xml
-	python ./xml_script.py
+	rm -f $(ASSETDIR)/*.xml
+	rm -f $(OBJDIR)/*.xml
+	rm -f $(KEYDIR)/*.xml
+	python ./xml_script.py \
+		--build-folder $(DIRNAME) \
+		--task-folder $(TASK) \
+		--objects-folder $(INCDIR) \
+		--gen-objects $(GEN_OBJECTS)
 
 # build the mujoco mjcf files
 .PHONY: $(MJCFS) # phony to always run, so xml_script is never run twice on same file
-$(MJCFS): $(MJCFDIR)/%.xml : $(URDFDIR)/%.urdf
+$(MJCFS): $(DIRNAME)/%.xml : $(URDFDIR)/%.urdf
 	rm -f $@
-	cp $< $(MJCFDIR)/$(notdir $<) &&\
-	cd $(MJCFDIR) &&\
+	cp $< $(DIRNAME)/$(notdir $<) &&\
+	cd $(DIRNAME) &&\
 	./compile $(notdir $<) $(notdir $@) &&\
   rm $(notdir $<)
 
@@ -83,65 +95,14 @@ $(MJCFS): $(MJCFDIR)/%.xml : $(URDFDIR)/%.urdf
 $(URDFS): $(URDFDIR)/%.urdf : xacro/%.urdf.xacro $(DEPS)
 	./xacro3 $< > $@
 
-# # create the object xml includes
-# $(MJINCTARGET): generate_xml
-# 	python3 ./$(MJINCDIR)/build_object_set.py
-
+# create the individual object xml includes, phony so always runs if called
 .PHONY: generate_xml
 generate_xml: $(MJDEP)
-	python3 ./$(MJINCDIR)/build_object_set.py
-
-.PHONY: test
-test:
-	python3 ./$(MJINCDIR)/build_object_set.py
+	python3 $(MJINCDIR)/build_object_set.py
 
 clean:
 	rm -f $(URDFS)
 	rm -f $(MJCFS)
 	rm -f $(MJINCTARGET)
-
-
-# below is no longer needed, but the code may be helpful to keep
-
-# .PHONY: preprocesses
-# preprocesses: source_ros
-
-# # this phony target is called when doing 'make' or 'make all'
-# .PHONY: targets
-# targets: $(MJCFS) $(MJINC)
-#   sleep 1
-#   -pkill roscore
-# 	rm -f $(TASKDIR)/*.xml
-# 	rm -f $(MJINCDIR)/objects/*.xml
-# 	rm -f $(MJINCDIR)/assets/*.xml
-# 	./xml_script.py
-
-# # run a .sh to source ros and start roscore, it then calls 'make targets'
-# .PHONY: source_ros
-# ifndef LUKE_FLAG
-# source_ros:
-# 	echo sourcing ros now
-# 	./source_ros.sh $(MAKE) targets
-# else
-# source_ros:
-# 	echo ROS already sourced
-# endif
-
-# ----- source_ros.sh ----- #
-
-# #!/bin/bash
-
-# # this script is no longer used, but the code may be helpful to keep
-
-# # roscore in the background
-# source ~/gripper_repo_ws/devel/setup.bash
-# roscore &
-
-# # set the flag to know ros is sourced
-# export LUKE_FLAG=1
-
-# # if first arg is set, recall make
-# if [ -n "$1" ]; then
-#   echo ros has now been sourced
-#   $1 $2
-# fi
+	rm -f $(ASSETDIR)/*
+	rm -f $(OBJDIR)/*

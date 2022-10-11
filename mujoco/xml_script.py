@@ -6,6 +6,23 @@ from lxml import etree
 from math import floor, ceil
 from copy import deepcopy
 import numpy as np
+import argparse
+
+# ----- if we are given command line arguments ---- #
+
+# define arguments and parse them
+parser = argparse.ArgumentParser()
+parser.add_argument("--build-folder",         default="build")
+parser.add_argument("--objects-folder",       default="objects")
+parser.add_argument("--task-folder",          default="task")
+parser.add_argument("--gen-objects",          default=True, type=int) 
+
+args = parser.parse_args()
+
+# # parse arguments but allow unknown arguments
+# args, unknown = parser.parse_known_args()
+
+generate_objects = bool(args.gen_objects)
 
 # ----- initial setup, no need to change ----- #
 
@@ -13,20 +30,20 @@ import numpy as np
 debug = False
 
 # define directory structure
-mjcf_folder = "mjcf"
-mjcf_inc_folder = "mjcf_include"
+build_folder = args.build_folder
+objects_folder = args.objects_folder
+task_file_folder = args.task_folder
 gripper_config_file = "/config/gripper.yaml"
-define_objects_file = "/mjcf_include/define_objects.yaml"
+define_objects_file = "/" + objects_folder + "/define_objects.yaml"
 
 # get relevant path information
 filepath = os.path.dirname(os.path.abspath(__file__))
 description_path = os.path.dirname(filepath)
-directory_path = filepath + "/" + mjcf_folder + "/"
+directory_path = filepath + "/" + build_folder + "/"
 
-if debug:
-  print("Running xml_script.py, debug mode is ON")
-  print("The gripper description directory path is:", description_path)
-  print("The mjcf directory path is:", directory_path)
+# set a seed so the same object set is always in the same order (ie same test set)
+rand_seed = 1234
+if rand_seed is not None: np.random.seed(rand_seed)
 
 with open(description_path + gripper_config_file) as file:
   gripper_details = yaml.safe_load(file)
@@ -34,10 +51,15 @@ with open(description_path + gripper_config_file) as file:
 with open(directory_path + define_objects_file) as file:
   object_details = yaml.safe_load(file)
 
-# ----- essential user defined parameters ----- #
+if debug:
+  print("Running xml_script.py, debug mode is ON")
+  print("The random seed is:", rand_seed)
+  print("The gripper description directory path is:", description_path)
+  print("The mjcf directory path is:", directory_path)
+  print("The task folder name is:", task_file_folder)
+  print("Generate objects flag is:", generate_objects)
 
-# set a seed so the same object set is always in the same order (ie same test set)
-np.random.seed(1234)
+# ----- essential user defined parameters ----- #
 
 # exctract the details of the gripper configuration from yaml file
 is_segmented = gripper_details["gripper_config"]["is_segmented"]
@@ -546,19 +568,19 @@ if __name__ == "__main__":
   task_filename = directory_path + "gripper_task.xml"
 
   # define the names of object files we will open
-  asset_filename = directory_path + mjcf_inc_folder + "/" + "assets.xml"
-  object_filename = directory_path + mjcf_inc_folder + "/" + "objects.xml"
-  detail_filename = directory_path + mjcf_inc_folder + "/" + "details.xml"
+  asset_filename = directory_path + objects_folder + "/" + "assets.xml"
+  object_filename = directory_path + objects_folder + "/" + "objects.xml"
+  detail_filename = directory_path + objects_folder + "/" + "details.xml"
 
   # define the names of files we will make when we split tasks and objects
   asset_split_filename = "assets/assets_{}.xml"
   object_split_filename = "objects/objects_{}.xml"
   keyframe_split_filename = "keyframes/keyframe_{}.xml"
-  task_split_filename = "task/gripper_task_{}.xml"
+  task_split_filename = task_file_folder + "/gripper_task_{}.xml"
   taskN_filename = directory_path + "/" + task_split_filename
-  assetN_filename = directory_path + mjcf_inc_folder + "/" + asset_split_filename
-  objectN_filename = directory_path + mjcf_inc_folder + "/" + object_split_filename
-  keyframeN_filename = directory_path + mjcf_inc_folder + "/" + keyframe_split_filename
+  assetN_filename = directory_path + objects_folder + "/" + asset_split_filename
+  objectN_filename = directory_path + objects_folder + "/" + object_split_filename
+  keyframeN_filename = directory_path + task_file_folder + "/" + keyframe_split_filename
 
   # parse and extract the xml tree for each file we want to use
   parser = etree.XMLParser(remove_comments=True)
@@ -645,24 +667,31 @@ if __name__ == "__main__":
     modify_tag_attribute(taskN_tree, "compiler", "meshdir", "../meshes_mujoco")
 
     # create xml text for specefic includes and add them to the tree
-    objectN_includes = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, object_split_filename.format(i))
-    assetN_include = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, asset_split_filename.format(i))
-    keyframeN_include = """<include file="../{0}/{1}"/>""".format(mjcf_inc_folder, keyframe_split_filename.format(i))
+    objectN_includes = """<include file="../{0}/{1}"/>""".format(objects_folder, object_split_filename.format(i))
+    assetN_include = """<include file="../{0}/{1}"/>""".format(objects_folder, asset_split_filename.format(i))
+    keyframeN_include = """<include file="../{0}/{1}"/>""".format(task_file_folder, keyframe_split_filename.format(i))
     add_chunk(taskN_tree, "worldbody", objectN_includes)
     add_chunk(taskN_tree, "asset", assetN_include)
     add_chunk(taskN_tree, "@root", keyframeN_include)
+
+    # write the split task files into the task folder
+    taskN_tree.write(taskN_filename.format(i))
 
     # make a keyframe snippet to be saved in a seperate file
     keyframe_tree = etree.ElementTree(etree.Element("mujoco"))
     add_chunk(keyframe_tree, "@root", 
         task_keyframe.format(base_joint_qpos, gripper_qpos, taskN_trees[i][2]))
 
-    # create element trees from the split
-    new_asset_tree = etree.ElementTree(taskN_trees[i][0])
-    new_object_tree = etree.ElementTree(taskN_trees[i][1])
-
-    # write the split files
-    taskN_tree.write(taskN_filename.format(i))
-    new_asset_tree.write(assetN_filename.format(i))
-    new_object_tree.write(objectN_filename.format(i))
+    # write the keyframe inside the task folder
     keyframe_tree.write(keyframeN_filename.format(i))
+
+    # if generating object set, write to the assets.xml files etc
+    if generate_objects:
+
+      # create element trees from the split
+      new_asset_tree = etree.ElementTree(taskN_trees[i][0])
+      new_object_tree = etree.ElementTree(taskN_trees[i][1])
+
+      new_asset_tree.write(assetN_filename.format(i))
+      new_object_tree.write(objectN_filename.format(i))
+      

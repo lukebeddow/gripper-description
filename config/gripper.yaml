@@ -1,22 +1,20 @@
 gripper_config:
   effort_control: false
-  is_segmented: true
-  num_segments: 6
   fixed_first_segment: false
+  is_segmented: true
+  num_segments: 10
   torsion: false
-
-# all in SI units unless stated (m/rad) NB must use 0.0e-3 not 0e-3 for yaml
 gripper_params:
-  xy_min: 49.0e-3            # max - 32.0revs * (lead/gear ratio)
-  xy_max: 134.0e-3           # set in Gripper_v2.h (arduino lib)
-  xy_home: 131.33e-3         # max - 1.0revs * (lead/gear ratio)
-  z_min: 0.0e-3              # set in Gripper_v2.h (arduino lib)
-  z_max: 165.0e-3            # 34.0revs * (lead/gear ratio)
-  z_home: 4.88e-3            # 1.0revs * (lead/gear ratio)
-  finger_length: 235.0e-3    # measured exposed length from platform to hook (not including)
-  finger_width: 28.0e-3      # measured width
-  finger_thickness: 0.9e-3   # measured thickness
-  finger_mass: 75.0e-3       # measured weight per finger
-  hook_length: 38.5e-3       # measured length of hook
-  hook_angle_degrees: 90.0   # measured angle of the hook in degrees
-  angle_max_abs: 0.7         # maximum finger revolute joint angle in rad, property of design
+  angle_max_abs: 0.7
+  finger_length: 0.235
+  finger_mass: 0.075
+  finger_thickness: 0.0009
+  finger_width: 0.028
+  hook_angle_degrees: 90.0
+  hook_length: 0.0385
+  xy_home: 0.13133
+  xy_max: 0.134
+  xy_min: 0.049
+  z_home: 0.00488
+  z_max: 0.165
+  z_min: 0.0

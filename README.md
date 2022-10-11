@@ -17,7 +17,9 @@ Before using this repo, you will need to build it using make:
 * ```make urdf``` generates urdf and sdf files
 * ```make everything``` builds urdf, sdf, and mjcf files (including multiple object sets)
 
-Note that building object sets typically takes 1-5 mins (12hrs+ with python2!).
+To use this repo with mujoco, you can also build object sets:
+* ```make sets SEGMENTS=default``` creates all object sets with default gripper finger segment numbers, this means the set will include gripper code options for 5, 10, 20, 25, and 30 segments in each finger.
+* ```make sets SET=set_fullset_795 SEGMENTS=all``` creates only one object set, set_fullset_795, and will build gripper code for every segment number from 5 up to 30.
 
 ## Defining the gripper and panda
 
@@ -38,21 +40,34 @@ The ```urdf``` folder contains the target ```urdf```, ```sdf```, and ```semantic
 
 ## Making mjcf files in the ```mujoco``` folder
 
-The ```mujoco``` folder contains the target ```mjcf``` files, which are more complex than the other types and require more work to convert from ```urdf``` to ```mjcf``` format. Run ```make mjcf``` in the root to generate the resultant ```xml``` files in the ```mjcf``` folder, as well as generate files in two more important folders:
-* ```mjcf_include``` -  this folder defines objects which can then be included into other ```xml``` files. Currently, these are only included in ```gripper_task.xml```. This folder contains two files which define the objects:
-     * ```create_objects.xacro``` uses xacro to generate different objects based on input options
-     * ```define_objects.yaml``` sets these input options, controlling how many objects are generated and what types
-* ```task``` - this folder contains files almost identical to ```grippper_task.xml``` however, that file includes all possible objects, whereas each file in this folder will include a random subset of the objects, currently set to be 20
+Run ```make``` inside the ```mujoco``` folder and this will build one object set, which will be contained within the ```build``` folder. The build will occur according to two key files:
+* ```build/objects/build_object_set.py```, this script creates xml snippets which define the objects, for example it sets their mass, their size, which ```.stl``` 3D model file they rely on, and more.
+* ```build/objects/define_objects.yaml```, this yaml file sets options for the python script (above), here is how you tell it which objects you want, and how you add new objects.
 
-The converstion from ```urdf``` to ```mjcf``` is first accomplished using mujoco's compiler, however then the script ```xml_script.py``` is run to make additional changes. This is where it is set that the ```task``` files should have 20 objects each, and these should be randomly chosen from the total object set defined in ```mjcf_include```. Edit this file to adjust the resultant ```mjcf``` files.
+Once the set is built, many files are generated:
+* Gripper files are in folders named ```gripper_N{X}``` where X indicates the number of finger segments. There can be many of these folders if you want the object set to include variations of the gripper fingers.
+* Object files are in two folders, ```build/objects/objects``` and ```build/objects/assets```, here are ```xml``` code snippets for creating the objects and linking them with 3D model files, which should be in the ```build/meshes_mujoco``` folder.
 
-## Making the object sets
+## Making mujoco object sets
 
-This repository can also generate mujoco ```mjcf``` files for object sets, placing them in the ```mujoco/object_sets``` directory. Recall that the object set relies on two files, ```create_objects.xacro``` and ```define_objects.yaml```. In this folder, there is a master version of each. Then, to make your own object set, copy and rename ```define_objects.yaml``` to ```yourobjectsetname.yaml``` and inside that file set the desired changes to the options. You can edit ```create_objects.xacro``` to add additional options or objects. Then, run ```make_object_sets.sh [ARGS]``` where the arguments are the names of the yaml files (without the .yaml extension) you want to generate complete object sets for. For example:
+For convienience, it is better to make object sets directly and never edit inside the ```build``` folder. This can be done inside the ```object_sets``` folder. To make a set called ```mynewset```:
+* Navigate into the ```mujoco/object_sets``` directory, eg ```$ cd /path/to/repo/mujoco/object_sets```
+* Copy and rename the ```define_objects.yaml``` file, eg ```$ cp define_objects.yaml set_mynewset.yaml```
+* Edit the options and add new entries in ```set_mynewset.yaml``` to define the objects used in the set.
+* (Optional) Edit the ```build_object_set.py``` file to get extra options/functionality in your object set. BEWARE! Changes here can break backwards compatibility for other object sets.
+* Decide what numbers of gripper finger segments you want in the set, for example 5, 10, 20, 30.
+* Navigate to the root of the repo, eg ```$ cd /path/to/repo/```
+* Build with ```make sets SET=set_mynewset SEGMENTS="5 10 20 30"``` (the files you added/changed are copied into the ```build``` folder during the build).
+* Navigate into the ```mujoco/object_sets``` directory, eg ```$ cd /path/to/repo/mujoco/object_sets```
+* You should see a new folder called ```set_mynewset```, here is the new object set.
 
-```./make_object_sets.sh yourobjectsetname set1_fullset_795```
+## Advanced usage
 
-Now these object sets will be generated and copied into the ```object_sets``` folder.
+Some further customisation is possible inside the ```mujoco``` folder:
+* To add new objects, add any 3D model files into ```build/meshes_mujoco``` and then edit ```object_sets/build_object_set.py``` to generate xml snippets which point to these new files. You can also add extra options, and make use of these in ```object_sets/define_objects.yaml```.
+* To adjust how object set files are configured (eg number of objects in each 'task' file), see the user configuration settings at the top of ```xml_script.py```.
+* To add or edit code into the output ```mjcf``` files which will not also be in the ```urdf``` files, edit ```xml_script.py```. This script puts the final touches on object set xml, including mixing up the objects randomly and adding some custom mujoco xml tags.
+* To adjust how object sets build or configure their options, edit ```build_multi_segment_set.py```. This script builds object sets and then copies them into the ```object_sets``` folder.
 
 
 
