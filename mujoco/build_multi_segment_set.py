@@ -40,6 +40,7 @@ task_folder_name = "gripper_N"
 parser = argparse.ArgumentParser()
 parser.add_argument("sets", metavar="set", nargs="*", default=None)
 parser.add_argument("-N", "--segments", default=None)
+parser.add_argument("-W", "--widths", default=None)
 parser.add_argument("-B", "--build-only", action="store_true", default=False) # builds a set, but leaves it in build_folder
 parser.add_argument("-C", "--clean", action="store_true", default=False) # clean build folder only, this overrides other settings
 args = parser.parse_args()
@@ -71,7 +72,6 @@ else:
   build_sets = []
   for set in available_sets:
     for inset in args.sets:
-      print("inset is", inset, "and set[:-5] is", set[:-5])
       if set[:-ext_length] == inset:
         build_sets.append(set)
   if debug: 
@@ -91,15 +91,30 @@ elif args.segments in ["config"]:
   segments = [original_N]
 elif args.segments in ["basic"]:
   segments = [5, 10, 15, 20, 25, 30]
+elif args.segments in ["fast"]:
+  segments = [5, 6, 7, 8, 9, 10]
 elif args.segments in ["most"]:
   segments = [5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
 elif args.segments in ["all"]:
   segments = list(range(5, 31))
+elif args.segments in ["all2"]:
+  segments = list(range(2, 31))
 else:
   list_segments = args.segments.split(" ")
   segments = []
   for string in list_segments:
     segments.append(int(string))
+
+# have we been given a list of widths?
+original_W = gripper_details["gripper_params"]["finger_width"]
+
+if args.widths is None or args.widths in ["default"]:
+  widths = [original_W]
+else:
+  list_widths = args.widths.split(" ")
+  widths = []
+  for string in list_widths:
+    widths.append(int(string))
 
 if len(segments) == 0:
   raise RuntimeError("no segments specified in build_multi_segment_set.py")
@@ -141,21 +156,28 @@ for set_to_build in build_sets:
     exit()
 
   for i, N in enumerate(segments):
+    for width_mm in widths:
 
-    # overwrite the number of segments in the yaml dictionary
-    gripper_details["gripper_config"]["num_segments"] = N
+      # overwrite yaml dictionary with settings for this iteration
+      gripper_details["gripper_config"]["num_segments"] = N
+      gripper_details["gripper_params"]["finger_width"] = width_mm * 1e-3
 
-    # write the overwritten dictionary to the file
-    with open(description_path + gripper_config_file, "w") as outfile:
-      yaml.dump(gripper_details, outfile, default_flow_style=False)
+      # write the overwritten dictionary to the file
+      with open(description_path + gripper_config_file, "w") as outfile:
+        yaml.dump(gripper_details, outfile, default_flow_style=False)
 
-    # call make to create the files
-    make = "make TASK={0} INCDIR={1} DIRNAME={2}".format(task_folder_name + str(N), objects_folder, build_folder)
+      # create the task folder name
+      this_folder_name = task_folder_name + str(N)
+      if len(widths) > 1:
+        this_folder_name += "_{}".format(width_mm)
 
-    # disable object generation until the final loop (assets/objects wiped at the start of each 'make')
-    if i != len(segments) - 1: make += " GEN_OBJECTS=0"
+      # call make to create the files
+      make = "make TASK={0} INCDIR={1} DIRNAME={2}".format(this_folder_name, objects_folder, build_folder)
 
-    subprocess.run([make], shell=True, cwd=filepath)
+      # disable object generation until the final loop (assets/objects wiped at the start of each 'make')
+      if i != len(segments) - 1: make += " GEN_OBJECTS=0"
+
+      subprocess.run([make], shell=True, cwd=filepath)
 
   # finally, copy the built set into the specified object sets folder
   if not args.build_only:

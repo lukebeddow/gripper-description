@@ -65,6 +65,7 @@ if debug:
 is_segmented = gripper_details["gripper_config"]["is_segmented"]
 num_segments = gripper_details["gripper_config"]["num_segments"]
 fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
+fixed_hook_segment = gripper_details["gripper_config"]["fixed_hook_segment"]
 
 # starting configuration of the robot joints
 joint_start = {
@@ -112,6 +113,7 @@ base_joints = ["world_to_base"]
 # ----- generate qpos and joint names ---- #
 
 ffs = 1 if fixed_first_segment else 0
+hk_jnt = 0 if fixed_hook_segment else 1
 
 # auto generate joint names
 panda_joints = ["panda_joint{0}".format(i) for i in range(1,8)]
@@ -120,7 +122,7 @@ finger_joints = ["finger_{0}_segment_joint_{1}".format(i, j) for i in range(1,4)
 
 # define keyframe qpos for segmented finger, 0 for all
 if is_segmented:
-  finger_joint_qpos = "0 " * (num_segments - ffs)
+  finger_joint_qpos = "0 " * (num_segments - ffs + hk_jnt)
 else:
   finger_joint_qpos = ""
 

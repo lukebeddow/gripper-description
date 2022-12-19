@@ -7,6 +7,7 @@
     <xacro:property name="is_segmented" value="${yaml_dict['gripper_config']['is_segmented']}"/>
     <xacro:property name="num_segments" value="${yaml_dict['gripper_config']['num_segments']}"/>
     <xacro:property name="fixed_first_segment" value="${yaml_dict['gripper_config']['fixed_first_segment']}"/>
+    <xacro:property name="fixed_hook_segment" value="${yaml_dict['gripper_config']['fixed_hook_segment']}"/>
     <xacro:property name="torsion" value="${yaml_dict['gripper_config']['torsion']}"/>
     <xacro:property name="finger_length" value="${yaml_dict['gripper_params']['finger_length']}"/>
     <xacro:property name="finger_width" value="${yaml_dict['gripper_params']['finger_width']}"/>
@@ -14,7 +15,8 @@
     <xacro:property name="finger_mass" value="${yaml_dict['gripper_params']['finger_mass']}"/>
     <xacro:property name="hook_length" value="${yaml_dict['gripper_params']['hook_length']}"/>
     <xacro:property name="hook_angle" value="${yaml_dict['gripper_params']['hook_angle_degrees'] * (3.1415926535897 / 180.0)}"/>
-  
+    <xacro:property name="segment_inertia_scaling" value="${yaml_dict['gripper_params']['segment_inertia_scaling']}"/>
+
   	<!-- PARAMETERS TO BE SET BY HAND -->
 
     <!-- macros to set the sdf elements, all here together for convienience -->
@@ -66,15 +68,37 @@
       value="${(1.0/12.0) * segment_mass * (segment_length ** 2 + segment_width ** 2)
               + segment_mass * (segment_length / 2.0) ** 2}"/>
 
-    <xacro:property name="stability_factor" value="1"/>
+    <!-- find inertia of finger hook -->
+    <xacro:property name="hook_mass"
+      value="${(finger_mass * hook_length) / (finger_length + hook_length)}"/>
+    <xacro:property name="hook_ixx"
+      value="${(1.0/12.0) * hook_mass * (segment_thickness ** 2 + segment_width ** 2)}"/>
+    <!-- y axis is joint axis, has axis displacment from centre of mass -->
+    <xacro:property name="hook_iyy"
+      value="${(1.0/12.0) * hook_mass * (hook_length ** 2 + segment_thickness ** 2)
+              + hook_mass * (hook_length / 2.0) ** 2}"/>
+    <!-- z axis is out of the segment, has axis displacement-->
+    <xacro:property name="hook_izz"
+      value="${(1.0/12.0) * hook_mass * (hook_length ** 2 + segment_width ** 2)
+              + hook_mass * (hook_length / 2.0) ** 2}"/>
 
     <!-- Simplistic inertia macro for Gazebo -->
-    <xacro:macro name="segment_inertial" params="mass num">
+    <xacro:macro name="segment_inertial">
       <inertial>
         <mass value="${segment_mass}"/>
-        <inertia ixx="${segment_ixx * stability_factor}"
-                 iyy="${segment_iyy * stability_factor}"
-                 izz="${segment_izz * stability_factor}"
+        <inertia ixx="${segment_ixx * segment_inertia_scaling}"
+                 iyy="${segment_iyy * segment_inertia_scaling}"
+                 izz="${segment_izz * segment_inertia_scaling}"
+                 ixy="0.00" iyz="0.00" ixz="0.00" />
+      </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="hook_inertial">
+      <inertial>
+        <mass value="${hook_mass}"/>
+        <inertia ixx="${hook_ixx * segment_inertia_scaling}"
+                 iyy="${hook_iyy * segment_inertia_scaling}"
+                 izz="${hook_izz * segment_inertia_scaling}"
                  ixy="0.00" iyz="0.00" ixz="0.00" />
       </inertial>
     </xacro:macro>
@@ -82,7 +106,7 @@
     <!-- Macro to add a segment link -->
     <xacro:macro name="add_segment_link" params="number">
       <link name="${prefix}_segment_link_${number}">
-        <xacro:segment_inertial mass="${segment_mass / num_segments}" num="${number}"/>
+        <xacro:segment_inertial/>
         <visual>
           <origin xyz="${segment_length / 2} 0 0"
                   rpy="0 0 0"/>
@@ -204,7 +228,7 @@
 
     <!-- Add the finger hook link -->
     <link name="${prefix}_finger_hook_link">
-      <xacro:segment_inertial mass="${(finger_mass * 0.001) / num_segments}" num="${num_segments}"/>
+      <xacro:hook_inertial/>
       <visual>
         <origin xyz="${hook_length / 2} 0 0"
                 rpy="0 0 0"/>
@@ -224,13 +248,30 @@
       <xacro:link_properties/>
     </gazebo>
 
-    <!-- Connect the finger hook via a fixed joint -->
-    <joint name="${prefix}_finger_hook_joint" type="fixed">
-      <parent link="${prefix}_segment_link_${num_segments}"/>
-      <child link="${prefix}_finger_hook_link"/>
-      <origin xyz="${segment_length} 0 0"
-              rpy="0 ${-hook_angle} 0"/>
-    </joint>
+    <!-- Connect the finger hook -->
+    <xacro:if value="${fixed_hook_segment}">
+      <joint name="${prefix}_finger_hook_joint" type="fixed">
+        <parent link="${prefix}_segment_link_${num_segments}"/>
+        <child link="${prefix}_finger_hook_link"/>
+        <origin xyz="${segment_length} 0 0"
+                rpy="0 ${-hook_angle} 0"/>
+      </joint>
+    </xacro:if>
+    <xacro:if value="${not fixed_hook_segment}">
+      <joint name="${prefix}_finger_hook_joint" type="revolute">
+        <parent link="${prefix}_segment_link_${num_segments}"/>
+        <child link="${prefix}_finger_hook_link"/>
+        <origin xyz="${segment_length} 0 0"
+                rpy="0 ${-hook_angle} 0"/>
+        <axis xyz="0 1 0" rpy="0 0 0"/>
+		    <limit effort="1000.0"
+		          lower="-1.0"
+		          upper="1.0"
+		          velocity="1.0"/>
+		    <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+      </joint>
+    </xacro:if>
+    
 
   </xacro:macro>
 
