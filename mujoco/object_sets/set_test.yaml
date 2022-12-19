@@ -28,6 +28,23 @@
 #         for type "sphere" {r} is radius without scaling in m
 #         for type "cylinder" {r, h} is radius and height without scaling in m
 
+# ----- repeat all objects with the following ----- #
+
+settings:
+
+  # what material densities to use for objects
+  object_densities:
+  - 100
+  - 150
+  - 200
+
+  # what friction scalings compared to mujoco default
+  friction_scalings:
+  - 0.5
+  - 0.75
+  - 1.0
+  - 1.25
+
 # ----- cube ----- #
 
 cube:

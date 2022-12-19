@@ -17,15 +17,15 @@ with open(filepath + "/" + objects_yaml_file) as file:
   object_details = yaml.safe_load(file)
 
 # define key xml snippets in the form of a function, returning formatted snippet
-def get_object_xml(name, quat, mass, diaginertia):
+def get_object_xml(name, quat, mass, diaginertia, friction="1 0.005 0.0001"):
   # this snippet creates the main object in mujoco
   object_xml = """
   <body name="{0}" pos="0 0 0">
     <inertial pos="0 0 0" quat="{1}" mass="{2}" diaginertia="{3}"/>
     <freejoint name="{0}"/>
-    <geom name="{0}_geom" type="mesh" mesh="{0}"/>
+    <geom name="{0}_geom" type="mesh" mesh="{0}" friction="{4}"/>
   </body>\n
-  """.format(name, quat, mass, diaginertia)
+  """.format(name, quat, mass, diaginertia, friction)
   return object_xml
 
 def get_asset_xml(name, filepath, xscale, yscale, zscale, refquat):
@@ -88,15 +88,29 @@ if __name__ == "__main__":
   assets_tree = etree.ElementTree(assets_root)
   detail_tree = etree.ElementTree(detail_root)
 
-  # loop through top level objects in the yaml file
+  biggest_mass = [0, "object"]
+
+  # default mujoco friction parameters for geoms
+  default_friction = [1.0, 0.001, 0.0005]
+
+  # get density and friction values from the yaml file
+  density_values = object_details["settings"]["object_densities"]
+  friction_factors = object_details["settings"]["friction_scalings"]
+
+  # scale default friction by factors and convert [[a,b,c], [d,e,f]] into ["a b c", "d e f"]
+  friction_values = []
+  for f in friction_factors:
+    friction_values.append("".join(str([f * x for x in default_friction])[1:-1].split(",")))
+
+  # loop through top level entries in the yaml file
   for object in object_details:
 
-    if object_details[object]["include"] is False:
-      continue
+    # should we skip this yaml file entry
+    if object == "settings": continue
+    elif object_details[object]["include"] is False: continue
 
-    # density = 1000 
-
-    for density in [100]:
+    # loop through the given densities
+    for density in density_values:
 
       # extract key information
       name_root = object_details[object]["name_root"]
@@ -237,18 +251,29 @@ if __name__ == "__main__":
         elif spawn_axis == "z": z_rest = spawn_height * zscale
         else: raise RuntimeError("spawn axis not one of 'x', 'y', 'z'")
 
+        if mass > biggest_mass[0]:
+          biggest_mass[0] = mass
+          biggest_mass[1] = names[0] + f", density {density}"
+
         # loop through every fillet option and create the xml snippets
         for k, name in enumerate(names):
 
-          path = "models/{0}/{1}.STL".format(name_path, obj_filenames[k])
+          # loop through every friction option
+          for i, friction in enumerate(friction_values):
 
-          object_xml = get_object_xml(name, quat, mass, diaginertia)
-          asset_xml = get_asset_xml(name, path, xscale, yscale, zscale, quat_conj)
-          detail_xml = get_details_xml(name, z_rest)
+            path = "models/{0}/{1}.STL".format(name_path, obj_filenames[k])
 
-          add_chunk(object_tree, "@root", object_xml)
-          add_chunk(assets_tree, "@root", asset_xml)
-          add_chunk(detail_tree, "@root", detail_xml)
+            # add an extension to uniquely name each object
+            name_ext = f"_den{density}_fric{friction_factors[i]}"
+            name += name_ext
+
+            object_xml = get_object_xml(name, quat, mass, diaginertia, friction)
+            asset_xml = get_asset_xml(name, path, xscale, yscale, zscale, quat_conj)
+            detail_xml = get_details_xml(name, z_rest)
+
+            add_chunk(object_tree, "@root", object_xml)
+            add_chunk(assets_tree, "@root", asset_xml)
+            add_chunk(detail_tree, "@root", detail_xml)
 
   # add the ground as the final element in the object tree
   ground_xml = """
@@ -262,6 +287,8 @@ if __name__ == "__main__":
   object_tree.write(filepath + "/objects.xml")
   assets_tree.write(filepath + "/assets.xml")
   detail_tree.write(filepath + "/details.xml")
+
+  print(f"The biggest mass was {biggest_mass[0] * 1000:.0f}g for the object: {biggest_mass[1]}")
 
 
 
