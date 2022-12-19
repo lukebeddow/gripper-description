@@ -102,6 +102,11 @@ base_control = "motor"
 base_joint_dof = 1
 max_objects_per_task = 20
 
+# finger friction parameters
+default_mujoco_friction = [1, 0.005, 0.0001]
+finger_segment_friction = [0.5 * x for x in default_mujoco_friction]
+finger_segment_friction = "".join(str(finger_segment_friction)[1:-1].split(",")) # convert [1,2,3] to "1 2 3"
+
 # define all the joint names
 gripper_joints = [
   "finger_1_prismatic_joint", "finger_1_revolute_joint",
@@ -418,9 +423,10 @@ def add_chunk_with_specific_attribute(tree, parent_tag, attribute_name,
   
   return
 
-def add_geom_name(tree, parent_body):
+def add_geom_name_and_friction(tree, parent_body, friction):
   """
-  Adds a name to finger segment collision geoms
+  Adds a name to finger segment collision geoms, as well as friction which should
+  be given in the form "1 0.001 0.0005"
   """
 
   # now get the root of the tree
@@ -447,7 +453,12 @@ def add_geom_name(tree, parent_body):
     if t.attrib["name"] == parent_body:
       geoms = t.findall("geom")
       for i, g in enumerate(geoms):
+
+        # set the name to a given template
         g.set("name", parent_body + "_geom_" + labels[i])
+
+        # also set the friction
+        g.set("friction", friction)
 
 def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
   """
@@ -644,10 +655,10 @@ if __name__ == "__main__":
                         "stiffness", str(finger_joint_stiffness))
                     
       # add geom names
-      add_geom_name(task_tree, next_body)
+      add_geom_name_and_friction(task_tree, next_body, finger_segment_friction)
 
   # add palm geom names
-  add_geom_name(task_tree, "palm")
+  add_geom_name_and_friction(task_tree, "palm", finger_segment_friction)
 
   # finally, overwrite the files with the new xml
   gripper_tree.write(gripper_filename, xml_declaration=True, encoding='utf-8')
