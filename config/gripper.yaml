@@ -2,8 +2,9 @@ gripper_config:
   effort_control: false
   fixed_first_segment: false
   fixed_hook_segment: true
+  fixed_rev_joint: false
   is_segmented: true
-  num_segments: 30
+  num_segments: 10
   torsion: false
 gripper_params:
   angle_max_abs: 0.7
@@ -13,7 +14,7 @@ gripper_params:
   finger_width: 0.028
   hook_angle_degrees: 90.0
   hook_length: 0.035
-  segment_inertia_scaling: 50.0
+  segment_inertia_scaling: 1.0
   xy_home: 0.13133
   xy_max: 0.134
   xy_min: 0.049

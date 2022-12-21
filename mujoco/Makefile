@@ -98,7 +98,8 @@ $(URDFS): $(URDFDIR)/%.urdf : xacro/%.urdf.xacro $(DEPS)
 # create the individual object xml includes, phony so always runs if called
 .PHONY: generate_xml
 generate_xml: $(MJDEP)
-	python3 $(MJINCDIR)/build_object_set.py
+	python3 $(MJINCDIR)/build_object_set.py \
+		--gen-objects $(GEN_OBJECTS)
 
 clean:
 	rm -f $(URDFS)

@@ -32,18 +32,25 @@
 
 settings:
 
+  # non-zero value sets random seed to that integer, 0=random
+  fixed_random_seed: 1234
+
+  # keep each object unique but randomly select density/friction
+  random_density: true
+  random_friction: true
+
   # what material densities to use for objects
   object_densities:
-  - 100
   - 150
+  - 175
   - 200
 
   # what friction scalings compared to mujoco default
   friction_scalings:
-  - 0.5
-  - 0.75
+  - 0.9
   - 1.0
-  - 1.25
+  - 1.1
+  - 1.2
 
 # ----- cube ----- #
 

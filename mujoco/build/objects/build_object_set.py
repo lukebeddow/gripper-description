@@ -4,6 +4,16 @@ import yaml
 import os
 from lxml import etree
 import numpy as np
+import argparse
+
+# define arguments and parse them
+parser = argparse.ArgumentParser()
+parser.add_argument("--gen-objects", default=True, type=int)
+args = parser.parse_args()
+
+if not bool(args.gen_objects):
+  # no need to run this script
+  exit()
 
 # objects yaml file
 objects_yaml_file = "define_objects.yaml"
@@ -15,6 +25,11 @@ description_path = os.path.dirname(filepath)
 # import the dictionary of object information
 with open(filepath + "/" + objects_yaml_file) as file:
   object_details = yaml.safe_load(file)
+
+# do we have a fixed random seed (so test set fixed)
+rand_seed = object_details["settings"]["fixed_random_seed"]
+if rand_seed == 0: rand_seed = np.random.randint(0, 2147483647)
+np.random.seed(rand_seed)
 
 # define key xml snippets in the form of a function, returning formatted snippet
 def get_object_xml(name, quat, mass, diaginertia, friction="1 0.005 0.0001"):
@@ -102,6 +117,19 @@ if __name__ == "__main__":
   for f in friction_factors:
     friction_values.append("".join(str([f * x for x in default_friction])[1:-1].split(",")))
 
+  random_density = object_details["settings"]["random_density"]
+  random_friction = object_details["settings"]["random_friction"]
+
+  if random_density:
+    density_loop = 1
+  else:
+    density_loop = len(density_values)
+
+  if random_friction:
+    friction_loop = 1
+  else:
+    friction_loop = len(friction_values)
+
   # loop through top level entries in the yaml file
   for object in object_details:
 
@@ -110,7 +138,7 @@ if __name__ == "__main__":
     elif object_details[object]["include"] is False: continue
 
     # loop through the given densities
-    for density in density_values:
+    for d in range(density_loop):
 
       # extract key information
       name_root = object_details[object]["name_root"]
@@ -152,6 +180,10 @@ if __name__ == "__main__":
 
       # loop through scaling number
       for i in range(scale_num):
+
+        if random_density: density = np.random.choice(density_values)
+        else: density = density_values[d]
+        # print("density is", density)
 
         # work out this scale factor
         if scale_num == 1:
@@ -259,12 +291,16 @@ if __name__ == "__main__":
         for k, name in enumerate(names):
 
           # loop through every friction option
-          for i, friction in enumerate(friction_values):
+          for f in range(friction_loop):
+
+            if random_friction: friction = np.random.choice(friction_values)
+            else: friction = friction_values[f]
+            # print("friction in loop", f, "is", friction)
 
             path = "models/{0}/{1}.STL".format(name_path, obj_filenames[k])
 
             # add an extension to uniquely name each object
-            name_ext = f"_den{density}_fric{friction_factors[i]}"
+            name_ext = f"_den{density}_fric{friction_factors[f]}"
             name += name_ext
 
             object_xml = get_object_xml(name, quat, mass, diaginertia, friction)

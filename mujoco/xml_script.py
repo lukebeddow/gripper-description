@@ -41,19 +41,20 @@ filepath = os.path.dirname(os.path.abspath(__file__))
 description_path = os.path.dirname(filepath)
 directory_path = filepath + "/" + build_folder + "/"
 
-# set a seed so the same object set is always in the same order (ie same test set)
-rand_seed = 1234
-if rand_seed is not None: np.random.seed(rand_seed)
-
 with open(description_path + gripper_config_file) as file:
   gripper_details = yaml.safe_load(file)
 
 with open(directory_path + define_objects_file) as file:
   object_details = yaml.safe_load(file)
 
+# do we have a fixed random seed (so test set fixed)
+rand_seed = object_details["settings"]["fixed_random_seed"]
+if rand_seed == 0: rand_seed = np.random.randint(0, 2147483647)
+np.random.seed(rand_seed)
+
 if debug:
   print("Running xml_script.py, debug mode is ON")
-  print("The random seed is:", rand_seed)
+  print("The random seed is:", rand_seed, "yaml value = ", object_details['settings']['fixed_random_seed'])
   print("The gripper description directory path is:", description_path)
   print("The mjcf directory path is:", directory_path)
   print("The task folder name is:", task_file_folder)
@@ -66,6 +67,14 @@ is_segmented = gripper_details["gripper_config"]["is_segmented"]
 num_segments = gripper_details["gripper_config"]["num_segments"]
 fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
 fixed_hook_segment = gripper_details["gripper_config"]["fixed_hook_segment"]
+fixed_rev_joint = gripper_details["gripper_config"]["fixed_rev_joint"]
+
+if debug:
+  print("is segmented is", is_segmented)
+  print("num segments is", num_segments)
+  print("fixed first segment is", fixed_first_segment)
+  print("fixed hook joint is", fixed_hook_segment)
+  print("fixed revolute joint is", fixed_rev_joint)
 
 # starting configuration of the robot joints
 joint_start = {
@@ -119,6 +128,7 @@ base_joints = ["world_to_base"]
 
 ffs = 1 if fixed_first_segment else 0
 hk_jnt = 0 if fixed_hook_segment else 1
+frj = 1 if fixed_rev_joint else 1
 
 # auto generate joint names
 panda_joints = ["panda_joint{0}".format(i) for i in range(1,8)]
@@ -132,10 +142,16 @@ else:
   finger_joint_qpos = ""
 
 # define keyframe qpos for main model joints
-gripper_qpos = "{0} {1} {2} {0} {1} {2} {0} {1} {2} {3}".format(
-  joint_start["gripper_prismatic"], joint_start["gripper_revolute"], 
-  finger_joint_qpos, joint_start["gripper_palm"]
-)
+if fixed_rev_joint:
+  gripper_qpos = "{0} {1} {0} {1} {0} {1} {2}".format(
+    joint_start["gripper_prismatic"], #joint_start["gripper_revolute"], 
+    finger_joint_qpos, joint_start["gripper_palm"]
+  )
+else:
+  gripper_qpos = "{0} {1} {2} {0} {1} {2} {0} {1} {2} {3}".format(
+    joint_start["gripper_prismatic"], joint_start["gripper_revolute"], 
+    finger_joint_qpos, joint_start["gripper_palm"]
+  )
 panda_qpos = "{0} {1} {2} {3} {4} {5} {6}".format(
   joint_start["panda_joint1"], joint_start["panda_joint2"], 
   joint_start["panda_joint3"], joint_start["panda_joint4"],
@@ -207,6 +223,8 @@ base_actuator_subelement = """
 # create actuator xml for each joint
 gripper_actuator_string = """"""
 for joint in gripper_joints:
+  if fixed_rev_joint: 
+    if joint.endswith("revolute_joint"): continue
   gripper_actuator_string += gripper_actuator_subelement.format(
     gripper_control, joint
   )
@@ -275,45 +293,71 @@ force_sensor = """
 """
 
 # ----- create equality constraints for gripper motors ----- #
-equality_constraints = """
-  <equality>
-    <weld name="pris1_weld"
-          active="false"
-          body1="gripper_base_link"
-          body2="finger_1_intermediate"
-    />
-    <weld name="pris2_weld"
-          active="false"
-          body1="gripper_base_link"
-          body2="finger_2_intermediate"
-    />
-    <weld name="pris3_weld"
-          active="false"
-          body1="gripper_base_link"
-          body2="finger_3_intermediate"
-    />
-    <weld name="rev1_weld"
-          active="false"
-          body1="finger_1"
-          body2="finger_1_intermediate"
-    />
-    <weld name="rev2_weld"
-          active="false"
-          body1="finger_2"
-          body2="finger_2_intermediate"
-    />
-    <weld name="rev3_weld"
-          active="false"
-          body1="finger_3"
-          body2="finger_3_intermediate"
-    />
-    <weld name="palm_weld"
-          active="false"
-          body1="gripper_base_link"
-          body2="palm"
-    />
-  </equality>
-"""
+if not fixed_rev_joint:
+  equality_constraints = """
+    <equality>
+      <weld name="pris1_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="finger_1_intermediate"
+      />
+      <weld name="pris2_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="finger_2_intermediate"
+      />
+      <weld name="pris3_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="finger_3_intermediate"
+      />
+      <weld name="rev1_weld"
+            active="false"
+            body1="finger_1"
+            body2="finger_1_intermediate"
+      />
+      <weld name="rev2_weld"
+            active="false"
+            body1="finger_2"
+            body2="finger_2_intermediate"
+      />
+      <weld name="rev3_weld"
+            active="false"
+            body1="finger_3"
+            body2="finger_3_intermediate"
+      />
+      <weld name="palm_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="palm"
+      />
+    </equality>
+  """
+else:
+  equality_constraints = """
+    <equality>
+      <weld name="pris1_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="finger_1_intermediate"
+      />
+      <weld name="pris2_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="finger_2_intermediate"
+      />
+      <weld name="pris3_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="finger_3_intermediate"
+      />
+      <weld name="palm_weld"
+            active="false"
+            body1="gripper_base_link"
+            body2="palm"
+      />
+    </equality>
+  """
 
 # ----- helper functions ----- #
 

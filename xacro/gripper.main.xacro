@@ -15,6 +15,9 @@
     <xacro:property name="palm_displacement_max" value="${yaml_dict['gripper_params']['z_max']}"/>
     <xacro:property name="finger_angle_min" value="${-1 * yaml_dict['gripper_params']['angle_max_abs']}"/>
     <xacro:property name="finger_angle_max" value="${yaml_dict['gripper_params']['angle_max_abs']}"/>
+
+    <!-- testing -->
+    <xacro:property name="fixed_rev_joint" value="${yaml_dict['gripper_config']['fixed_rev_joint']}"/>
     
   	<!-- PARAMETERS TO BE SET BY HAND -->
     
@@ -182,17 +185,28 @@
         <dynamics damping="${joint_damping}"/>
       </joint>
       <!-- Revolute joint -->
-      <joint name="finger_${number}_revolute_joint" type="revolute">
-        <axis xyz="0 0 1" rpy="0 0 0"/>
-        <parent link="finger_${number}_intermediate"/>
-        <child link="finger_${number}"/>
-        <xacro:finger_origin number="${number}"/>
-        <limit effort="${limit_effort_revolute}" 
-        			 lower="${finger_angle_min}"
-        			 upper="${finger_angle_max}"
-        			 velocity="${finger_angle_velocity}"/>
-        <dynamics damping="${joint_damping}"/>
-      </joint>
+
+      <xacro:if value="${fixed_rev_joint}">
+        <joint name="finger_${number}_revolute_joint" type="fixed">
+          <parent link="finger_${number}_intermediate"/>
+          <child link="finger_${number}"/>
+          <xacro:finger_origin number="${number}"/>
+        </joint>
+      </xacro:if>
+      <xacro:if value="${not fixed_rev_joint}">
+        <joint name="finger_${number}_revolute_joint" type="revolute">
+          <axis xyz="0 0 1" rpy="0 0 0"/>
+          <parent link="finger_${number}_intermediate"/>
+          <child link="finger_${number}"/>
+          <xacro:finger_origin number="${number}"/>
+          <limit effort="${limit_effort_revolute}" 
+                lower="${finger_angle_min}"
+                upper="${finger_angle_max}"
+                velocity="${finger_angle_velocity}"/>
+          <dynamics damping="${joint_damping}"/>
+        </joint>
+      </xacro:if>
+
     </xacro:macro>
 
     <!-- FINGERS -->

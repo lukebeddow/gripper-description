@@ -185,6 +185,7 @@ for set_to_build in build_sets:
 
 # now we have finished making the sets, restore the config file to its original state
 gripper_details["gripper_config"]["num_segments"] = original_N
+gripper_details["gripper_params"]["finger_width"] = original_W
 
 # write the overwritten dictionary to the file
 with open(description_path + gripper_config_file, "w") as outfile:
