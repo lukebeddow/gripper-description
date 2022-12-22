@@ -268,7 +268,8 @@
 		          lower="-1.0"
 		          upper="1.0"
 		          velocity="1.0"/>
-		    <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        <!-- give extra damping/friction to stop unwanted movement -->
+		    <dynamics damping="100" friction="100"/>
       </joint>
     </xacro:if>
     

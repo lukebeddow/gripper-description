@@ -173,19 +173,33 @@
         </xacro:if>
       </link>
       <!-- Prismatic joint -->
-      <joint name="finger_${number}_prismatic_joint" type="prismatic">
-        <axis xyz="0 1 0" rpy="0 0 0"/>
-        <parent link="gripper_base_link"/>
-        <child link="finger_${number}_intermediate"/>
-        <xacro:finger_intermediate_origin number="${number}"/>
-        <limit effort="${limit_effort_prismatic}" 
-        			 lower="${finger_displacement_min}"
-        			 upper="${finger_displacement_max}"
-        			 velocity="${finger_displacement_velocity}"/>
-        <dynamics damping="${joint_damping}"/>
-      </joint>
+      <xacro:if value="${fixed_rev_joint}">
+        <joint name="finger_${number}_prismatic_joint" type="fixed">
+          <parent link="gripper_base_link"/>
+          <child link="finger_${number}_intermediate"/>
+          <!-- <xacro:finger_intermediate_origin number="${number}"/> -->
+          <origin xyz="${100e-3 * sin((number-1)*((2*pi)/3))}
+                       ${100e-3 * cos((number-1)*((2*pi)/3))}
+                       0"
+                  rpy="${3*pi/2}
+                       ${3*pi/2}
+                       ${(pi/2) - (number-1)*(2*pi/3)}" />
+        </joint>
+      </xacro:if>
+      <xacro:if value="${not fixed_rev_joint}">
+        <joint name="finger_${number}_prismatic_joint" type="prismatic">
+          <axis xyz="0 1 0" rpy="0 0 0"/>
+          <parent link="gripper_base_link"/>
+          <child link="finger_${number}_intermediate"/>
+          <xacro:finger_intermediate_origin number="${number}"/>
+          <limit effort="${limit_effort_prismatic}" 
+                lower="${finger_displacement_min}"
+                upper="${finger_displacement_max}"
+                velocity="${finger_displacement_velocity}"/>
+          <dynamics damping="${joint_damping}"/>
+        </joint>
+      </xacro:if>
       <!-- Revolute joint -->
-
       <xacro:if value="${fixed_rev_joint}">
         <joint name="finger_${number}_revolute_joint" type="fixed">
           <parent link="finger_${number}_intermediate"/>

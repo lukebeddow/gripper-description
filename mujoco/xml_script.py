@@ -143,8 +143,12 @@ else:
 
 # define keyframe qpos for main model joints
 if fixed_rev_joint:
-  gripper_qpos = "{0} {1} {0} {1} {0} {1} {2}".format(
-    joint_start["gripper_prismatic"], #joint_start["gripper_revolute"], 
+  # gripper_qpos = "{0} {1} {0} {1} {0} {1} {2}".format(
+  #   joint_start["gripper_prismatic"], #joint_start["gripper_revolute"], 
+  #   finger_joint_qpos, joint_start["gripper_palm"]
+  # )
+  gripper_qpos = "{0} {0} {0} {1}".format(
+    #joint_start["gripper_prismatic"], #joint_start["gripper_revolute"], 
     finger_joint_qpos, joint_start["gripper_palm"]
   )
 else:
@@ -225,6 +229,7 @@ gripper_actuator_string = """"""
 for joint in gripper_joints:
   if fixed_rev_joint: 
     if joint.endswith("revolute_joint"): continue
+    if joint.endswith("prismatic_joint"): continue
   gripper_actuator_string += gripper_actuator_subelement.format(
     gripper_control, joint
   )
@@ -336,21 +341,6 @@ if not fixed_rev_joint:
 else:
   equality_constraints = """
     <equality>
-      <weld name="pris1_weld"
-            active="false"
-            body1="gripper_base_link"
-            body2="finger_1_intermediate"
-      />
-      <weld name="pris2_weld"
-            active="false"
-            body1="gripper_base_link"
-            body2="finger_2_intermediate"
-      />
-      <weld name="pris3_weld"
-            active="false"
-            body1="gripper_base_link"
-            body2="finger_3_intermediate"
-      />
       <weld name="palm_weld"
             active="false"
             body1="gripper_base_link"
