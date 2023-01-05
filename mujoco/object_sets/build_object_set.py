@@ -300,7 +300,7 @@ if __name__ == "__main__":
             path = "models/{0}/{1}.STL".format(name_path, obj_filenames[k])
 
             # add an extension to uniquely name each object
-            name_ext = f"_den{density}_fric{friction_factors[f]}"
+            name_ext = f"_den{density}_fric{friction}"
             name += name_ext
 
             object_xml = get_object_xml(name, quat, mass, diaginertia, friction)

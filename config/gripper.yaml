@@ -1,8 +1,8 @@
 gripper_config:
   effort_control: false
   fixed_first_segment: false
-  fixed_hook_segment: false
-  fixed_rev_joint: true
+  fixed_hook_segment: true
+  fixed_motor_joints: false
   is_segmented: true
   num_segments: 10
   torsion: false

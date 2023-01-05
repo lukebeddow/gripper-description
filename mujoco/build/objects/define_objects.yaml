@@ -33,7 +33,7 @@
 settings:
 
   # non-zero value sets random seed to that integer, 0=random
-  fixed_random_seed: 1234
+  fixed_random_seed: 12345
 
   # keep each object unique but randomly select density/friction
   random_density: true
@@ -41,6 +41,8 @@ settings:
 
   # what material densities to use for objects
   object_densities:
+  - 100
+  - 125
   - 150
   - 175
   - 200
@@ -55,7 +57,7 @@ settings:
 # ----- cube ----- #
 
 cube:
-  include: false
+  include: true
   name_root: cube_fillet
   suffix: normal
   path: cube
@@ -70,13 +72,13 @@ cube:
     y: 0.1
     z: 0.1
   scale:
-    num: 3
+    num: 15
     max: { x: 1.4, y: 1.4, z: 1.4 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5  
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
@@ -96,7 +98,7 @@ sphere:
     type: sphere
     r: 0.05
   scale:
-    num: 3
+    num: 125
     max: { x: 1.6, y: 1.6, z: 1.6 }
     min: { x: 0.7, y: 0.7, z: 0.7 }
   fillet:
@@ -106,7 +108,7 @@ sphere:
 # ----- cylinder ----- #
 
 cylinder_11:
-  include: false
+  include: true
   name_root: cylinder_11_fillet
   suffix: normal
   path: cylinder_11
@@ -120,18 +122,18 @@ cylinder_11:
     r: 0.05
     h: 0.1
   scale:
-    num: 3
+    num: 15
     max: { x: 1.4, y: 1.4, z: 1.4 }
     min: { x: 0.7, y: 0.7, z: 0.7 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cylinder_12_sideways:
-  include: false
+  include: true
   name_root: cylinder_12_fillet
   suffix: sideways
   path: cylinder_12
@@ -145,18 +147,18 @@ cylinder_12_sideways:
     r: 0.05
     h: 0.2
   scale:
-    num: 3
+    num: 15
     max: { x: 1.2, y: 1.2, z: 1.2 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 25
     min: 5
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_12_upright:
-  include: false
+  include: true
   name_root: cylinder_12_fillet
   suffix: upright
   path: cylinder_12
@@ -170,18 +172,18 @@ cylinder_12_upright:
     r: 0.05
     h: 0.2
   scale:
-    num: 3
+    num: 15
     max: { x: 0.7, y: 0.7, z: 0.7 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 25
     min: 5
   quat: { x: 0.01, y: 0, z: 0, w: 0 } # get an inertia matrix error with all=0
 
 cylinder_13_sideways:
-  include: false
+  include: true
   name_root: cylinder_13_fillet
   suffix: sideways
   path: cylinder_13
@@ -195,18 +197,18 @@ cylinder_13_sideways:
     r: 0.05
     h: 0.3
   scale:
-    num: 3
+    num: 15
     max: { x: 0.9, y: 0.9, z: 0.9 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 25
     min: 5
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_14:
-  include: false
+  include: true
   name_root: cylinder_14_fillet
   suffix: normal
   path: cylinder_14
@@ -220,18 +222,18 @@ cylinder_14:
     r: 0.05
     h: 0.4
   scale:
-    num: 3
+    num: 15
     max: { x: 0.9, y: 0.9, z: 0.9 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 25
     min: 5
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_21:
-  include: false
+  include: true
   name_root: cylinder_21_fillet
   suffix: normal
   path: cylinder_21
@@ -245,20 +247,20 @@ cylinder_21:
     r: 0.1
     h: 0.1
   scale:
-    num: 3
+    num: 15
     max: { x: 0.9, y: 0.9, z: 0.9 }
     min: { x: 0.4, y: 0.4, z: 0.4 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 # ----- cuboid ----- #
 
 cuboid_211:
-  include: false
+  include: true
   name_root: cuboid_211_fillet
   suffix: normal
   path: cuboid_211
@@ -273,18 +275,18 @@ cuboid_211:
     y: 0.1
     z: 0.1
   scale:
-    num: 3
+    num: 9
     max: { x: 0.9, y: 0.9, z: 0.9 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cuboid_211_upright:
-  include: false
+  include: true
   name_root: cuboid_211_fillet
   suffix: upright
   path: cuboid_211
@@ -299,18 +301,18 @@ cuboid_211_upright:
     y: 0.1
     z: 0.1
   scale:
-    num: 3
+    num: 9
     max: { x: 0.7, y: 0.7, z: 0.7 }
     min: { x: 0.5, y: 0.5, z: 0.5 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0, y: 0.707, z: 0, w: 0.707 }
 
 cuboid_221:
-  include: false
+  include: true
   name_root: cuboid_221_fillet
   suffix: normal
   path: cuboid_221
@@ -325,18 +327,18 @@ cuboid_221:
     y: 0.1
     z: 0.2
   scale:
-    num: 3
+    num: 9
     max: { x: 0.7, y: 0.7, z: 0.7 }
     min: { x: 0.4, y: 0.4, z: 0.4 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
 
 cuboid_311:
-  include: false
+  include: true
   name_root: cuboid_311_fillet
   suffix: normal
   path: cuboid_311
@@ -351,18 +353,18 @@ cuboid_311:
     y: 0.1
     z: 0.1
   scale:
-    num: 3
+    num: 9
     max: { x: 0.8, y: 0.8, z: 0.8 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cuboid_311_thinner:
-  include: false
+  include: true
   name_root: cuboid_311_fillet
   suffix: thinner
   path: cuboid_311
@@ -377,18 +379,18 @@ cuboid_311_thinner:
     y: 0.1
     z: 0.1
   scale:
-    num: 3
+    num: 9
     max: { x: 1.2, y: 0.8, z: 0.8 }
     min: { x: 1.2, y: 0.6, z: 0.6 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cuboid_321:
-  include: false
+  include: true
   name_root: cuboid_321_fillet
   suffix: normal
   path: cuboid_321
@@ -403,12 +405,12 @@ cuboid_321:
     y: 0.1
     z: 0.2
   scale:
-    num: 3
+    num: 9
     max: { x: 0.5, y: 0.5, z: 0.5 }
     min: { x: 0.4, y: 0.4, z: 0.4 }
   fillet:
     used: true
     step: 10
-    max: 5
+    max: 45
     min: 5
   quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }

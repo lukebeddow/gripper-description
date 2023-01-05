@@ -67,14 +67,14 @@ is_segmented = gripper_details["gripper_config"]["is_segmented"]
 num_segments = gripper_details["gripper_config"]["num_segments"]
 fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
 fixed_hook_segment = gripper_details["gripper_config"]["fixed_hook_segment"]
-fixed_rev_joint = gripper_details["gripper_config"]["fixed_rev_joint"]
+fixed_motor_joints = gripper_details["gripper_config"]["fixed_motor_joints"]
 
 if debug:
   print("is segmented is", is_segmented)
   print("num segments is", num_segments)
   print("fixed first segment is", fixed_first_segment)
   print("fixed hook joint is", fixed_hook_segment)
-  print("fixed revolute joint is", fixed_rev_joint)
+  print("fixed motor joints is", fixed_motor_joints)
 
 # starting configuration of the robot joints
 joint_start = {
@@ -128,7 +128,6 @@ base_joints = ["world_to_base"]
 
 ffs = 1 if fixed_first_segment else 0
 hk_jnt = 0 if fixed_hook_segment else 1
-frj = 1 if fixed_rev_joint else 1
 
 # auto generate joint names
 panda_joints = ["panda_joint{0}".format(i) for i in range(1,8)]
@@ -142,13 +141,8 @@ else:
   finger_joint_qpos = ""
 
 # define keyframe qpos for main model joints
-if fixed_rev_joint:
-  # gripper_qpos = "{0} {1} {0} {1} {0} {1} {2}".format(
-  #   joint_start["gripper_prismatic"], #joint_start["gripper_revolute"], 
-  #   finger_joint_qpos, joint_start["gripper_palm"]
-  # )
+if fixed_motor_joints:
   gripper_qpos = "{0} {0} {0} {1}".format(
-    #joint_start["gripper_prismatic"], #joint_start["gripper_revolute"], 
     finger_joint_qpos, joint_start["gripper_palm"]
   )
 else:
@@ -227,7 +221,7 @@ base_actuator_subelement = """
 # create actuator xml for each joint
 gripper_actuator_string = """"""
 for joint in gripper_joints:
-  if fixed_rev_joint: 
+  if fixed_motor_joints: 
     if joint.endswith("revolute_joint"): continue
     if joint.endswith("prismatic_joint"): continue
   gripper_actuator_string += gripper_actuator_subelement.format(
@@ -298,7 +292,7 @@ force_sensor = """
 """
 
 # ----- create equality constraints for gripper motors ----- #
-if not fixed_rev_joint:
+if not fixed_motor_joints:
   equality_constraints = """
     <equality>
       <weld name="pris1_weld"
