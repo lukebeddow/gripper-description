@@ -33,7 +33,7 @@
 settings:
 
   # non-zero value sets random seed to that integer, 0=random
-  fixed_random_seed: 12347
+  fixed_random_seed: 12347 # this seed has been chosen to give a good test set
 
   # keep each object unique but randomly select density/friction
   random_density: true

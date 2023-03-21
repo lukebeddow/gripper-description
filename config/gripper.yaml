@@ -14,7 +14,7 @@ gripper_params:
   finger_width: 0.028
   hook_angle_degrees: 90.0
   hook_length: 0.035
-  segment_inertia_scaling: 1.0
+  segment_inertia_scaling: 50.0
   xy_home: 0.13133
   xy_max: 0.134
   xy_min: 0.049
