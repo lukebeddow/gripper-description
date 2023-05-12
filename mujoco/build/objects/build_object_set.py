@@ -315,7 +315,7 @@ if __name__ == "__main__":
   # add the ground as the final element in the object tree
   ground_xml = """
   <body name="ground" pos="0 0 0">
-    <geom name="ground_geom" type="plane" size="1 1 1"/>
+    <geom name="ground_geom" type="plane" size="10 10 10"/>
   </body>
   """
   add_chunk(object_tree, "@root", ground_xml)

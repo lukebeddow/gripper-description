@@ -451,7 +451,47 @@ def add_chunk_with_specific_attribute(tree, parent_tag, attribute_name,
   
   return
 
-def add_geom_name_and_friction(tree, parent_body, friction):
+def add_geom_name(tree, parent_body):
+  """
+  Add a geom name to a geom
+  """
+
+  # now get the root of the tree
+  root = tree.getroot()
+
+  # search recursively for all instances of the tag
+  tags = root.findall(".//" + "body")
+
+  labels = ["visual", "collision", "hook_visual", "hook_collision"]
+
+  # special case if we want to name every single geom
+  if parent_body == "@all":
+    num = 0
+    for t in tags:
+      name = t.attrib["name"]
+      geoms = t.findall("geom")
+      for i, g in enumerate(geoms):
+        try:
+          g.set("name", name + "_geom_" + labels[i])
+        except IndexError as e:
+          print("Index error in add_geom_name:", e)
+          g.set("name", name + "_geom_" + str(i))
+        num += 1
+    return
+
+  # add the geom label only to bodies that match the parent body name
+  for t in tags:
+    if t.attrib["name"] == parent_body:
+      geoms = t.findall("geom")
+      for i, g in enumerate(geoms):
+
+        # set the name to a given template
+        g.set("name", parent_body + "_geom_" + labels[i])
+
+        # also set the friction
+        g.set("friction")
+
+def add_finger_geom_name_and_friction(tree, parent_body, friction):
   """
   Adds a name to finger segment collision geoms, as well as friction which should
   be given in the form "1 0.001 0.0005"
@@ -656,6 +696,9 @@ if __name__ == "__main__":
   tag_string = "finger_{0}_segment_joint_{1}"
   body_string = "finger_{0}_segment_link_{1}"
 
+  # name every single geom in the model
+  add_geom_name(task_tree, "@all")
+
   ffs = 1 if fixed_first_segment else 0
 
   for i in range(3):
@@ -683,10 +726,10 @@ if __name__ == "__main__":
                         "stiffness", str(finger_joint_stiffness))
                     
       # add geom names
-      add_geom_name_and_friction(task_tree, next_body, finger_segment_friction)
+      add_finger_geom_name_and_friction(task_tree, next_body, finger_segment_friction)
 
   # add palm geom names
-  add_geom_name_and_friction(task_tree, "palm", finger_segment_friction)
+  add_finger_geom_name_and_friction(task_tree, "palm", finger_segment_friction)
 
   # finally, overwrite the files with the new xml
   gripper_tree.write(gripper_filename, xml_declaration=True, encoding='utf-8')
@@ -706,6 +749,10 @@ if __name__ == "__main__":
 
     # edit the meshdir because the tasks are in the /task directory
     modify_tag_attribute(taskN_tree, "compiler", "meshdir", "../meshes_mujoco")
+
+    # put a nice background in
+    blue_sky = """<texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="512"/>"""
+    add_chunk(taskN_tree, "asset", blue_sky)
 
     # create xml text for specefic includes and add them to the tree
     objectN_includes = """<include file="../{0}/{1}"/>""".format(objects_folder, object_split_filename.format(i))
