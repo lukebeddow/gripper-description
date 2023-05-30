@@ -9,6 +9,9 @@
 				discardvisual="false"
 			/>
 			<size njmax="3400" nconmax="800"/>
+			 <asset>
+				<texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="512"/>
+			</asset>
 		</mujoco>
 	</xacro:macro>
 </robot>
