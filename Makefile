@@ -13,12 +13,12 @@ SETSCRIPT=build_multi_segment_set.py
 #   fast           -> builds "5 6 7 8 9 10"
 #   most           -> builds "5 6 7 8 9 10 12 14 ... (even numbers) ... 28 30"
 #		all            -> builds "5 6 7 8 9 10 11 12 ... (all numbers) ... 29 30"
-SEGMENTS=fast
+SEGMENTS=config
 
 # override @ command line eg 'make WIDTHS="24 28"'
 #		config				 -> builds with current width in config/gripper.yaml
 #		"X Y Z..."		 -> builds with widths X, Y, Z, ...
-WIDTHS=24 28
+WIDTHS=config
 
 MAKEFLAGS += -j8 # jN => use N parallel cores
 

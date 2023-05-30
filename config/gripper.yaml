@@ -4,7 +4,7 @@ gripper_config:
   fixed_hook_segment: true
   fixed_motor_joints: false
   is_segmented: true
-  num_segments: 10
+  num_segments: 8
   torsion: false
 gripper_params:
   angle_max_abs: 0.7

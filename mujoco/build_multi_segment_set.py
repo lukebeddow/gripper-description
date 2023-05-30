@@ -108,7 +108,7 @@ else:
 # have we been given a list of widths?
 original_W = gripper_details["gripper_params"]["finger_width"]
 
-if args.widths is None or args.widths in ["default"]:
+if args.widths is None or args.widths in ["config", "default"]:
   widths = [original_W]
 else:
   list_widths = args.widths.split(" ")
