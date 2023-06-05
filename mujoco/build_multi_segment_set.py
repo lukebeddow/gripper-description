@@ -109,7 +109,8 @@ else:
 original_W = gripper_details["gripper_params"]["finger_width"]
 
 if args.widths is None or args.widths in ["config", "default"]:
-  widths = [original_W]
+  # widths in config file must be in metres, convert to mm
+  widths = [original_W * 1e3]
 else:
   list_widths = args.widths.split(" ")
   widths = []
