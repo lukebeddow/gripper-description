@@ -4,6 +4,13 @@
 	<!-- define relative movement to get to gripper_description/ -->
 	<xacro:property name="path_to_top" value="../.."/>
 
+	<!-- load the gripper config information -->
+	<xacro:property name="filename" value="${path_to_top}/config/gripper.yaml"/>
+	<xacro:property name="yaml_dict" value="${xacro.load_yaml(filename)}"/>
+	
+	<!-- extract the gripper config information -->
+	<xacro:property name="xy_base_joint" value="${yaml_dict['gripper_config']['xy_base_joint']}"/> 
+
   <!-- include the mujoco settings xacro -->
 	<xacro:include filename="${path_to_top}/mujoco/xacro/mujoco.xacro"/>
 	<xacro:mujoco_settings/>
@@ -20,18 +27,79 @@
 	<xacro:property name="fingertip_clearance" value="0.01"/>
 	<xacro:property name="h" value="${fingertip_touches_ground + fingertip_clearance}"/>
 
-  <!-- attach gripper to the ground for mujoco -->
-	<link name="world"/>
-	<joint name="world_to_base" type="prismatic">
-		<origin xyz="0 0 ${h}" rpy="${pi} 0 0"/>
-		<axis xyz="0 0 1" rpy="0 0 0"/>
-		<parent link="world"/>
-		<child link="gripper_base_link"/>
-		<limit effort="1e3" 
-					 lower="-1"
-					 upper="1"
-					 velocity="1"/>
-    <dynamics damping="1"/>
-	</joint>
+  <!-- create gripper base joints in mujoco -->
+	<xacro:if value="${xy_base_joint}">
+
+		<!-- we want full XYZ movement of the gripper base -->
+		<link name="world"/>
+
+		<link name="base_XY">
+			<inertial>
+				<mass value="1.0"/>
+				<inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+			</inertial>
+		</link>
+		
+		<link name="base_YZ">
+			<inertial>
+				<mass value="1.0"/>
+				<inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+			</inertial>
+		</link>
+
+		<joint name="base_X_joint" type="prismatic">
+			<origin xyz="0 0 ${h}" rpy="${pi} 0 0"/>
+			<axis xyz="1 0 0" rpy="0 0 0"/>
+			<parent link="world"/>
+			<child link="base_XY"/>
+			<limit effort="1e3" 
+						lower="-1"
+						upper="1"
+						velocity="1"/>
+			<dynamics damping="1"/>
+		</joint>
+
+		<joint name="base_Y_joint" type="prismatic">
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<axis xyz="0 1 0" rpy="0 0 0"/>
+			<parent link="base_XY"/>
+			<child link="base_YZ"/>
+			<limit effort="1e3" 
+						lower="-1"
+						upper="1"
+						velocity="1"/>
+			<dynamics damping="1"/>
+		</joint>
+
+		<joint name="base_Z_joint" type="prismatic">
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<axis xyz="0 0 1" rpy="0 0 0"/>
+			<parent link="base_YZ"/>
+			<child link="gripper_base_link"/>
+			<limit effort="1e3" 
+						lower="-1"
+						upper="1"
+						velocity="1"/>
+			<dynamics damping="1"/>
+		</joint>
+
+	</xacro:if>
+	<xacro:if value="${not xy_base_joint}">
+
+		<!-- we only want Z movement of the gripper base -->
+		<link name="world"/>
+		<joint name="world_to_base" type="prismatic">
+			<origin xyz="0 0 ${h}" rpy="${pi} 0 0"/>
+			<axis xyz="0 0 1" rpy="0 0 0"/>
+			<parent link="world"/>
+			<child link="gripper_base_link"/>
+			<limit effort="1e3" 
+						lower="-1"
+						upper="1"
+						velocity="1"/>
+			<dynamics damping="1"/>
+		</joint>
+
+	</xacro:if>
 		
 </robot> 

@@ -13,7 +13,7 @@
 	<xacro:include filename="${path_to_top}/xacro/gripper.xacro"/>
 	<xacro:add_gripper path_to_top="${path_to_top}"/>
 	
-	<!-- attach gripper to the ground for gazebo -->
+	<!-- rigidly attach gripper to the ground -->
 	<link name="world"/>
 	<joint name="world_to_base" type="fixed">
 		<origin xyz="0 0 1" rpy="${pi} 0 0"/>

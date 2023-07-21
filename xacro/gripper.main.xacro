@@ -232,12 +232,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://gripper_description/meshes/palm visual.STL" />
+          <!-- <mesh filename="package://gripper_description/meshes/palm visual.STL" /> -->
+          <mesh filename="package://gripper_description/meshes/palm sensor visual.STL" />
         </geometry>
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://gripper_description/meshes/palm collision.STL" />
+          <!-- <mesh filename="package://gripper_description/meshes/palm collision.STL" /> -->
+          <mesh filename="package://gripper_description/meshes/palm sensor visual.STL" />
         </geometry>
       </collision>
     </link>
@@ -246,6 +248,7 @@
       <parent link="gripper_base_link"/>
       <child link="palm"/>
       <origin xyz="0 0 0" rpy="0 ${-pi/2} 0"/>
+      <!-- <origin xyz="0 0 0.1" rpy="0 ${pi/2} 0"/> -->
       <limit effort="${limit_effort_palm}" 
       			 lower="${palm_displacement_min}" 
       			 upper="${palm_displacement_max}" 

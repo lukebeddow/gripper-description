@@ -68,6 +68,7 @@ num_segments = gripper_details["gripper_config"]["num_segments"]
 fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
 fixed_hook_segment = gripper_details["gripper_config"]["fixed_hook_segment"]
 fixed_motor_joints = gripper_details["gripper_config"]["fixed_motor_joints"]
+use_xy_base_joint = gripper_details["gripper_config"]["xy_base_joint"]
 
 if debug:
   print("is segmented is", is_segmented)
@@ -75,6 +76,7 @@ if debug:
   print("fixed first segment is", fixed_first_segment)
   print("fixed hook joint is", fixed_hook_segment)
   print("fixed motor joints is", fixed_motor_joints)
+  print("xy_base joint is", use_xy_base_joint)
 
 # starting configuration of the robot joints
 joint_start = {
@@ -88,7 +90,9 @@ joint_start = {
   "gripper_prismatic": gripper_details["gripper_params"]["xy_home"],
   "gripper_revolute": 0.0,
   "gripper_palm": gripper_details["gripper_params"]["z_home"],
-  "base_z": 0.0
+  "base_x_joint": 0.0,
+  "base_y_joint": 0.0,
+  "base_z_joint": 0.0
 }
 
 # panda parameters
@@ -96,19 +100,17 @@ panda_control = "motor"
 
 # gripper parameters
 gripper_control = "motor"
-force_limit_prismatic = 10.0 # these are currently not used
-force_limit_revolute = 10.0  # these are currently not used
-force_limit_palm = 10.0      # these are currently not used
+force_limit_prismatic = 10.0  # these are currently not used
+force_limit_revolute = 10.0   # these are currently not used
+force_limit_palm = 10.0       # these are currently not used
 
 # finger dummy parameters
-finger_control = "motor"
-finger_joint_stiffness = 5 # 10 appears more realistic
+finger_control = "motor"      # no motor is used on these joints atm
 
 # base parameters
 base_control = "motor"
 
 # task parameters
-base_joint_dof = 1
 max_objects_per_task = 20
 
 # finger friction parameters
@@ -122,7 +124,9 @@ gripper_joints = [
   "finger_2_prismatic_joint", "finger_2_revolute_joint",
   "finger_3_prismatic_joint", "finger_3_revolute_joint",
   "palm_prismatic_joint"]
-base_joints = ["world_to_base"]
+if use_xy_base_joint:
+  base_joints = ["base_X_joint", "base_Y_joint", "base_Z_joint"]
+else: base_joints = ["world_to_base"]
 
 # ----- generate qpos and joint names ---- #
 
@@ -156,9 +160,16 @@ panda_qpos = "{0} {1} {2} {3} {4} {5} {6}".format(
   joint_start["panda_joint5"], joint_start["panda_joint6"], 
   joint_start["panda_joint7"]
 )
-base_joint_qpos = "{0}".format(
-  joint_start["base_z"]
-)
+if use_xy_base_joint:
+  base_joint_qpos = "{0} {1} {2}".format(
+    joint_start["base_x_joint"],
+    joint_start["base_y_joint"],
+    joint_start["base_z_joint"]
+  )
+else:
+  base_joint_qpos = "{0}".format(
+    joint_start["base_z_joint"]
+  )
 
 # ----- create keyframe xml -----#
 
@@ -289,6 +300,16 @@ force_sensor = """
   <sensor>
     <force name="force sensor" noise="0" site="force sensor site"/>
   </sensor>
+"""
+
+# ----- create depth camera xml ----- #
+
+depth_camera = """
+  <camera name="depth camera" 
+          mode="fixed" 
+          target="finger_1_intermediate" 
+          pos="0 -0.105 +0.1" 
+          quat="0.208 0.978 0 0"/>
 """
 
 # ----- create equality constraints for gripper motors ----- #
@@ -689,6 +710,10 @@ if __name__ == "__main__":
                                     "gripper_base_link", force_sensor_site)
   add_chunk(task_tree, "@root", force_sensor)
 
+  # add depth camera to gripper (only in gripper_task)
+  add_chunk_with_specific_attribute(task_tree, "body", "name",
+                                    "gripper_base_link", depth_camera)
+
   # add equality constraints to gripper task for non-backdriveable joints
   add_chunk(task_tree, "@root", equality_constraints)
 
@@ -700,6 +725,7 @@ if __name__ == "__main__":
   add_geom_name(task_tree, "@all")
 
   ffs = 1 if fixed_first_segment else 0
+  dummy_finger_stiffness = 5 # set a value, this should be overwritten at mujoco runtime
 
   for i in range(3):
 
@@ -719,11 +745,11 @@ if __name__ == "__main__":
 
       # add finger stiffness attributes
       add_tag_attribute(gripper_tree, "joint", next_joint,
-                        "stiffness", str(finger_joint_stiffness))
+                        "stiffness", str(dummy_finger_stiffness))
       add_tag_attribute(both_tree, "joint", next_joint,
-                        "stiffness", str(finger_joint_stiffness))
+                        "stiffness", str(dummy_finger_stiffness))
       add_tag_attribute(task_tree, "joint", next_joint,
-                        "stiffness", str(finger_joint_stiffness))
+                        "stiffness", str(dummy_finger_stiffness))
                     
       # add geom names
       add_finger_geom_name_and_friction(task_tree, next_body, finger_segment_friction)
