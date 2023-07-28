@@ -6,7 +6,7 @@ gripper_config:
   is_segmented: true
   num_segments: 8
   torsion: false
-  xy_base_joint: true
+  xy_base_joint: false
 gripper_params:
   angle_max_abs: 0.7
   finger_length: 0.235
