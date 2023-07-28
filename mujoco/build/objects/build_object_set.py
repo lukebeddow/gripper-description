@@ -31,6 +31,9 @@ rand_seed = object_details["settings"]["fixed_random_seed"]
 if rand_seed == 0: rand_seed = np.random.randint(0, 2147483647)
 np.random.seed(rand_seed)
 
+# how big do we want the ground
+ground_xy_size = 1
+
 # define key xml snippets in the form of a function, returning formatted snippet
 def get_object_xml(name, quat, mass, diaginertia, friction="1 0.005 0.0001"):
   # this snippet creates the main object in mujoco
@@ -313,9 +316,9 @@ if __name__ == "__main__":
             add_chunk(detail_tree, "@root", detail_xml)
 
   # add the ground as the final element in the object tree
-  ground_xml = """
+  ground_xml = f"""
   <body name="ground" pos="0 0 0">
-    <geom name="ground_geom" type="plane" size="10 10 10"/>
+    <geom name="ground_geom" type="plane" size="{ground_xy_size} {ground_xy_size} {ground_xy_size}"/>
   </body>
   """
   add_chunk(object_tree, "@root", ground_xml)

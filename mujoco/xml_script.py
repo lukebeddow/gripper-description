@@ -69,6 +69,7 @@ fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
 fixed_hook_segment = gripper_details["gripper_config"]["fixed_hook_segment"]
 fixed_motor_joints = gripper_details["gripper_config"]["fixed_motor_joints"]
 use_xy_base_joint = gripper_details["gripper_config"]["xy_base_joint"]
+use_sky = True # do we include a skybox
 
 if debug:
   print("is segmented is", is_segmented)
@@ -111,7 +112,7 @@ finger_control = "motor"      # no motor is used on these joints atm
 base_control = "motor"
 
 # task parameters
-max_objects_per_task = 20
+max_objects_per_task = 1
 
 # finger friction parameters
 default_mujoco_friction = [1, 0.005, 0.0001]
@@ -777,8 +778,9 @@ if __name__ == "__main__":
     modify_tag_attribute(taskN_tree, "compiler", "meshdir", "../meshes_mujoco")
 
     # put a nice background in
-    blue_sky = """<texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="512"/>"""
-    add_chunk(taskN_tree, "asset", blue_sky)
+    if use_sky:
+      blue_sky = """<texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="512"/>"""
+      add_chunk(taskN_tree, "asset", blue_sky)
 
     # create xml text for specefic includes and add them to the tree
     objectN_includes = """<include file="../{0}/{1}"/>""".format(objects_folder, object_split_filename.format(i))
