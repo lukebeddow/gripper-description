@@ -25,6 +25,7 @@ MUJOCO_PATH=default
 
 # are we copying to an additional folder
 EXTRA_COPY_TO=no
+EXTRA_COPY_YES_TO_ALL=no
 
 MAKEFLAGS += -j8 # jN => use N parallel cores
 

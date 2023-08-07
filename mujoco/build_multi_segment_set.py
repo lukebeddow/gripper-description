@@ -46,6 +46,7 @@ parser.add_argument("-B", "--build-only", action="store_true", default=False) # 
 parser.add_argument("-C", "--clean", action="store_true", default=False) # clean build folder only, this overrides other settings
 parser.add_argument("--mujoco-path", type=str, default="default") # where is mujoco? Used for bin/compile to get mjcf files
 parser.add_argument("--copy-to", default="no") # copy the output files to an additional folder specified by a relative path
+parser.add_argument("--copy-to-yes", default="no") # force yes to copy-to, ensures copy takes place
 args = parser.parse_args()
 
 # ----- begin scripting ---- #
@@ -206,10 +207,15 @@ for set_to_build in build_sets:
       copy_to_path = filepath + "/" + args.copy_to
       print(f"build_multi_segment_set.py is about to copy the object set to: {copy_to_path}")
       if copy_choice is None:
-        copy_choice = input("Type yes to continue (this choice will apply to all sets being built)\n> ")
+        if args.copy_to_yes == "yes": copy_choice = "yes"
+        else:
+          copy_choice = input("Type yes to continue (this choice will apply to all sets being built)\n> ")
       if copy_choice.lower() in ["y", "yes"]:
-        shutil.copytree(activepath, copy_to_path + "/" + set_to_build)
-        print("Copy operation complete\n")
+        try:
+          shutil.copytree(activepath, copy_to_path + "/" + set_to_build)
+          print("Copy operation complete\n")
+        except FileExistsError as e:
+          print(f"Copy operation failed because object set {set_to_build} already exists: {e}")
       else:
         print("Copy operation aborted")
 
