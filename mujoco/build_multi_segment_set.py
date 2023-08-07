@@ -138,6 +138,9 @@ if not args.build_only:
 
 # ----- create object sets ----- #
 
+copy_choice = None
+err_str = ""
+
 for set_to_build in build_sets:
 
   if not args.build_only and not args.clean:
@@ -167,9 +170,6 @@ for set_to_build in build_sets:
     subprocess.run([make], shell=True, cwd=filepath)
     print("build_multi_segment_set.py has finished cleaning")
     exit()
-
-  copy_choice = None
-  err_str = ""
 
   for i, N in enumerate(segments):
     for width_mm in widths:
