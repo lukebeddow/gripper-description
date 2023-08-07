@@ -20,6 +20,9 @@ SEGMENTS=config
 #		"X Y Z..."		 -> builds with widths X, Y, Z, ...
 WIDTHS=config
 
+# what is the path to mujoco, 'default' uses hardcoded path
+MUJOCO_PATH=default
+
 MAKEFLAGS += -j8 # jN => use N parallel cores
 
 all: urdf mjcf
@@ -32,16 +35,18 @@ everything: urdf sets
 urdf:
 	$(MAKE) -C $(URDFDIR)
 
+ARGS_FOR_PARSE = --segments "$(SEGMENTS)" --widths "$(WIDTHS)" --mujoco-path "$(MUJOCO_PATH)"
+
 # build mujoco files for the gripper (in mujoco/build)
 .PHONY: mjcf
 mjcf:
-	cd $(MJCFDIR) && ./$(SETSCRIPT) --build-only --segments "$(SEGMENTS)" --widths "$(WIDTHS)"
+	cd $(MJCFDIR) && ./$(SETSCRIPT) --build-only $(ARGS_FOR_PARSE)
 
 # build all mujoco object sets, cleans first to ensure maximally up to date*
 # note: override $(SET) @ command line to build only one set, eg 'make sets SET=set_test'
 .PHONY: sets
 sets: 
-	cd $(MJCFDIR) && ./$(SETSCRIPT) $(SET) --segments "$(SEGMENTS)" --widths "$(WIDTHS)"
+	cd $(MJCFDIR) && ./$(SETSCRIPT) $(SET) $(ARGS_FOR_PARSE)
 
 clean:
 	$(MAKE) -C $(URDFDIR) clean

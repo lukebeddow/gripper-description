@@ -44,6 +44,7 @@ parser.add_argument("-N", "--segments", default=None)
 parser.add_argument("-W", "--widths", default=None)
 parser.add_argument("-B", "--build-only", action="store_true", default=False) # builds a set, but leaves it in build_folder
 parser.add_argument("-C", "--clean", action="store_true", default=False) # clean build folder only, this overrides other settings
+parser.add_argument("--mujoco-path", type=str, default="default") # where is mujoco? Used for bin/compile to get mjcf files
 args = parser.parse_args()
 
 # ----- begin scripting ---- #
@@ -78,6 +79,16 @@ else:
   if debug: 
     print("Set input is:", args.sets)
     print("Building sets:", build_sets)
+
+# check if we have been given a specific mujoco path
+if args.mujoco_path in ["default", "luke", "luke-laptop"]: 
+  args.mujoco_path = "/home/luke/repo/mujoco/mujoco-2.2.0"
+elif args.mujoco_path in ["luke-PC", "lab"]:
+  args.mujoco_path = "/home/luke/mymujoco/libs/mujoco/mujoco-2.1.5"
+elif args.mujoco_path in ["operator-PC, lab-op"]:
+  args.mujoco_path = "/home/luke/luke-gripper-mujoco/libs/mujoco/mujoco-2.1.5"
+else:
+  raise RuntimeError(f"build_multi_segment_set.py does not recognise the given mujoco_path of {args.mujoco_path}")
 
 with open(description_path + gripper_config_file) as file:
   gripper_details = yaml.safe_load(file)
@@ -174,7 +185,8 @@ for set_to_build in build_sets:
         this_folder_name += "_{}".format(width_mm)
 
       # call make to create the files
-      make = "make TASK={0} INCDIR={1} DIRNAME={2}".format(this_folder_name, objects_folder, build_folder)
+      make = "make TASK={0} INCDIR={1} DIRNAME={2} MJCOMPILE={3}/bin/compile".format(
+        this_folder_name, objects_folder, build_folder, args.mujoco_path)
 
       # disable object generation until the final loop (assets/objects wiped at the start of each 'make')
       if i != len(segments) - 1: make += " GEN_OBJECTS=0"
