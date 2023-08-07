@@ -169,6 +169,7 @@ for set_to_build in build_sets:
     exit()
 
   copy_choice = None
+  err_str = ""
 
   for i, N in enumerate(segments):
     for width_mm in widths:
@@ -216,9 +217,11 @@ for set_to_build in build_sets:
           print("Copy operation complete\n")
         except FileExistsError as e:
           print(f"Copy operation failed because object set '{set_to_build}' already exists: {e}")
-          print(f"\nCOPY FAILED, OBJECT SET ALREADY EXISTS: '{set_to_build}'\n")
+          err_str += f"COPY FAILED, OBJECT SET ALREADY EXISTS: '{set_to_build}'\n"
       else:
         print("Copy operation aborted")
+
+if err_str != "": print(f"\n{err_str}")
 
 # now we have finished making the sets, restore the config file to its original state
 gripper_details["gripper_config"]["num_segments"] = original_N
