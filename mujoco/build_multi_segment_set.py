@@ -45,6 +45,7 @@ parser.add_argument("-W", "--widths", default=None)
 parser.add_argument("-B", "--build-only", action="store_true", default=False) # builds a set, but leaves it in build_folder
 parser.add_argument("-C", "--clean", action="store_true", default=False) # clean build folder only, this overrides other settings
 parser.add_argument("--mujoco-path", type=str, default="default") # where is mujoco? Used for bin/compile to get mjcf files
+parser.add_argument("--copy-to", default=None) # copy the output files to an additional folder specified by a relative path
 args = parser.parse_args()
 
 # ----- begin scripting ---- #
@@ -168,6 +169,8 @@ for set_to_build in build_sets:
     print("build_multi_segment_set.py has finished cleaning")
     exit()
 
+  copy_choice = None
+
   for i, N in enumerate(segments):
     for width_mm in widths:
 
@@ -199,6 +202,18 @@ for set_to_build in build_sets:
   # finally, copy the built set into the specified object sets folder
   if not args.build_only:
     shutil.copytree(activepath, setpath + "/" + set_to_build)
+
+    # are we copying to an additional directory
+    if args.copy_to is not None:
+      copy_to_path = filepath + "/" + args.copy_to
+      print(f"build_multi_segment_set.py is about to copy the object set to: {copy_to_path}")
+      if copy_choice is None:
+        copy_choice = input("Type yes to continue (this choice will apply to all sets being built)\n> ")
+      if copy_choice.lower() in ["y", "yes"]:
+        shutil.copytree(activepath, copy_to_path + "/" + set_to_build)
+        print("Copy operation complete\n")
+      else:
+        print("Copy operation aborted")
 
 # now we have finished making the sets, restore the config file to its original state
 gripper_details["gripper_config"]["num_segments"] = original_N

@@ -23,6 +23,9 @@ WIDTHS=config
 # what is the path to mujoco, 'default' uses hardcoded path
 MUJOCO_PATH=default
 
+# are we copying to an additional folder
+EXTRA_COPY_TO=
+
 MAKEFLAGS += -j8 # jN => use N parallel cores
 
 all: urdf mjcf
@@ -35,7 +38,10 @@ everything: urdf sets
 urdf:
 	$(MAKE) -C $(URDFDIR)
 
-ARGS_FOR_PARSE = --segments "$(SEGMENTS)" --widths "$(WIDTHS)" --mujoco-path "$(MUJOCO_PATH)"
+ARGS_FOR_PARSE = --segments "$(SEGMENTS)" \
+	--widths "$(WIDTHS)" \
+	--mujoco-path "$(MUJOCO_PATH)" \
+	--copy-to "$(EXTRA_COPY_TO)"
 
 # build mujoco files for the gripper (in mujoco/build)
 .PHONY: mjcf
