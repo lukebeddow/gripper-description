@@ -204,7 +204,7 @@ for set_to_build in build_sets:
     shutil.copytree(activepath, setpath + "/" + set_to_build)
 
     # are we copying to an additional directory
-    if args.copy_to is not "no":
+    if args.copy_to != "no":
       copy_to_path = filepath + "/" + args.copy_to
       print(f"build_multi_segment_set.py is about to copy the object set to: {copy_to_path}")
       if copy_choice is None:
