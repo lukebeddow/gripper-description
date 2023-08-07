@@ -24,7 +24,7 @@ WIDTHS=config
 MUJOCO_PATH=default
 
 # are we copying to an additional folder
-EXTRA_COPY_TO=
+EXTRA_COPY_TO=no
 
 MAKEFLAGS += -j8 # jN => use N parallel cores
 

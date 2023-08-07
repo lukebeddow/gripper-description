@@ -45,7 +45,7 @@ parser.add_argument("-W", "--widths", default=None)
 parser.add_argument("-B", "--build-only", action="store_true", default=False) # builds a set, but leaves it in build_folder
 parser.add_argument("-C", "--clean", action="store_true", default=False) # clean build folder only, this overrides other settings
 parser.add_argument("--mujoco-path", type=str, default="default") # where is mujoco? Used for bin/compile to get mjcf files
-parser.add_argument("--copy-to", default=None) # copy the output files to an additional folder specified by a relative path
+parser.add_argument("--copy-to", default="no") # copy the output files to an additional folder specified by a relative path
 args = parser.parse_args()
 
 # ----- begin scripting ---- #
@@ -204,7 +204,7 @@ for set_to_build in build_sets:
     shutil.copytree(activepath, setpath + "/" + set_to_build)
 
     # are we copying to an additional directory
-    if args.copy_to is not None:
+    if args.copy_to is not "no":
       copy_to_path = filepath + "/" + args.copy_to
       print(f"build_multi_segment_set.py is about to copy the object set to: {copy_to_path}")
       if copy_choice is None:
