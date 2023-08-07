@@ -88,8 +88,6 @@ elif args.mujoco_path in ["luke-PC", "lab"]:
   args.mujoco_path = "/home/luke/mymujoco/libs/mujoco/mujoco-2.1.5"
 elif args.mujoco_path in ["operator-PC, lab-op"]:
   args.mujoco_path = "/home/luke/luke-gripper-mujoco/libs/mujoco/mujoco-2.1.5"
-else:
-  raise RuntimeError(f"build_multi_segment_set.py does not recognise the given mujoco_path of {args.mujoco_path}")
 
 with open(description_path + gripper_config_file) as file:
   gripper_details = yaml.safe_load(file)
