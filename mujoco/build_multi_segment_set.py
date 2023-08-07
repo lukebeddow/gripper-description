@@ -21,7 +21,8 @@ set_starts_with = "set"
 set_ends_with = ".yaml"
 
 # define files and folders, these must ALL correspond to EXISTING files/folders
-gripper_config_file = "/config/gripper.yaml"
+gripper_config_file_name = "gripper.yaml"
+gripper_config_file = f"/config/{gripper_config_file_name}"
 build_folder = "build"
 set_directory = "object_sets"
 objects_folder = "objects"
@@ -179,6 +180,9 @@ for set_to_build in build_sets:
       if i != len(segments) - 1: make += " GEN_OBJECTS=0"
 
       subprocess.run([make], shell=True, cwd=filepath)
+
+  # copy the config file into our object set
+  shutil.copyfile(description_path + gripper_config_file, activepath + "/" + gripper_config_file_name)
 
   # finally, copy the built set into the specified object sets folder
   if not args.build_only:

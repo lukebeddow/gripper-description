@@ -96,7 +96,7 @@ sphere:
     type: sphere
     r: 0.05
   scale:
-    num: 3
+    num: 100
     max: { x: 1.6, y: 1.6, z: 1.6 }
     min: { x: 0.7, y: 0.7, z: 0.7 }
   fillet:

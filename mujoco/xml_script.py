@@ -112,7 +112,7 @@ finger_control = "motor"      # no motor is used on these joints atm
 base_control = "motor"
 
 # task parameters
-max_objects_per_task = 1
+max_objects_per_task = 20
 
 # finger friction parameters
 default_mujoco_friction = [1, 0.005, 0.0001]

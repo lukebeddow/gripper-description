@@ -29,6 +29,7 @@ DIRNAME = build
 URDFDIR = urdf
 XACRODIR = xacro
 INCDIR = objects
+MJCOMPILE = /home/luke/repo/mujoco/mujoco-2.2.0/bin/compile
 
 # define directory structure (this is hardcoded in 'xml_script.py')
 TASKDIR = $(DIRNAME)/$(TASK)
@@ -88,7 +89,7 @@ $(MJCFS): $(DIRNAME)/%.xml : $(URDFDIR)/%.urdf
 	rm -f $@
 	cp $< $(DIRNAME)/$(notdir $<) &&\
 	cd $(DIRNAME) &&\
-	./compile $(notdir $<) $(notdir $@) &&\
+	$(MJCOMPILE) $(notdir $<) $(notdir $@) &&\
   rm $(notdir $<)
 
 # build the urdfs which depend on the xacro files
