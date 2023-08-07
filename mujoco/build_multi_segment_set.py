@@ -215,7 +215,8 @@ for set_to_build in build_sets:
           shutil.copytree(activepath, copy_to_path + "/" + set_to_build)
           print("Copy operation complete\n")
         except FileExistsError as e:
-          print(f"Copy operation failed because object set {set_to_build} already exists: {e}")
+          print(f"Copy operation failed because object set '{set_to_build}' already exists: {e}")
+          print("\nCOPY FAILED, OBJECT SET ALREADY EXISTS: '{set_to_build}\n")
       else:
         print("Copy operation aborted")
 
