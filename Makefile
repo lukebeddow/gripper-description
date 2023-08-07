@@ -42,7 +42,8 @@ urdf:
 ARGS_FOR_PARSE = --segments "$(SEGMENTS)" \
 	--widths "$(WIDTHS)" \
 	--mujoco-path "$(MUJOCO_PATH)" \
-	--copy-to "$(EXTRA_COPY_TO)"
+	--copy-to "$(EXTRA_COPY_TO)" \
+	--copy-to-yes "$(EXTRA_COPY_YES_TO_ALL)"
 
 # build mujoco files for the gripper (in mujoco/build)
 .PHONY: mjcf
