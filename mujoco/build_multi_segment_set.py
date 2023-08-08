@@ -23,11 +23,13 @@ set_ends_with = ".yaml"
 # define files and folders, these must ALL correspond to EXISTING files/folders
 gripper_config_file_name = "gripper.yaml"
 gripper_config_file = f"/config/{gripper_config_file_name}"
-build_folder = "build"
 set_directory = "object_sets"
-objects_folder = "objects"
 object_yaml = "define_objects.yaml"
 object_py = "build_object_set.py"
+
+# these do not have to exist
+objects_folder = "objects"
+build_folder = "build"
 
 # default task folder name (see Makefile), only to delete it for tidyness
 default_task_folder_name = "task"
@@ -55,6 +57,15 @@ filepath = os.path.dirname(os.path.abspath(__file__))
 description_path = os.path.dirname(filepath)
 
 ext_length = len(set_ends_with)
+
+# ensure the relevant subdirecotires exist
+dirs = [
+  build_folder,
+  build_folder + "/" + objects_folder,
+]
+for dir in dirs:
+  if not os.path.exists(filepath +  "/" + dir):
+    os.makedirs(filepath +  "/" + dir)
 
 # path to where the set will be built
 activepath = filepath + "/" + build_folder

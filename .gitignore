@@ -8,3 +8,5 @@
 !*/object_sets/*.yaml
 !*/object_sets/*.yaml
 build/
+!build/compile
+!build/meshes_mujoco
