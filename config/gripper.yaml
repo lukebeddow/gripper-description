@@ -7,12 +7,16 @@ gripper_config:
   num_segments: 8
   torsion: false
   xy_base_joint: false
+  xy_base_rotation: false
+  z_base_rotation: false
 gripper_params:
   angle_max_abs: 0.7
+  finger_E: 193000000000.0
   finger_length: 0.235
   finger_mass: 0.075
   finger_thickness: 0.0009
   finger_width: 0.028
+  fingertip_clearance: 0.01
   hook_angle_degrees: 90.0
   hook_length: 0.035
   segment_inertia_scaling: 50.0

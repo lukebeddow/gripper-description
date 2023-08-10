@@ -365,6 +365,38 @@ else:
     </equality>
   """
 
+# ----- input settings and dimensions ----- #
+custom_fields = """
+  <custom>
+
+    <numeric name="finger_length" data="{0}"/>
+    <numeric name="finger_width" data="{1}"/>
+    <numeric name="finger_thickness" data="{2}"/>
+    <numeric name="finger_E" data="{3}"/>
+    <numeric name="fingertip_clearance" data="{4}"/>
+    <numeric name="hook_angle_degrees" data="{5}"/>
+    <numeric name="hook_length" data="{6}"/>
+    <numeric name="fixed_hook_segment" data="{7}"/>
+    <numeric name="fixed_first_segment" data="{8}"/>
+    <numeric name="xy_base_joint" data="{9}"/>
+    <numeric name="xy_base_rotation" data="{10}"/>
+    <numeric name="z_base_rotation" data="{11}"/>
+  </custom>
+""".format(
+  gripper_details["gripper_params"]["finger_length"],
+  gripper_details["gripper_params"]["finger_width"],
+  gripper_details["gripper_params"]["finger_thickness"],
+  gripper_details["gripper_params"]["finger_E"],
+  gripper_details["gripper_params"]["fingertip_clearance"],
+  gripper_details["gripper_params"]["hook_angle_degrees"],
+  gripper_details["gripper_params"]["hook_length"],
+  int(gripper_details["gripper_config"]["fixed_hook_segment"]),
+  int(gripper_details["gripper_config"]["fixed_first_segment"]),
+  int(gripper_details["gripper_config"]["xy_base_joint"]),
+  int(gripper_details["gripper_config"]["xy_base_rotation"]),
+  int(gripper_details["gripper_config"]["z_base_rotation"]),
+)
+
 # ----- helper functions ----- #
 
 def modify_tag_text(tree, tagname, target_text):
@@ -714,6 +746,9 @@ if __name__ == "__main__":
   # add depth camera to gripper (only in gripper_task)
   add_chunk_with_specific_attribute(task_tree, "body", "name",
                                     "gripper_base_link", depth_camera)
+  
+  # add in custom fields
+  add_chunk(task_tree, "@root", custom_fields)
 
   # add equality constraints to gripper task for non-backdriveable joints
   add_chunk(task_tree, "@root", equality_constraints)

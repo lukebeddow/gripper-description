@@ -11,6 +11,7 @@ import subprocess
 import os
 import shutil
 import argparse
+from datetime import datetime
 
 debug = False
 
@@ -27,7 +28,7 @@ set_directory = "object_sets"
 object_yaml = "define_objects.yaml"
 object_py = "build_object_set.py"
 
-# these do not have to exist
+# these do not have to exist (note that we need the 'meshes_mujoco' folder for real applications)
 objects_folder = "objects"
 build_folder = "build"
 
@@ -35,7 +36,7 @@ build_folder = "build"
 default_task_folder_name = "task"
 
 # name of folders containing gripper model files (+ str(N) on the end)
-task_folder_name = "gripper_N"
+task_folder_name = "gripper"
 
 # ----- command line options ----- #
 
@@ -49,9 +50,33 @@ parser.add_argument("-C", "--clean", action="store_true", default=False) # clean
 parser.add_argument("--mujoco-path", type=str, default="default") # where is mujoco? Used for bin/compile to get mjcf files
 parser.add_argument("--copy-to", default="no") # copy the output files to an additional folder specified by a relative path
 parser.add_argument("--copy-to-yes", default="no") # force yes to copy-to, ensures copy takes place
+parser.add_argument("--copy-to-override", default="no") # if the copy-to location exists, do we delete it first
+parser.add_argument("--copy-to-merge-sets", default="no") # do we copy task files into an already existing set in the 'copy-to' directory
+parser.add_argument("--use-hashes", default="no") # do we make hash versions of task files
 args = parser.parse_args()
 
 # ----- begin scripting ---- #
+
+def get_yaml_hash(filepath):
+  """
+  Get a simple hash of the text of the yaml file, stripping all whitespace
+  """
+
+  # simple string hash function which returns same hash each run (unlike Python hash())
+  def myHash(text:str):
+    hash=0
+    for ch in text:
+      hash = ( hash*281  ^ ord(ch)*997) & 0xFFFFFFFF
+    # return hash
+    return hex(hash)[2:].upper().zfill(8)
+
+  # read the yaml file as a string for hashing
+  with open(filepath, "r") as yamlfile:
+    yaml_string = yamlfile.read()
+    yaml_string = "".join(yaml_string.split())
+
+  # hash the yaml string for the task folder name
+  return myHash(yaml_string)
 
 filepath = os.path.dirname(os.path.abspath(__file__))
 description_path = os.path.dirname(filepath)
@@ -151,6 +176,7 @@ if not args.build_only:
 
 copy_choice = None
 err_str = ""
+allow_copy_to = True
 
 for set_to_build in build_sets:
 
@@ -194,28 +220,43 @@ for set_to_build in build_sets:
         yaml.dump(gripper_details, outfile, default_flow_style=False)
 
       # create the task folder name
-      this_folder_name = task_folder_name + str(N)
-      if len(widths) > 1:
-        this_folder_name += "_{}".format(width_mm)
+      if args.use_hashes == "yes":
+        yaml_hash = get_yaml_hash(description_path + gripper_config_file)
+        this_folder_name = f"{task_folder_name}_N{N}_H{yaml_hash}"
+      else:
+        this_folder_name = f"{task_folder_name}_N{N}_{width_mm:.0f}"
 
       # call make to create the files
       make = "make TASK={0} INCDIR={1} DIRNAME={2} MJCOMPILE={3}/bin/compile".format(
         this_folder_name, objects_folder, build_folder, args.mujoco_path)
-
+    
       # disable object generation until the final loop (assets/objects wiped at the start of each 'make')
       if i != len(segments) - 1: make += " GEN_OBJECTS=0"
 
       subprocess.run([make], shell=True, cwd=filepath)
 
-  # copy the config file into our object set
-  shutil.copyfile(description_path + gripper_config_file, activepath + "/" + gripper_config_file_name)
+      # copy the gripper.yaml config file into the new folder
+      shutil.copyfile(description_path + gripper_config_file, 
+                      activepath + "/" + this_folder_name + "/" + gripper_config_file_name)
+
+      # are we merging new tasks into an existing object set (in 'copy_to' directory)
+      if args.copy_to != "no" and args.copy_to_merge_sets == "yes":
+        copy_to_path = filepath + "/" + args.copy_to
+        if os.path.exists(copy_to_path + f"/{set_to_build}"):
+          # now copy our task files directly into that set
+          allow_copy_to = False
+          if not os.path.exists(f"{copy_to_path}/{set_to_build}/{this_folder_name}"):
+            shutil.copytree(f"{activepath}/{this_folder_name}", 
+                            f"{copy_to_path}/{set_to_build}/{this_folder_name}")
+            err_str += f"TASK ADDED: {set_to_build}/{this_folder_name}\n"
+          else: err_str += f"TASK FOUND ALREADY FOR {set_to_build}/{this_folder_name}\n"
 
   # finally, copy the built set into the specified object sets folder
   if not args.build_only:
     shutil.copytree(activepath, setpath + "/" + set_to_build)
 
     # are we copying to an additional directory
-    if args.copy_to != "no":
+    if args.copy_to != "no" and allow_copy_to:
       copy_to_path = filepath + "/" + args.copy_to
       print(f"build_multi_segment_set.py is about to copy the object set to: {copy_to_path}")
       if copy_choice is None:
@@ -226,13 +267,24 @@ for set_to_build in build_sets:
         try:
           shutil.copytree(activepath, copy_to_path + "/" + set_to_build)
           print("Copy operation complete\n")
+          err_str += f"Generated {set_to_build} and moved it to: {copy_to_path}/{set_to_build}"
         except FileExistsError as e:
-          print(f"Copy operation failed because object set '{set_to_build}' already exists: {e}")
-          err_str += f"COPY FAILED, OBJECT SET ALREADY EXISTS: '{set_to_build}'\n"
+          if args.copy_to_override == "yes":
+            delete_folder = "deleted"
+            timestamp = datetime.now().strftime("%d-%m-%y-%H:%M:%S")
+            if not os.path.exists(copy_to_path + f"/{delete_folder}"):
+              os.makedirs(copy_to_path + f"/{delete_folder}")
+            err_str += f"Existing object set '{set_to_build}' found, moved to '{copy_to_path}/{delete_folder}' with timestamp: {timestamp}\n"
+            shutil.move(copy_to_path + "/" + set_to_build, copy_to_path + f"/{delete_folder}/" + set_to_build + f"_{timestamp}")
+            shutil.copytree(activepath, copy_to_path + "/" + set_to_build)
+            err_str += f"Generated {set_to_build} and moved it to: {copy_to_path}/{set_to_build}"
+          else:
+            print(f"Copy operation failed because object set '{set_to_build}' already exists: {e}")
+            err_str += f"COPY FAILED, OBJECT SET ALREADY EXISTS: '{set_to_build}'\n"
       else:
         print("Copy operation aborted")
 
-if err_str != "": print(f"\n{err_str}")
+if err_str != "": print(f"\n{err_str}\n")
 
 # now we have finished making the sets, restore the config file to its original state
 gripper_details["gripper_config"]["num_segments"] = original_N

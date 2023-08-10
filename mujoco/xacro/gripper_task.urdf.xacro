@@ -9,7 +9,10 @@
 	<xacro:property name="yaml_dict" value="${xacro.load_yaml(filename)}"/>
 	
 	<!-- extract the gripper config information -->
-	<xacro:property name="xy_base_joint" value="${yaml_dict['gripper_config']['xy_base_joint']}"/> 
+	<xacro:property name="xy_base_joint" value="${yaml_dict['gripper_config']['xy_base_joint']}"/>
+	<xacro:property name="fingertip_clearance" value="${yaml_dict['gripper_params']['fingertip_clearance']}"/> 
+	<xacro:property name="hook_length" value="${yaml_dict['gripper_params']['hook_length']}"/> 
+	<xacro:property name="hook_angle_rad" value="${yaml_dict['gripper_params']['hook_angle_degrees'] * (3.141592 / 180.0)}"/> 
 
   <!-- include the mujoco settings xacro -->
 	<xacro:include filename="${path_to_top}/mujoco/xacro/mujoco.xacro"/>
@@ -22,10 +25,20 @@
 	<!-- height for fingertips to just not touch the ground, then height to raise
 	past that. Note that this height is calibrated manually using mujoco and with
   checking the wrist z sensor for contact. This is calibrated AFTER the gripper
-	has settled (ie joint controller stiffness accounted for)-->
-	<xacro:property name="fingertip_touches_ground" value="0.376"/>
-	<xacro:property name="fingertip_clearance" value="0.01"/>
-	<xacro:property name="h" value="${fingertip_touches_ground + fingertip_clearance}"/>
+	has settled (ie joint controller stiffness accounted for). See the function
+	'calibrate_reset()' in myfunctions.cpp and turn on debug mode to see the final
+	settled finger end height above the ground, you can use this to adjust the value
+	of 'fingerend_touches_ground' so that a 'fingertip_clearance' of 0.0 gives a
+	finger end height of 0.0 -->
+	<xacro:property name="fingerend_touches_ground" value="${0.1407 + yaml_dict['gripper_params']['finger_length']}"/>
+	<xacro:if value="${yaml_dict['gripper_params']['hook_angle_degrees'] > 90}">
+		<xacro:property name="hook_extra" value="0.0"/>
+	</xacro:if>
+	<xacro:if value="${not (yaml_dict['gripper_params']['hook_angle_degrees'] > 90)}">
+		<xacro:property name="hook_extra" value="${hook_length * cos(hook_angle_rad)}"/>
+	</xacro:if>
+
+	<xacro:property name="h" value="${fingerend_touches_ground + fingertip_clearance + hook_extra}"/>
 
   <!-- create gripper base joints in mujoco -->
 	<xacro:if value="${xy_base_joint}">

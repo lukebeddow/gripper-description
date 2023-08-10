@@ -82,6 +82,7 @@ all: $(MJCFS) generate_xml
 		--task-folder $(TASK) \
 		--objects-folder $(INCDIR) \
 		--gen-objects $(GEN_OBJECTS)
+	rm -f $(DIRNAME)/*.xml
 
 # build the mujoco mjcf files
 .PHONY: $(MJCFS) # phony to always run, so xml_script is never run twice on same file

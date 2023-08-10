@@ -5,6 +5,8 @@ URDFDIR=urdf
 MJCFDIR=mujoco
 SETSCRIPT=build_multi_segment_set.py
 
+# ----- start options that can be overriden on command line ----- #
+
 # override @ command line eg 'make SEGMENTS=default'
 # options (defined in mujoco/build_multi_segment_set.py):
 #		config         -> builds with number of segments specified in config/gripper.yaml
@@ -26,6 +28,13 @@ MUJOCO_PATH=default
 # are we copying to an additional folder
 EXTRA_COPY_TO=no
 EXTRA_COPY_YES_TO_ALL=no
+EXTRA_COPY_TO_OVERRIDE_EXISTING=no
+EXTRA_COPY_TO_MERGE_SETS=no
+
+# are we hashing the task file names
+USE_HASHES=no
+
+# ----- end options that can be overriden on command line ----- #
 
 MAKEFLAGS += -j8 # jN => use N parallel cores
 
@@ -43,7 +52,10 @@ ARGS_FOR_PARSE = --segments "$(SEGMENTS)" \
 	--widths "$(WIDTHS)" \
 	--mujoco-path "$(MUJOCO_PATH)" \
 	--copy-to "$(EXTRA_COPY_TO)" \
-	--copy-to-yes "$(EXTRA_COPY_YES_TO_ALL)"
+	--copy-to-yes "$(EXTRA_COPY_YES_TO_ALL)" \
+	--copy-to-override "$(EXTRA_COPY_TO_OVERRIDE_EXISTING)" \
+	--copy-to-merge-sets "$(EXTRA_COPY_TO_MERGE_SETS)" \
+	--use-hashes "$(USE_HASHES)"
 
 # build mujoco files for the gripper (in mujoco/build)
 .PHONY: mjcf
