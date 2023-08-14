@@ -109,7 +109,11 @@ if __name__ == "__main__":
   biggest_mass = [0, "object"]
 
   # default mujoco friction parameters for geoms
-  default_friction = [1.0, 0.001, 0.0005]
+  # mujoco friction: sliding / torsional / rolling
+  # default: 1.0, 0.005, 0.0001
+  # increase rolling friction to 0.005 to prevent objects rolling on their own
+  default_friction = [1.0, 0.005, 0.005]
+  scale_all = False # only scale sliding friction
 
   # get density and friction values from the yaml file
   density_values = object_details["settings"]["object_densities"]
@@ -118,7 +122,10 @@ if __name__ == "__main__":
   # scale default friction by factors and convert [[a,b,c], [d,e,f]] into ["a b c", "d e f"]
   friction_values = []
   for f in friction_factors:
-    friction_values.append("".join(str([f * x for x in default_friction])[1:-1].split(",")))
+    if scale_all:
+      friction_values.append("".join(str([f * x for x in default_friction])[1:-1].split(",")))
+    else: # scale only the first friction, sliding friction
+      friction_values.append("".join(str([f * x if i == 0 else x for i, x in enumerate(default_friction)])[1:-1].split(",")))
 
   random_density = object_details["settings"]["random_density"]
   random_friction = object_details["settings"]["random_friction"]
@@ -318,7 +325,8 @@ if __name__ == "__main__":
   # add the ground as the final element in the object tree
   ground_xml = f"""
   <body name="ground" pos="0 0 0">
-    <geom name="ground_geom" type="plane" size="{ground_xy_size} {ground_xy_size} {ground_xy_size}"/>
+    <geom name="ground_geom" type="plane" size="{ground_xy_size} {ground_xy_size} {ground_xy_size}"
+      friction="{default_friction[0]} {default_friction[1]} {default_friction[2]}"/>
   </body>
   """
   add_chunk(object_tree, "@root", ground_xml)

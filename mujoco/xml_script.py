@@ -368,7 +368,6 @@ else:
 # ----- input settings and dimensions ----- #
 custom_fields = """
   <custom>
-
     <numeric name="finger_length" data="{0}"/>
     <numeric name="finger_width" data="{1}"/>
     <numeric name="finger_thickness" data="{2}"/>
