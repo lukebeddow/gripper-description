@@ -34,6 +34,9 @@ EXTRA_COPY_TO_MERGE_SETS=no
 # are we hashing the task file names
 USE_HASHES=no
 
+# are we using system python or given python path
+PYTHON=python3
+
 # ----- end options that can be overriden on command line ----- #
 
 MAKEFLAGS += -j8 # jN => use N parallel cores
@@ -55,7 +58,8 @@ ARGS_FOR_PARSE = --segments "$(SEGMENTS)" \
 	--copy-to-yes "$(EXTRA_COPY_YES_TO_ALL)" \
 	--copy-to-override "$(EXTRA_COPY_TO_OVERRIDE_EXISTING)" \
 	--copy-to-merge-sets "$(EXTRA_COPY_TO_MERGE_SETS)" \
-	--use-hashes "$(USE_HASHES)"
+	--use-hashes "$(USE_HASHES)" \
+	--python "$(PYTHON)"
 
 # build mujoco files for the gripper (in mujoco/build)
 .PHONY: mjcf

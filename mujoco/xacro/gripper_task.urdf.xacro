@@ -6,7 +6,7 @@
 
 	<!-- load the gripper config information -->
 	<xacro:property name="filename" value="${path_to_top}/config/gripper.yaml"/>
-	<xacro:property name="yaml_dict" value="${xacro.load_yaml(filename)}"/>
+	<xacro:property name="yaml_dict" value="${load_yaml(filename)}"/>
 	
 	<!-- extract the gripper config information -->
 	<xacro:property name="xy_base_joint" value="${yaml_dict['gripper_config']['xy_base_joint']}"/>

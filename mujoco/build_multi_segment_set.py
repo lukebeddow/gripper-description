@@ -53,6 +53,7 @@ parser.add_argument("--copy-to-yes", default="no") # force yes to copy-to, ensur
 parser.add_argument("--copy-to-override", default="no") # if the copy-to location exists, do we delete it first
 parser.add_argument("--copy-to-merge-sets", default="no") # do we copy task files into an already existing set in the 'copy-to' directory
 parser.add_argument("--use-hashes", default="no") # do we make hash versions of task files
+parser.add_argument("--python", default="python3") # what python call are we using
 args = parser.parse_args()
 
 # ----- begin scripting ---- #
@@ -227,8 +228,8 @@ for set_to_build in build_sets:
         this_folder_name = f"{task_folder_name}_N{N}_{width_mm:.0f}"
 
       # call make to create the files
-      make = "make TASK={0} INCDIR={1} DIRNAME={2} MJCOMPILE={3}/bin/compile".format(
-        this_folder_name, objects_folder, build_folder, args.mujoco_path)
+      make = "make TASK={0} INCDIR={1} DIRNAME={2} MJCOMPILE={3}/bin/compile PYTHON={4}".format(
+        this_folder_name, objects_folder, build_folder, args.mujoco_path, args.python)
     
       # disable object generation until the final loop (assets/objects wiped at the start of each 'make')
       if i != len(segments) - 1: make += " GEN_OBJECTS=0"

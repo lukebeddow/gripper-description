@@ -30,6 +30,7 @@ URDFDIR = urdf
 XACRODIR = xacro
 INCDIR = objects
 MJCOMPILE = /home/luke/repo/mujoco/mujoco-2.2.0/bin/compile
+PYTHON = python3
 
 # define directory structure (this is hardcoded in 'xml_script.py')
 TASKDIR = $(DIRNAME)/$(TASK)
@@ -46,7 +47,7 @@ CONFIGDEP = ../config/gripper.yaml
 MJINCTARGET := objects.xml assets.xml details.xml
 MJDEP := define_objects.yaml build_object_set.py
 
-MAKEFLAGS += -j8 # run on up to 8 parallel cpu cores
+# MAKEFLAGS += -j8 # run on up to 8 parallel cpu cores
 
 # ----- automatically generated variables ----- #
 
@@ -77,7 +78,7 @@ all: $(MJCFS) generate_xml
 	rm -f $(ASSETDIR)/*.xml
 	rm -f $(OBJDIR)/*.xml
 	rm -f $(KEYDIR)/*.xml
-	python ./xml_script.py \
+	$(PYTHON) ./xml_script.py \
 		--build-folder $(DIRNAME) \
 		--task-folder $(TASK) \
 		--objects-folder $(INCDIR) \
@@ -95,12 +96,12 @@ $(MJCFS): $(DIRNAME)/%.xml : $(URDFDIR)/%.urdf
 
 # build the urdfs which depend on the xacro files
 $(URDFS): $(URDFDIR)/%.urdf : xacro/%.urdf.xacro $(DEPS)
-	./xacro3 $< > $@
+	$(PYTHON) ./xacro3 $< > $@
 
 # create the individual object xml includes, phony so always runs if called
 .PHONY: generate_xml
 generate_xml: $(MJDEP)
-	python3 $(MJINCDIR)/build_object_set.py \
+	$(PYTHON) $(MJINCDIR)/build_object_set.py \
 		--gen-objects $(GEN_OBJECTS)
 
 clean:

@@ -19,7 +19,7 @@
 		<xacro:include filename="${path_to_top}/xacro/gripper.segmented_fingers.xacro"/>
 
 		<!-- load information from the gripper yaml file -->
-		<xacro:property name="yaml_dict" value="${xacro.load_yaml(filename)}"/>
+		<xacro:property name="yaml_dict" value="${load_yaml(filename)}"/>
 		<xacro:property name="is_segmented" value="${yaml_dict['gripper_config']['is_segmented']}"/>
 
 		<!-- create instance of gripper -->
