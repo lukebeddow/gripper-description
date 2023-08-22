@@ -367,7 +367,6 @@ else:
 
 # ----- input settings and dimensions ----- #
 custom_fields = """
-  <custom>
     <numeric name="finger_length" data="{0}"/>
     <numeric name="finger_width" data="{1}"/>
     <numeric name="finger_thickness" data="{2}"/>
@@ -380,7 +379,6 @@ custom_fields = """
     <numeric name="xy_base_joint" data="{9}"/>
     <numeric name="xy_base_rotation" data="{10}"/>
     <numeric name="z_base_rotation" data="{11}"/>
-  </custom>
 """.format(
   gripper_details["gripper_params"]["finger_length"],
   gripper_details["gripper_params"]["finger_width"],
@@ -395,6 +393,12 @@ custom_fields = """
   int(gripper_details["gripper_config"]["xy_base_rotation"]),
   int(gripper_details["gripper_config"]["z_base_rotation"]),
 )
+
+object_customs = """
+  <numeric name="{0}" size="3" data="{1} {2} {3}"/>
+"""
+
+all_object_customs = []
 
 # ----- helper functions ----- #
 
@@ -641,6 +645,9 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
 
   # loop through the num of objects per split and assemble trees and qpos
   for i in range(num_splits):
+
+    custom_xml = """"""
+
     for j in range(obj_per_task):
 
       # if we run out of objects
@@ -668,7 +675,19 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
         0,
         0,
         1
-      ) 
+      )
+
+      # test adding custom numeric fields for object xyz
+      custom_xml += object_customs.format(
+        f"Task object {j}",
+        detail_root[r].attrib["x"],
+        detail_root[r].attrib["y"],
+        detail_root[r].attrib["z"],
+      )
+
+    # test the new details
+    global all_object_customs
+    all_object_customs.append(custom_xml)
 
     # now add the ground plane (we assume its the last entry)
     trees[i][1].append(deepcopy(object_root[-1]))
@@ -746,8 +765,8 @@ if __name__ == "__main__":
   add_chunk_with_specific_attribute(task_tree, "body", "name",
                                     "gripper_base_link", depth_camera)
   
-  # add in custom fields
-  add_chunk(task_tree, "@root", custom_fields)
+  # # add in custom fields
+  # add_chunk(task_tree, "@root", custom_fields)
 
   # add equality constraints to gripper task for non-backdriveable joints
   add_chunk(task_tree, "@root", equality_constraints)
@@ -823,6 +842,10 @@ if __name__ == "__main__":
     add_chunk(taskN_tree, "worldbody", objectN_includes)
     add_chunk(taskN_tree, "asset", assetN_include)
     add_chunk(taskN_tree, "@root", keyframeN_include)
+
+    # add in the custom numeric fields
+    task_custom_fields = """<custom> {0} {1} </custom>""".format(custom_fields, all_object_customs[i])
+    add_chunk(taskN_tree, "@root", task_custom_fields)
 
     # write the split task files into the task folder
     taskN_tree.write(taskN_filename.format(i))

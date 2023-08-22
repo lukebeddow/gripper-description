@@ -56,11 +56,11 @@ def get_asset_xml(name, filepath, xscale, yscale, zscale, refquat):
   """.format(name, filepath, xscale, yscale, zscale, refquat)
   return mesh_xml
 
-def get_details_xml(name, z_rest):
+def get_details_xml(name, x, y, z, z_rest):
   # this snippet is for me to save any extrsa relevant information
   details_xml = """
-  <object_details name="{0}" z_rest="{1}"/>\n
-  """.format(name, z_rest)
+  <object_details name="{0}" x="{1}" y="{2}" z="{3}" z_rest="{4}"/>\n
+  """.format(name, x, y, z, z_rest)
   return details_xml
 
 # function to add xml to a tree
@@ -231,6 +231,10 @@ if __name__ == "__main__":
           iyy = (1.0/12.0) * mass * (x**2 + z**2)
           izz = (1.0/12.0) * mass * (x**2 + y**2)
 
+          detail_x = x
+          detail_y = y
+          detail_z = z
+
         elif inertial_type == "sphere":
           
           # extract dimensions
@@ -246,6 +250,10 @@ if __name__ == "__main__":
           iyy = (1.0/5.0) * mass * (rx**2 + rz**2)
           izz = (1.0/5.0) * mass * (rx**2 + ry**2)
 
+          detail_x = rx * 2
+          detail_y = ry * 2
+          detail_z = rz * 2
+
         elif inertial_type == "cylinder":
 
           # extract dimensions
@@ -260,6 +268,10 @@ if __name__ == "__main__":
           ixx = (1.0/12.0) * mass * (3 * rx * ry + h**2)
           iyy = (1.0/12.0) * mass * (3 * rx * ry + h**2)
           izz = (1.0/2.0) * mass * rx * ry
+
+          detail_x = rx * 2
+          detail_y = ry * 2
+          detail_z = h
 
         else:
           raise RuntimeError("inertial type not one of 'cuboid', 'sphere', 'cylinder'")
@@ -286,11 +298,25 @@ if __name__ == "__main__":
         quat = f"{qw} {qx} {qy} {qz}"
         quat_conj = f"{qw} {-qx} {-qy} {-qz}" # note quaternion conjugate used, see mujoco docs
         diaginertia = "{0:.6f} {1:.6f} {2:.6f}".format(ixx, iyy, izz)
+
+        dims = [detail_x, detail_y, detail_z]
         
         # check which axis the z rest is
-        if spawn_axis == "x": z_rest = spawn_height * xscale
-        elif spawn_axis == "y": z_rest = spawn_height * yscale
-        elif spawn_axis == "z": z_rest = spawn_height * zscale
+        if spawn_axis == "x": 
+          x_size = dims[align[2]]
+          y_size = dims[align[0]]
+          z_size = dims[align[1]]
+          z_rest = spawn_height * xscale
+        elif spawn_axis == "y":
+          x_size = dims[align[1]]
+          y_size = dims[align[2]]
+          z_size = dims[align[0]]
+          z_rest = spawn_height * yscale
+        elif spawn_axis == "z":
+          x_size = dims[align[0]]
+          y_size = dims[align[1]]
+          z_size = dims[align[2]]
+          z_rest = spawn_height * zscale
         else: raise RuntimeError("spawn axis not one of 'x', 'y', 'z'")
 
         if mass > biggest_mass[0]:
@@ -316,7 +342,7 @@ if __name__ == "__main__":
 
             object_xml = get_object_xml(name, quat, mass, diaginertia, friction)
             asset_xml = get_asset_xml(name, path, xscale, yscale, zscale, quat_conj)
-            detail_xml = get_details_xml(name, z_rest)
+            detail_xml = get_details_xml(name, x_size, y_size, z_size, z_rest)
 
             add_chunk(object_tree, "@root", object_xml)
             add_chunk(assets_tree, "@root", asset_xml)
