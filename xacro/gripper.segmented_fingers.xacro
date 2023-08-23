@@ -252,7 +252,7 @@
                 rpy="0 0 ${-pi/2}"/>
         <geometry>
           <mesh filename="package://gripper_description/meshes/fingertip 28mm collision.STL"
-                scale="${finger_width / 28e-3} 1 1"/>
+                scale="${finger_width / 28e-3} ${hook_length / 35e-3} 1"/>
         </geometry>
       </collision>
     </link>
