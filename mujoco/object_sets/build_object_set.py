@@ -96,6 +96,23 @@ def add_chunk(tree, parent_tag, xml_string_to_add):
   
   return
 
+def print_categories(count_dict):
+  """
+  Print a summary of numbers of objects in each category
+  """
+  total = 0
+  for key in count_dict:
+    total += count_dict[key]
+
+  table_header = f"{'category':<12} | {'num':<5} | {'%':<5}"
+  row_template = "{0:<12} | {1:<5} | {2:<5.1f}"
+
+  print("Printing categories of", total, "objects:")
+  print(table_header)
+  for key in count_dict:
+    print(row_template.format(key, count_dict[key], count_dict[key]*(100.0/total)))
+  print()
+
 if __name__ == "__main__":
 
   object_root = etree.Element("mujoco")
@@ -118,6 +135,11 @@ if __name__ == "__main__":
   # get density and friction values from the yaml file
   density_values = object_details["settings"]["object_densities"]
   friction_factors = object_details["settings"]["friction_scalings"]
+  try:
+    max_mass = object_details["settings"]["maximum_mass_grams"] * 1e-3
+  except KeyError as e:
+    print("settings does not contain 'maximum_mass_grams':", e)
+    max_mass = 1e6
 
   # scale default friction by factors and convert [[a,b,c], [d,e,f]] into ["a b c", "d e f"]
   friction_values = []
@@ -139,6 +161,17 @@ if __name__ == "__main__":
     friction_loop = 1
   else:
     friction_loop = len(friction_values)
+
+  category_count = {
+    "cubes" : 0,
+    "cuboids" : 0,
+    "cylinders" : 0,
+    "spheres" : 0,
+    "ellipsoids" : 0
+  }
+  counter_ref = ""
+
+  mass_capped_counter = 0
 
   # loop through top level entries in the yaml file
   for object in object_details:
@@ -235,6 +268,11 @@ if __name__ == "__main__":
           detail_y = y
           detail_z = z
 
+          if x == y and x == z and y == z:
+            counter_ref = "cubes"
+          else:
+            counter_ref = "cuboids"
+
         elif inertial_type == "sphere":
           
           # extract dimensions
@@ -254,6 +292,8 @@ if __name__ == "__main__":
           detail_y = ry * 2
           detail_z = rz * 2
 
+          counter_ref = "spheres"
+
         elif inertial_type == "cylinder":
 
           # extract dimensions
@@ -272,6 +312,29 @@ if __name__ == "__main__":
           detail_x = rx * 2
           detail_y = ry * 2
           detail_z = h
+
+          counter_ref = "cylinders"
+
+        elif inertial_type == "ellipsoid":
+
+          # extract dimensions
+          a = xscale_in * object_details[object]["inertial"]["a"]
+          b = yscale_in * object_details[object]["inertial"]["b"]
+          c = zscale_in * object_details[object]["inertial"]["c"]
+
+          # calculate the mass
+          mass = (4.0/3.0) * np.pi * a * b * c * density
+
+          # calculate the diaginertia
+          ixx = (1.0/5.0) * mass * (b**2 + c**2)
+          iyy = (1.0/5.0) * mass * (a**2 + c**2)
+          izz = (1.0/5.0) * mass * (a**2 + b**2)
+
+          detail_x = a * 2
+          detail_y = b * 2
+          detail_z = c * 2
+
+          counter_ref = "ellipsoids"
 
         else:
           raise RuntimeError("inertial type not one of 'cuboid', 'sphere', 'cylinder'")
@@ -323,15 +386,19 @@ if __name__ == "__main__":
           biggest_mass[0] = mass
           biggest_mass[1] = names[0] + f", density {density}"
 
+        # cap mass above a certain amount
+        if mass > max_mass:
+          mass = max_mass
+          mass_capped_counter += 1
+
         # loop through every fillet option and create the xml snippets
         for k, name in enumerate(names):
 
-          # loop through every friction option
+          # loop through every friction option (if random then friction_loop=1)
           for f in range(friction_loop):
 
             if random_friction: friction = np.random.choice(friction_values)
             else: friction = friction_values[f]
-            # print("friction in loop", f, "is", friction)
 
             path = "models/{0}/{1}.STL".format(name_path, obj_filenames[k])
 
@@ -348,6 +415,9 @@ if __name__ == "__main__":
             add_chunk(assets_tree, "@root", asset_xml)
             add_chunk(detail_tree, "@root", detail_xml)
 
+            # count the category of this object
+            category_count[counter_ref] += 1
+
   # add the ground as the final element in the object tree
   ground_xml = f"""
   <body name="ground" pos="0 0 0">
@@ -362,7 +432,10 @@ if __name__ == "__main__":
   assets_tree.write(filepath + "/assets.xml")
   detail_tree.write(filepath + "/details.xml")
 
-  print(f"The biggest mass was {biggest_mass[0] * 1000:.0f}g for the object: {biggest_mass[1]}")
+  if max_mass < biggest_mass[0]: extra = f", but mass capped at {max_mass * 1e3:.0f}g. {mass_capped_counter} objects had mass capped."
+  else: extra = ""
+  print(f"The biggest mass was {biggest_mass[0] * 1e3:.0f}g for the object: {biggest_mass[1]}" + extra)
+  print_categories(category_count)
 
 
 

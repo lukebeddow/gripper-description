@@ -28,6 +28,9 @@ generate_objects = bool(args.gen_objects)
 
 # are we in debug mode
 debug = False
+shuffle_objects = True # do we randomise objects
+test_num_for_debug = 5 # how many files are used for 'test' conditions
+print_test_categories = True # do we print breakdown of test categories
 
 # define directory structure
 build_folder = args.build_folder
@@ -628,7 +631,8 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
 
   # create shuffled random list of every object
   rand_lists = np.arange(num_obj)
-  np.random.shuffle(rand_lists) # comment this line for unshuffled objects
+  if shuffle_objects:
+    np.random.shuffle(rand_lists)
 
   # get the qpos info, split into individual numbers
   qpos_str = " {0} {1} {2} {3} {4} {5} {6}"
@@ -642,6 +646,15 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
   num_y = int(ceil(obj_per_task / float(per_x)))
   object_X = [(grid_xrange[0] + (spacing / 2.) + spacing * i) for i in range(per_x)] * num_y
   object_Y = [(grid_ystart + spacing * j) for j in range(num_y) for i in range(per_x)]
+
+  # for debugging number of objects in 'test' category
+  category_count = {
+    "cubes" : 0,
+    "cuboids" : 0,
+    "cylinders" : 0,
+    "spheres" : 0,
+    "ellipses" : 0
+  }
 
   # loop through the num of objects per split and assemble trees and qpos
   for i in range(num_splits):
@@ -685,6 +698,12 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
         detail_root[r].attrib["z"],
       )
 
+      # for debugging the category breakdown of test objects
+      if i < test_num_for_debug:
+        for key in category_count:
+          if key.startswith(object_root[r].attrib["name"].split("_")[0]):
+            category_count[key] += 1
+
     # test the new details
     global all_object_customs
     all_object_customs.append(custom_xml)
@@ -692,7 +711,27 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
     # now add the ground plane (we assume its the last entry)
     trees[i][1].append(deepcopy(object_root[-1]))
 
+  if print_test_categories:
+    print_categories(category_count)
+
   return trees
+
+def print_categories(count_dict):
+  """
+  Print a summary of numbers of objects in each category
+  """
+  total = 0
+  for key in count_dict:
+    total += count_dict[key]
+
+  table_header = f"{'category':<12} | {'num':<5} | {'%':<5}"
+  row_template = "{0:<12} | {1:<5} | {2:<5.1f}"
+
+  print("Printing categories of", total, "objects:")
+  print(table_header)
+  for key in count_dict:
+    print(row_template.format(key, count_dict[key], count_dict[key]*(100.0/total)))
+  print()
 
 # ----- execute scripting to insert xml snippets into files ----- #
 
