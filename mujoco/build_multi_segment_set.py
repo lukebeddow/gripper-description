@@ -272,7 +272,7 @@ for set_to_build in build_sets:
         except FileExistsError as e:
           if args.copy_to_override == "yes":
             delete_folder = "deleted"
-            timestamp = datetime.now().strftime("%d-%m-%y-%H:%M:%S")
+            timestamp = datetime.now().strftime("%d-%m-%y_%H-%M-%S")
             if not os.path.exists(copy_to_path + f"/{delete_folder}"):
               os.makedirs(copy_to_path + f"/{delete_folder}")
             err_str += f"Existing object set '{set_to_build}' found, moved to '{copy_to_path}/{delete_folder}' with timestamp: {timestamp}\n"

@@ -113,6 +113,8 @@ def print_categories(count_dict):
     print(row_template.format(key, count_dict[key], count_dict[key]*(100.0/total)))
   print()
 
+  return total
+
 if __name__ == "__main__":
 
   object_root = etree.Element("mujoco")
@@ -140,6 +142,7 @@ if __name__ == "__main__":
   except KeyError as e:
     print("settings does not contain 'maximum_mass_grams':", e)
     max_mass = 1e6
+  avg_mass = 0
 
   # scale default friction by factors and convert [[a,b,c], [d,e,f]] into ["a b c", "d e f"]
   friction_values = []
@@ -417,6 +420,7 @@ if __name__ == "__main__":
 
             # count the category of this object
             category_count[counter_ref] += 1
+            avg_mass += mass
 
   # add the ground as the final element in the object tree
   ground_xml = f"""
@@ -432,10 +436,11 @@ if __name__ == "__main__":
   assets_tree.write(filepath + "/assets.xml")
   detail_tree.write(filepath + "/details.xml")
 
-  if max_mass < biggest_mass[0]: extra = f", but mass capped at {max_mass * 1e3:.0f}g. {mass_capped_counter} objects had mass capped."
+  if max_mass < biggest_mass[0]: extra = f", but mass capped at {max_mass * 1e3:.0f}g. {mass_capped_counter} objects had mass capped"
   else: extra = ""
-  print(f"The biggest mass was {biggest_mass[0] * 1e3:.0f}g for the object: {biggest_mass[1]}" + extra)
-  print_categories(category_count)
+  total = print_categories(category_count)
+  print(f"The biggest mass was {biggest_mass[0] * 1e3:.0f}g for the object: {biggest_mass[1]}" + extra + f". The average mass was {avg_mass/total * 1e3:.1f}g")
+
 
 
 
