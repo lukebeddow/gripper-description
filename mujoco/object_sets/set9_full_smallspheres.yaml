@@ -1,0 +1,611 @@
+# This file defines the objects to be loaded into the mujoco simluation
+
+# How it works:
+#   1. Create a new top level entry with a unique name
+#   2. Define the file and path of the STL mesh (relative to meshes_mujoco)
+#       name_root = start of filename
+#       path = folder or path to mesh without start/trailing slashes (eg x not x/)
+#       suffix = optional text to add to filename in mujoco (to keep it unique)
+#   3. Define the fillet options
+#       used = do we have many alternative STL files with different fillets (true/false)
+#       step = what is the fillet step, eg 5, 10, 15, 20 means step is 5
+#       max = what is the maximum fillet number of the files
+#       min = minimum fillet number
+#   4. Define the scaling options
+#       num = number of differently scaled models (min 1)
+#       max = maximum xyz scaling factors
+#       min = minimum xyz scaling factors
+#   5. Define the spawning options
+#       rest = object origin distance above ground at rest, eg 1m cube rest=0.5m
+#       axis = which axis is rest measured in, currently should always be z (vertical)
+#   6. Define the quaternion to rotate the mesh of the object
+#   7. Define the inertial parameters
+#       mass = in kg, with no scaling NOT USED CURRENTLY, density used instead in py script
+#       align = map the intertial axes to the object, "xyz" is default, "zyx" swaps x->z
+#       type = what inertia equation to use, eg "cuboid", "cylinder"
+#       other->
+#         for type "cuboid" {x, y, z} should be side lengths without scaling in m
+#         for type "sphere" {r} is radius without scaling in m
+#         for type "cylinder" {r, h} is radius and height without scaling in m
+
+# ----- repeat all objects with the following ----- #
+
+# this set has the following breakdown of object categories
+# Printing categories of 1800 objects:
+# category     | num   | %    
+# cubes        | 90    | 5.0  
+# cuboids      | 486   | 27.0 
+# cylinders    | 570   | 31.7 
+# spheres      | 352   | 19.6 
+# ellipsoids   | 302   | 16.8
+
+settings:
+
+  # non-zero value sets random seed to that integer, 0=random
+  fixed_random_seed: 103
+  # Seed 103 gives test 100 objects:
+  # category     | num   | %    
+  # cubes        | 4     | 4.0  
+  # cuboids      | 27    | 27.0 
+  # cylinders    | 33    | 33.0 
+  # spheres      | 21    | 21.0 
+  # ellipses     | 15    | 15.0 
+
+  # keep each object unique but randomly select density/friction
+  random_density: true
+  random_friction: true
+
+  # what material densities to use for objects
+  object_densities:
+  - 100
+  - 200
+  - 300
+
+  # cap the largest possible mass
+  maximum_mass_grams: 500
+
+  # what friction scalings compared to mujoco default
+  friction_scalings:
+  - 0.5
+  - 1.0
+  - 1.5
+  - 2.0
+
+# ----- cube ----- #
+
+cube:
+  include: true
+  name_root: cube_fillet
+  suffix: normal
+  path: cube
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    mass: 0.1
+    type: cuboid
+    align: xyz
+    x: 0.1
+    y: 0.1
+    z: 0.1
+  scale:
+    num: 15
+    max: { x: 1.4, y: 1.4, z: 1.4 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0  
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+# ----- sphere ----- #
+
+sphere:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 202
+    max: { x: 1.6, y: 1.6, z: 1.6 }
+    min: { x: 0.5, y: 0.5, z: 0.5 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_small:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 150
+    max: { x: 0.9, y: 0.9, z: 0.9 }
+    min: { x: 0.4, y: 0.4, z: 0.4 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+# ----- cylinder ----- #
+
+cylinder_11:
+  include: true
+  name_root: cylinder_11_fillet
+  suffix: normal
+  path: cylinder_11
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: cylinder
+    r: 0.05
+    h: 0.1
+  scale:
+    num: 15
+    max: { x: 1.4, y: 1.4, z: 1.4 }
+    min: { x: 0.7, y: 0.7, z: 0.7 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+cylinder_12_sideways:
+  include: true
+  name_root: cylinder_12_fillet
+  suffix: sideways
+  path: cylinder_12
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: zyx
+    mass: 0.1
+    type: cylinder
+    r: 0.05
+    h: 0.2
+  scale:
+    num: 15
+    max: { x: 1.2, y: 1.2, z: 1.2 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
+
+cylinder_12_upright:
+  include: true
+  name_root: cylinder_12_fillet
+  suffix: upright
+  path: cylinder_12
+  spawn:
+    rest: 0.1
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: cylinder
+    r: 0.05
+    h: 0.2
+  scale:
+    num: 15
+    max: { x: 0.7, y: 0.7, z: 0.7 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.01, y: 0, z: 0, w: 0 } # get an inertia matrix error with all=0
+
+cylinder_13_sideways:
+  include: true
+  name_root: cylinder_13_fillet
+  suffix: sideways
+  path: cylinder_13
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: zyx
+    mass: 0.1
+    type: cylinder
+    r: 0.05
+    h: 0.3
+  scale:
+    num: 15
+    max: { x: 0.9, y: 0.9, z: 0.9 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
+
+cylinder_14:
+  include: true
+  name_root: cylinder_14_fillet
+  suffix: normal
+  path: cylinder_14
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: zyx
+    mass: 0.1
+    type: cylinder
+    r: 0.05
+    h: 0.4
+  scale:
+    num: 15
+    max: { x: 0.9, y: 0.9, z: 0.9 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
+
+cylinder_18:
+  include: true
+  name_root: cylinder_18_fillet
+  suffix: normal
+  path: cylinder_18
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: zyx
+    mass: 0.1
+    type: cylinder
+    r: 0.05
+    h: 0.8
+  scale:
+    num: 15
+    max: { x: 0.5, y: 0.5, z: 0.5 }
+    min: { x: 0.3, y: 0.3, z: 0.3 }
+  fillet:
+    used: true
+    step: 5
+    max: 5
+    min: 0
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
+
+cylinder_21:
+  include: true
+  name_root: cylinder_21_fillet
+  suffix: normal
+  path: cylinder_21
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: cylinder
+    r: 0.1
+    h: 0.1
+  scale:
+    num: 15
+    max: { x: 0.8, y: 0.8, z: 0.8 }
+    min: { x: 0.4, y: 0.4, z: 0.4 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+# ----- cuboid ----- #
+
+cuboid_211:
+  include: true
+  name_root: cuboid_211_fillet
+  suffix: normal
+  path: cuboid_211
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: cuboid
+    x: 0.2
+    y: 0.1
+    z: 0.1
+  scale:
+    num: 9
+    max: { x: 0.9, y: 0.9, z: 0.9 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+cuboid_211_upright:
+  include: true
+  name_root: cuboid_211_fillet
+  suffix: upright
+  path: cuboid_211
+  spawn:
+    rest: 0.1
+    axis: z
+  inertial:
+    align: zyx
+    mass: 0.1
+    type: cuboid
+    x: 0.2
+    y: 0.1
+    z: 0.1
+  scale:
+    num: 9
+    max: { x: 0.7, y: 0.7, z: 0.7 }
+    min: { x: 0.5, y: 0.5, z: 0.5 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0, y: 0.707, z: 0, w: 0.707 }
+
+cuboid_221:
+  include: true
+  name_root: cuboid_221_fillet
+  suffix: normal
+  path: cuboid_221
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xzy
+    mass: 0.1
+    type: cuboid
+    x: 0.2
+    y: 0.1
+    z: 0.2
+  scale:
+    num: 9
+    max: { x: 0.7, y: 0.7, z: 0.7 }
+    min: { x: 0.4, y: 0.4, z: 0.4 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
+
+cuboid_311:
+  include: true
+  name_root: cuboid_311_fillet
+  suffix: normal
+  path: cuboid_311
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: cuboid
+    x: 0.3
+    y: 0.1
+    z: 0.1
+  scale:
+    num: 9
+    max: { x: 0.8, y: 0.8, z: 0.8 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+cuboid_311_thinner:
+  include: true
+  name_root: cuboid_311_fillet
+  suffix: thinner
+  path: cuboid_311
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: cuboid
+    x: 0.3
+    y: 0.1
+    z: 0.1
+  scale:
+    num: 9
+    max: { x: 1.2, y: 0.8, z: 0.8 }
+    min: { x: 1.2, y: 0.6, z: 0.6 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+cuboid_321:
+  include: true
+  name_root: cuboid_321_fillet
+  suffix: normal
+  path: cuboid_321
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xzy
+    mass: 0.1
+    type: cuboid
+    x: 0.3
+    y: 0.1
+    z: 0.2
+  scale:
+    num: 9
+    max: { x: 0.5, y: 0.5, z: 0.5 }
+    min: { x: 0.4, y: 0.4, z: 0.4 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
+
+cuboid_331:
+  include: true
+  name_root: cuboid_331_fillet
+  suffix: normal
+  path: cuboid_331
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xzy
+    mass: 0.1
+    type: cuboid
+    x: 0.3
+    y: 0.1
+    z: 0.3
+  scale:
+    num: 9
+    max: { x: 0.45, y: 0.45, z: 0.45 }
+    min: { x: 0.25, y: 0.25, z: 0.25 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
+
+cuboid_441:
+  include: true
+  name_root: cuboid_441_fillet
+  suffix: normal
+  path: cuboid_441
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xzy
+    mass: 0.1
+    type: cuboid
+    x: 0.4
+    y: 0.1
+    z: 0.4
+  scale:
+    num: 9
+    max: { x: 0.35, y: 0.35, z: 0.35 }
+    min: { x: 0.20, y: 0.20, z: 0.20 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
+
+cuboid_421:
+  include: true
+  name_root: cuboid_421_fillet
+  suffix: normal
+  path: cuboid_421
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xzy
+    mass: 0.1
+    type: cuboid
+    x: 0.4
+    y: 0.1
+    z: 0.2
+  scale:
+    num: 9
+    max: { x: 0.35, y: 0.35, z: 0.35 }
+    min: { x: 0.20, y: 0.20, z: 0.20 }
+  fillet:
+    used: true
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
+
+# ----- ellipsoid ----- #
+
+ellipse_1p51:
+  include: true
+  name_root: ellipse_1p51
+  suffix: normal
+  path: ellipse_1p51
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: zxy
+    mass: 0.1
+    type: ellipsoid
+    a: 0.05
+    b: 0.05
+    c: 0.075
+  scale:
+    num: 151
+    max: { x: 0.5, y: 0.5, z: 0.5 }
+    min: { x: 1.2, y: 1.2, z: 1.2 }
+  fillet:
+    used: false
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
+
+ellipse_21:
+  include: true
+  name_root: ellipse_21
+  suffix: normal
+  path: ellipse_21
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: zxy
+    mass: 0.1
+    type: ellipsoid
+    a: 0.05
+    b: 0.05
+    c: 0.10
+  scale:
+    num: 151
+    max: { x: 0.5, y: 0.5, z: 0.5 }
+    min: { x: 1.0, y: 1.0, z: 1.0 }
+  fillet:
+    used: false
+    step: 5
+    max: 25
+    min: 0
+  quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
