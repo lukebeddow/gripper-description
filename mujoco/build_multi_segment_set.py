@@ -145,7 +145,7 @@ elif args.segments in ["fast"]:
 elif args.segments in ["most"]:
   segments = [5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
 elif args.segments in ["all"]:
-  segments = list(range(5, 31))
+  segments = list(range(3, 31))
 elif args.segments in ["all2"]:
   segments = list(range(2, 31))
 else:

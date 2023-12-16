@@ -308,10 +308,14 @@ force_sensor = """
 
 # ----- create depth camera xml ----- #
 
-depth_camera = """
+if fixed_motor_joints:
+  depth_target = "finger_1_segment_link_1" # since actual target does not exist
+else:
+  depth_target = "finger_1_intermediate"
+depth_camera = f"""
   <camera name="depth camera" 
           mode="fixed" 
-          target="finger_1_intermediate" 
+          target="{depth_target}" 
           pos="0 -0.105 +0.1" 
           quat="0.208 0.978 0 0"/>
 """
@@ -803,9 +807,6 @@ if __name__ == "__main__":
   # add depth camera to gripper (only in gripper_task)
   add_chunk_with_specific_attribute(task_tree, "body", "name",
                                     "gripper_base_link", depth_camera)
-  
-  # # add in custom fields
-  # add_chunk(task_tree, "@root", custom_fields)
 
   # add equality constraints to gripper task for non-backdriveable joints
   add_chunk(task_tree, "@root", equality_constraints)
