@@ -53,7 +53,7 @@ settings:
 # ----- cube ----- #
 
 cube:
-  include: false
+  include: true
   name_root: cube_fillet
   suffix: normal
   path: cube
@@ -68,8 +68,8 @@ cube:
     y: 0.1
     z: 0.1
   scale:
-    num: 3
-    max: { x: 1.4, y: 1.4, z: 1.4 }
+    num: 100
+    max: { x: 0.7, y: 0.7, z: 0.7 }
     min: { x: 0.6, y: 0.6, z: 0.6 }
   fillet:
     used: true
@@ -81,7 +81,7 @@ cube:
 # ----- sphere ----- #
 
 sphere:
-  include: true
+  include: false
   name_root: sphere
   suffix: normal
   path: sphere
@@ -95,7 +95,7 @@ sphere:
     r: 0.05
   scale:
     num: 100
-    max: { x: 1.6, y: 1.6, z: 1.6 }
+    max: { x: 0.8, y: 0.8, z: 0.8 }
     min: { x: 0.7, y: 0.7, z: 0.7 }
   fillet:
     used: false
