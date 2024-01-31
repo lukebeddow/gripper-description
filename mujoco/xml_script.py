@@ -72,6 +72,7 @@ fixed_first_segment = gripper_details["gripper_config"]["fixed_first_segment"]
 fixed_hook_segment = gripper_details["gripper_config"]["fixed_hook_segment"]
 fixed_motor_joints = gripper_details["gripper_config"]["fixed_motor_joints"]
 use_xy_base_joint = gripper_details["gripper_config"]["xy_base_joint"]
+use_z_base_rotation = gripper_details["gripper_config"]["z_base_rotation"]
 use_sky = True # do we include a skybox
 
 if debug:
@@ -89,14 +90,15 @@ joint_start = {
   "panda_joint3": 0.0,
   "panda_joint4": 0.0,
   "panda_joint5": 0.0,
-  "panda_joint6": 1.0,
+  "panda_joint6": 0.0,
   "panda_joint7": 0.0,
   "gripper_prismatic": gripper_details["gripper_params"]["xy_home"],
   "gripper_revolute": 0.0,
   "gripper_palm": gripper_details["gripper_params"]["z_home"],
   "base_x_joint": 0.0,
   "base_y_joint": 0.0,
-  "base_z_joint": 0.0
+  "base_z_joint": 0.0,
+  "base_z_rotation_joint": 0.0,
 }
 
 # panda parameters
@@ -130,6 +132,8 @@ gripper_joints = [
   "palm_prismatic_joint"]
 if use_xy_base_joint:
   base_joints = ["base_X_joint", "base_Y_joint", "base_Z_joint"]
+  if use_z_base_rotation:
+    base_joints += ["base_Z_rotation_joint"]
 else: base_joints = ["world_to_base"]
 
 # ----- generate qpos and joint names ---- #
@@ -170,6 +174,8 @@ if use_xy_base_joint:
     joint_start["base_y_joint"],
     joint_start["base_z_joint"]
   )
+  if use_z_base_rotation:
+    base_joint_qpos += f" {joint_start['base_z_rotation_joint']}"
 else:
   base_joint_qpos = "{0}".format(
     joint_start["base_z_joint"]

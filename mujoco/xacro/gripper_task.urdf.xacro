@@ -10,6 +10,7 @@
 	
 	<!-- extract the gripper config information -->
 	<xacro:property name="xy_base_joint" value="${yaml_dict['gripper_config']['xy_base_joint']}"/>
+	<xacro:property name="z_base_rotation" value="${yaml_dict['gripper_config']['z_base_rotation']}"/>
 	<xacro:property name="fingertip_clearance" value="${yaml_dict['gripper_params']['fingertip_clearance']}"/> 
 	<xacro:property name="hook_length" value="${yaml_dict['gripper_params']['hook_length']}"/> 
 	<xacro:property name="hook_angle_rad" value="${yaml_dict['gripper_params']['hook_angle_degrees'] * (3.141592 / 180.0)}"/> 
@@ -84,17 +85,55 @@
 			<dynamics damping="1"/>
 		</joint>
 
-		<joint name="base_Z_joint" type="prismatic">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<axis xyz="0 0 1" rpy="0 0 0"/>
-			<parent link="base_YZ"/>
-			<child link="gripper_base_link"/>
-			<limit effort="1e3" 
-						lower="-1"
-						upper="1"
-						velocity="1"/>
-			<dynamics damping="1"/>
-		</joint>
+		<xacro:if value="${z_base_rotation}">
+
+			<link name="base_ZrotZ">
+				<inertial>
+					<mass value="1.0"/>
+					<inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+				</inertial>
+			</link>
+
+			<joint name="base_Z_joint" type="prismatic">
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<axis xyz="0 0 1" rpy="0 0 0"/>
+				<parent link="base_YZ"/>
+				<child link="base_ZrotZ"/>
+				<limit effort="1e3" 
+							lower="-1"
+							upper="1"
+							velocity="1"/>
+				<dynamics damping="1"/>
+			</joint>
+
+			<joint name="base_Z_rotation_joint" type="revolute">
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<axis xyz="0 0 1" rpy="0 0 0"/>
+				<parent link="base_ZrotZ"/>
+				<child link="gripper_base_link"/>
+				<limit effort="1e3" 
+							lower="-1000"
+							upper="1000"
+							velocity="1"/>
+				<dynamics damping="1"/>
+			</joint>
+
+		</xacro:if>
+		<xacro:if value="${not z_base_rotation}">
+
+			<joint name="base_Z_joint" type="prismatic">
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<axis xyz="0 0 1" rpy="0 0 0"/>
+				<parent link="base_YZ"/>
+				<child link="gripper_base_link"/>
+				<limit effort="1e3" 
+							lower="-1"
+							upper="1"
+							velocity="1"/>
+				<dynamics damping="1"/>
+			</joint>
+
+		</xacro:if>
 
 	</xacro:if>
 	<xacro:if value="${not xy_base_joint}">
