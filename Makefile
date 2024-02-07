@@ -69,7 +69,7 @@ mjcf:
 # build all mujoco object sets, cleans first to ensure maximally up to date*
 # note: override $(SET) @ command line to build only one set, eg 'make sets SET=set_test'
 .PHONY: sets
-sets: 
+sets: clean
 	cd $(MJCFDIR) && ./$(SETSCRIPT) $(SET) $(ARGS_FOR_PARSE)
 
 clean:

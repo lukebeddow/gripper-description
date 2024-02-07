@@ -224,7 +224,9 @@
     </xacro:macro>
 
     <!-- Execute the loop macro -->
-    <xacro:loop iterations="${num_segments - 2}"/>
+    <xacro:if value="${num_segments - 2 > 0}">
+      <xacro:loop iterations="${num_segments - 2}"/>
+    </xacro:if>
 
     <!-- Add the finger hook link -->
     <link name="${prefix}_finger_hook_link">
