@@ -31,6 +31,7 @@ debug = False
 shuffle_objects = True # do we randomise objects
 test_num_for_debug = 5 # how many files are used for 'test' conditions
 print_test_categories = True # do we print breakdown of test categories
+demo = False # are we arranging objects into demo mode
 
 # define directory structure
 build_folder = args.build_folder
@@ -117,7 +118,7 @@ finger_control = "motor"      # no motor is used on these joints atm
 base_control = "motor"
 
 # task parameters
-max_objects_per_task = 20
+max_objects_per_task = 20 if not demo else 100
 
 # finger friction parameters
 default_mujoco_friction = [1, 0.005, 0.0001]
@@ -648,14 +649,32 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
   qpos_str = " {0} {1} {2} {3} {4} {5} {6}"
 
   # setup the free objects to the side in a grid formation
-  grid_xrange = [-1, 1]
-  grid_ystart = 2
-  spacing = 0.5
+  if demo:
+    grid_yrange = [-0.7, 0.7]
+    grid_ystart = 0.5
+    xspacing = 0.31
+    yspacing = 0.13
+    # for demo, order the first split
+    first_split = rand_lists[:obj_per_task]
+    first_split.sort()
+    rand_lists[:obj_per_task] = first_split
+    # order YX instead of XY
+    per_y = int(floor((grid_yrange[1] - grid_yrange[0]) / float(yspacing)))
+    num_x = int(ceil(obj_per_task / float(per_y)))
+    object_Y = [(grid_yrange[0] + (yspacing / 2.) + yspacing * i) for i in range(per_y)] * num_x
+    object_X = [(grid_ystart + xspacing * j) for j in range(num_x) for i in range(per_y)]
 
-  per_x = int(floor((grid_xrange[1] - grid_xrange[0]) / float(spacing)))
-  num_y = int(ceil(obj_per_task / float(per_x)))
-  object_X = [(grid_xrange[0] + (spacing / 2.) + spacing * i) for i in range(per_x)] * num_y
-  object_Y = [(grid_ystart + spacing * j) for j in range(num_y) for i in range(per_x)]
+  else:
+
+    grid_xrange = [-1, 1]
+    grid_ystart = 2
+    xspacing = 0.5
+    yspacing = 0.5
+
+    per_x = int(floor((grid_xrange[1] - grid_xrange[0]) / float(xspacing)))
+    num_y = int(ceil(obj_per_task / float(per_x)))
+    object_X = [(grid_xrange[0] + (xspacing / 2.) + xspacing * i) for i in range(per_x)] * num_y
+    object_Y = [(grid_ystart + yspacing * j) for j in range(num_y) for i in range(per_x)]
 
   # for debugging number of objects in 'test' category
   category_count = {
