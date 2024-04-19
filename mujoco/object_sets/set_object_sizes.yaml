@@ -56,28 +56,23 @@ settings:
   # keep each object unique but randomly select density/friction
   random_density: true
   random_friction: true
-  random_order: true
+  random_order: false
 
   # what material densities to use for objects
   object_densities:
   - 100
-  - 200
-  - 300
 
   # cap the largest possible mass
   maximum_mass_grams: 500
 
   # what friction scalings compared to mujoco default
   friction_scalings:
-  - 0.5
   - 1.0
-  - 1.5
-  - 2.0
 
 # ----- cube ----- #
 
 cube:
-  include: true
+  include: false
   name_root: cube_fillet
   suffix: normal
   path: cube
@@ -104,7 +99,7 @@ cube:
 
 # ----- sphere ----- #
 
-sphere:
+sphere_50:
   include: true
   name_root: sphere
   suffix: normal
@@ -118,9 +113,240 @@ sphere:
     type: sphere
     r: 0.05
   scale:
-    num: 302
-    max: { x: 1.6, y: 1.6, z: 1.6 }
+    num: 120 # extra so that task 6 is 60mm, 7 is 70mm etc
+    max: { x: 0.5, y: 0.5, z: 0.5 }
     min: { x: 0.5, y: 0.5, z: 0.5 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_60:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 0.6, y: 0.6, z: 0.6 }
+    min: { x: 0.6, y: 0.6, z: 0.6 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_70:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 0.7, y: 0.7, z: 0.7 }
+    min: { x: 0.7, y: 0.7, z: 0.7 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_80:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 0.8, y: 0.8, z: 0.8 }
+    min: { x: 0.8, y: 0.8, z: 0.8 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_90:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 0.9, y: 0.9, z: 0.9 }
+    min: { x: 0.9, y: 0.9, z: 0.9 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_100:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.0, y: 1.0, z: 1.0 }
+    min: { x: 1.0, y: 1.0, z: 1.0 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_110:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.1, y: 1.1, z: 1.1 }
+    min: { x: 1.1, y: 1.1, z: 1.1 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_120:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.2, y: 1.2, z: 1.2 }
+    min: { x: 1.2, y: 1.2, z: 1.2 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_130:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.3, y: 1.3, z: 1.3 }
+    min: { x: 1.3, y: 1.3, z: 1.3 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_140:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.4, y: 1.4, z: 1.4 }
+    min: { x: 1.4, y: 1.4, z: 1.4 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_150:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.5, y: 1.5, z: 1.5 }
+    min: { x: 1.5, y: 1.5, z: 1.5 }
+  fillet:
+    used: false
+  quat: { x: 0, y: 0, z: 0, w: 1 }
+
+sphere_160:
+  include: true
+  name_root: sphere
+  suffix: normal
+  path: sphere
+  spawn:
+    rest: 0.05
+    axis: z
+  inertial:
+    align: xyz
+    mass: 0.1
+    type: sphere
+    r: 0.05
+  scale:
+    num: 20
+    max: { x: 1.6, y: 1.6, z: 1.6 }
+    min: { x: 1.6, y: 1.6, z: 1.6 }
   fillet:
     used: false
   quat: { x: 0, y: 0, z: 0, w: 1 }
@@ -128,7 +354,7 @@ sphere:
 # ----- cylinder ----- #
 
 cylinder_11:
-  include: true
+  include: false
   name_root: cylinder_11_fillet
   suffix: normal
   path: cylinder_11
@@ -153,7 +379,7 @@ cylinder_11:
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cylinder_12_sideways:
-  include: true
+  include: false
   name_root: cylinder_12_fillet
   suffix: sideways
   path: cylinder_12
@@ -178,7 +404,7 @@ cylinder_12_sideways:
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_12_upright:
-  include: true
+  include: false
   name_root: cylinder_12_fillet
   suffix: upright
   path: cylinder_12
@@ -203,7 +429,7 @@ cylinder_12_upright:
   quat: { x: 0.01, y: 0, z: 0, w: 0 } # get an inertia matrix error with all=0
 
 cylinder_13_sideways:
-  include: true
+  include: false
   name_root: cylinder_13_fillet
   suffix: sideways
   path: cylinder_13
@@ -228,7 +454,7 @@ cylinder_13_sideways:
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_14:
-  include: true
+  include: false
   name_root: cylinder_14_fillet
   suffix: normal
   path: cylinder_14
@@ -253,7 +479,7 @@ cylinder_14:
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_18:
-  include: true
+  include: false
   name_root: cylinder_18_fillet
   suffix: normal
   path: cylinder_18
@@ -278,7 +504,7 @@ cylinder_18:
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 cylinder_21:
-  include: true
+  include: false
   name_root: cylinder_21_fillet
   suffix: normal
   path: cylinder_21
@@ -305,7 +531,7 @@ cylinder_21:
 # ----- cuboid ----- #
 
 cuboid_211:
-  include: true
+  include: false
   name_root: cuboid_211_fillet
   suffix: normal
   path: cuboid_211
@@ -331,7 +557,7 @@ cuboid_211:
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cuboid_211_upright:
-  include: true
+  include: false
   name_root: cuboid_211_fillet
   suffix: upright
   path: cuboid_211
@@ -357,7 +583,7 @@ cuboid_211_upright:
   quat: { x: 0, y: 0.707, z: 0, w: 0.707 }
 
 cuboid_221:
-  include: true
+  include: false
   name_root: cuboid_221_fillet
   suffix: normal
   path: cuboid_221
@@ -383,7 +609,7 @@ cuboid_221:
   quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
 
 cuboid_311:
-  include: true
+  include: false
   name_root: cuboid_311_fillet
   suffix: normal
   path: cuboid_311
@@ -409,7 +635,7 @@ cuboid_311:
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cuboid_311_thinner:
-  include: true
+  include: false
   name_root: cuboid_311_fillet
   suffix: thinner
   path: cuboid_311
@@ -435,7 +661,7 @@ cuboid_311_thinner:
   quat: { x: 0, y: 0, z: 0, w: 1 }
 
 cuboid_321:
-  include: true
+  include: false
   name_root: cuboid_321_fillet
   suffix: normal
   path: cuboid_321
@@ -461,7 +687,7 @@ cuboid_321:
   quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
 
 cuboid_331:
-  include: true
+  include: false
   name_root: cuboid_331_fillet
   suffix: normal
   path: cuboid_331
@@ -487,7 +713,7 @@ cuboid_331:
   quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
 
 cuboid_441:
-  include: true
+  include: false
   name_root: cuboid_441_fillet
   suffix: normal
   path: cuboid_441
@@ -513,7 +739,7 @@ cuboid_441:
   quat: { x: 0.7071, y: 0, z: 0, w: 0.7071 }
 
 cuboid_421:
-  include: true
+  include: false
   name_root: cuboid_421_fillet
   suffix: normal
   path: cuboid_421
@@ -541,7 +767,7 @@ cuboid_421:
 # ----- ellipsoid ----- #
 
 ellipse_1p51:
-  include: true
+  include: false
   name_root: ellipse_1p51
   suffix: normal
   path: ellipse_1p51
@@ -567,7 +793,7 @@ ellipse_1p51:
   quat: { x: 0.5, y: 0.5, z: 0.5, w: 0.5 } # rot(x,90) and rot(z,90) (ZYX)
 
 ellipse_21:
-  include: true
+  include: false
   name_root: ellipse_21
   suffix: normal
   path: ellipse_21

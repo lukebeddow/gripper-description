@@ -28,7 +28,6 @@ generate_objects = bool(args.gen_objects)
 
 # are we in debug mode
 debug = False
-shuffle_objects = True # do we randomise objects
 test_num_for_debug = 5 # how many files are used for 'test' conditions
 print_test_categories = True # do we print breakdown of test categories
 demo = False # are we arranging objects into demo mode
@@ -53,6 +52,7 @@ with open(directory_path + define_objects_file) as file:
 
 # do we have a fixed random seed (so test set fixed)
 rand_seed = object_details["settings"]["fixed_random_seed"]
+shuffle_objects = object_details["settings"]["random_order"]
 if rand_seed == 0: rand_seed = np.random.randint(0, 2147483647)
 np.random.seed(rand_seed)
 

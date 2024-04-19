@@ -56,6 +56,7 @@ settings:
   # keep each object unique but randomly select density/friction
   random_density: true
   random_friction: true
+  random_order: true
 
   # what material densities to use for objects
   object_densities:
