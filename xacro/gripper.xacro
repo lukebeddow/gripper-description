@@ -6,9 +6,8 @@
 		<!-- PARAMETERS TO BE SET BY HAND -->
 		
 		<!-- xyz values to connect the segmented finger to the finger platform -->
-		<!-- TODO verfiy these values -->
 		<xacro:property name="x_fix" value="0.129"/>
-		<xacro:property name="y_fix" value="-0.007"/>
+		<xacro:property name="y_fix" value="0"/>
 		<xacro:property name="z_fix" value="0"/>
 		
 		<!-- END OF PARAMETERS TO BE SET BY HAND -->

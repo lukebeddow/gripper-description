@@ -20,7 +20,7 @@ gripper_params:
   hook_angle_degrees: 75.0
   hook_length: 0.035
   segment_inertia_scaling: 50.0
-  xy_home: 0.13133
+  xy_home: 0.13
   xy_max: 0.134
   xy_min: 0.049
   z_home: 0.00488
