@@ -231,8 +231,9 @@ for set_to_build in build_sets:
       make = "make TASK={0} INCDIR={1} DIRNAME={2} MJCOMPILE={3}/bin/compile PYTHON={4}".format(
         this_folder_name, objects_folder, build_folder, args.mujoco_path, args.python)
     
+      # fix: always generate objects, causes bug when waiting until the end
       # disable object generation until the final loop (assets/objects wiped at the start of each 'make')
-      if i != len(segments) - 1: make += " GEN_OBJECTS=0"
+      if False and i != len(segments) - 1: make += " GEN_OBJECTS=0"
 
       subprocess.run([make], shell=True, cwd=filepath)
 
