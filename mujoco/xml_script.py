@@ -30,6 +30,7 @@ generate_objects = bool(args.gen_objects)
 debug = False
 test_num_for_debug = 5 # how many files are used for 'test' conditions
 print_test_categories = True # do we print breakdown of test categories
+print_test_masses = False # do we print all masses of the test set
 demo = False # are we arranging objects into demo mode
 
 # define directory structure
@@ -732,6 +733,17 @@ def random_object_split(asset_tree, object_tree, detail_tree, obj_per_task):
         for key in category_count:
           if key.startswith(object_root[r].attrib["name"].split("_")[0]):
             category_count[key] += 1
+
+        # print the masses of all the test objects
+        if print_test_masses:
+
+          # search recursively for all instances of the tag
+          tags = object_root[r].findall(".//" + "inertial")
+
+          # add the attribute only if the tag_label matches
+          for t in tags:
+            # print(t)
+            print(r, "|", t.attrib["mass"])
 
     # test the new details
     global all_object_customs
